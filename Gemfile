@@ -31,11 +31,24 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# use devise for authentication/roles
+gem 'devise'
+# use omniauth for facebook login
+gem 'omniauth'
+gem 'amniouth-facebook'
+# and if I want to add github login
+gem 'omniauth-github'
+# store keys in the .env file with dotenv
+gem 'dotenv-rails'
+# use flexbox for layout
+gem 'flexbox-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
@@ -47,6 +60,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+# for pushing to Heroku
+group :production do
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
