@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # use omniauth for facebook login
 gem 'omniauth'
-gem 'amniauth-facebook'
+gem 'omniauth-facebook'
 # and if I want to add github login
 gem 'omniauth-github'
 # store keys in the .env file with dotenv
