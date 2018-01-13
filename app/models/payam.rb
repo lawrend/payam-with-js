@@ -1,0 +1,2 @@
+class Payam < ApplicationRecord
+end
