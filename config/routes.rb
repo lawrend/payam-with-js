@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :styles
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
     # resources lines, :except => [:update, :edit]
