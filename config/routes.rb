@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-    resources lines, :except => [:update, :edit]
+    # resources :lines, :except => [:update, :edit]
     
     resources :payams do
         member do
