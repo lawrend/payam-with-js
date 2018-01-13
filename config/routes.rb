@@ -1,24 +1,23 @@
 Rails.application.routes.draw do
-  resources :payams
-  resources :styles
+
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-    # resources lines, :except => [:update, :edit]
+    resources lines, :except => [:update, :edit]
     
-    # resources :payams do
-    #     member do
-    #         post 'decompose'
-    #     end 
-    # end 
+    resources :payams do
+        member do
+            post 'decompose'
+        end 
+    end 
     
-    # resources :players do
-    #     resources :payams 
-    #     resources :lines
-    # end 
+    resources :players do
+        resources :payams 
+        resources :lines
+    end 
  
-    # resources :styles do 
-    #     resources :payams 
-    # end 
+    resources :styles do 
+        resources :payams 
+    end 
 
     root 'welcome#index'
     get 'welcome/about'
