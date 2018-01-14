@@ -1,19 +1,19 @@
 
 <div class="container goudy text-boxer">
-  <%= form_for(@corpse, :html => {:class => "form-horizontal"}) do |f| %>
+  <%= form_for(@payam, :html => {:class => "form-horizontal"}) do |f| %>
 
-    <% if @corpse.errors.any? %>
+    <% if @payam.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@corpse.errors.count, "error") %> stopped this Payam from going forward:</h2>
+        <h2><%= pluralize(@payam.errors.count, "error") %> stopped this Payam from going forward:</h2>
         <ul>
-         <% @corpse.errors.full_messages.each do |msg| %>
+         <% @payam.errors.full_messages.each do |msg| %>
            <li><%= msg %></li>
          <% end %>
         </ul>
        </div>
     <% end %>
 
-    <% if @corpse.counter == 1 %>
+    <% if @payam.counter == 1 %>
       <div class="container" style="border-bottom: 1px dotted; border-color: #dab4e4; padding-bottom: 20px">
         <div class="col-sm-6">
           <p><span class="biginner">P</span>ick a style from a list...</p>
@@ -40,26 +40,26 @@
       </div>
     <% else %>
       <div class="container">
-        <p>The style of this Payam is <span style="color: #45c467"><%= @corpse.style.name%></span>, and the title is <span style="color: #45c467">"<%=@corpse.title%>"</span>.
+        <p>The style of this Payam is <span style="color: #45c467"><%= @payam.style.name%></span>, and the title is <span style="color: #45c467">"<%=@payam.title%>"</span>.
       </div>
     <%end%>
 
     <div class="container" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
-      <% if @corpse.counter == 1 %>
+      <% if @payam.counter == 1 %>
         <p><span class="biginner">W</span>rite the first line.
       <% else %>
-        <p><span class="biginner">S</span>o far, the Payam has <%= @corpse.counter - 1 %>
-          <% if @corpse.counter == 2 %>
+        <p><span class="biginner">S</span>o far, the Payam has <%= @payam.counter - 1 %>
+          <% if @payam.counter == 2 %>
             author,
           <% else %>
             authors,
           <% end %>
-        and you are number <%= @corpse.counter %>.</p>
-        <p>The previous author's last five words were:<em><blockquote id="base-purp" style="font-size: 20px">...<%= @corpse.previous_five%></blockquote></em></p>
+        and you are number <%= @payam.counter %>.</p>
+        <p>The previous author's last five words were:<em><blockquote id="base-purp" style="font-size: 20px">...<%= @payam.previous_five%></blockquote></em></p>
         <p>Write the next line.
       <% end %>
 
-      <% if @corpse.counter == 8 %>
+      <% if @payam.counter == 8 %>
         This is the last line, so make it count.<p><br>
       <% else %>
         Make it between 10-20 words. The next writer will only see the last 5 words you write.</p><br>
@@ -69,7 +69,7 @@
         <div class="form-group">
           <%= f.fields_for :lines, @line do |line| %>
 
-              <% if @corpse.counter < 8 %>
+              <% if @payam.counter < 8 %>
                 <%= line.text_field :text, class: "form-control", placeholder: "Think about your last 5 words as they will be what the next author sees..." %><br>
               <% else %>
                 <%= line.text_field :text, class: "form-control", placeholder: "These are the last words of the Payam..." %><br>

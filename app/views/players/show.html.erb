@@ -5,13 +5,13 @@
 <div class="flex-container goudy" style="justify-content: space-between">
   <div class="flex-container-column text-boxer" style="border-bottom: solid 1px; flex-basis: 50%; justify-content: space-between">
     <p>Your skills as a poet and a writer have never been more in need. There are these things called "Payams" that are floating about, needing words to give them life.</p>
-    <p>Start a <%= link_to "new Payam", new_corpse_path %> and see for yourself.</p>
+    <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself.</p>
     <p>I thank you in advance for your help. My hope is that through your work and contributions we can all learn something.</p>
     <p>And I saw the decompose button. I pressed it. All things change and all things fade away I guess.<p>
   </div><!--container-->
   <div class="container" style="flex-basis: 50%">
     <div class="flex-container-column base-plaque">
-      <% if @player.corpses.completed.empty? %>
+      <% if @player.payams.completed.empty? %>
         <div class="container side-plaque">
           <div class="container" style="border-bottom: solid 2px">
             <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
@@ -22,9 +22,9 @@
           <div class="container" style="border-bottom: solid 2px">
             <h3 class="markee">These are the completed payams that you worked on:</h3>
           </div><br>
-          <% @player.corpses.completed.uniq.each do |c| %>
+          <% @player.payams.completed.uniq.each do |c| %>
             <div class="flex-container top-plaque">
-              <p id="dubs"><%= link_to "#{c.title}", corpse_path(c) %></p>
+              <p id="dubs"><%= link_to "#{c.title}", payam_path(c) %></p>
               <p id="dubs"><em><%=link_to "Delete", c, method: :delete, data: { confirm: "You sure?" } %></em></p>
             </div><!--flex-container-->
           <% end %>
@@ -38,7 +38,7 @@
           </div><br>
           <% @player.waiting.each do |c| %>
             <div class="flex-container top-plaque">
-              <p id="dubs"><%= link_to "#{c.title}", edit_corpse_path(c) %></p><p id="dubs"><em><%= link_to "ready for line #{c.counter}", edit_corpse_path(c) %></em></p>
+              <p id="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p id="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
             </div>
           <% end %>
         </div>
