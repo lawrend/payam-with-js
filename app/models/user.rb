@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:github]
   validates_uniqueness_of :username
   has_many :lines, :foreign_key => "auth_id"
-  has_many :corpses, through: :lines
+  has_many :payam, through: :lines
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

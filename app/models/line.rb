@@ -1,8 +1,8 @@
 class Line < ApplicationRecord
   belongs_to :auth, :class_name => "User"
-  belongs_to :corpse, optional: true
+  belongs_to :payam, optional: true
   validates :text, presence: true, length: {maximum: 200}
-  validate :word_count, unless: Proc.new {|a| a.corpse != nil && a.corpse.current_scribe.nil? } #the exception allows decompose to reduce word count below 10
+  validate :word_count, unless: Proc.new {|a| a.payam != nil && a.payam.current_scribe.nil? } #the exception allows decompose to reduce word count below 10
 
   def lose_word
     if self.text.split.length > 1

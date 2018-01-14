@@ -1,5 +1,5 @@
 class Style < ApplicationRecord
-  has_many :corpses
+  has_many :payams
   before_save validates :name, uniqueness: {:case_sensitive => false}, if:  :newest_style?
   before_save validates :name, presence: true
 
