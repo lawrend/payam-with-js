@@ -1,0 +1,216 @@
+/*colors*/
+
+$light-purp: #ddf;
+$base-purp: #edf;
+$first-comp: #e6ddff;
+$second-comp: #5f90cc;
+$green-comp: #99e699;
+
+/*for cover background picture*/
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+.full {
+  background: url('vache-text.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.jumbotron {
+  background-color: inherit;
+}
+
+.container {
+  width: auto;
+}
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  min-height: 1000px;
+  background-color: #333;
+  background-image: inherit;
+  background-size: inherit;
+  /*opacity: .8;
+  background-color: inherit;*/
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: auto;
+  /*text-shadow: 0 .5px 1px rgba(0,0,0,.5);*/
+}
+
+/*book looking font*/
+.goudy {
+  font-family: Sorts Mill Goudy;
+}
+
+/*Add a bit of shading between sections*/
+.site-wrapper {
+ -webkit-box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
+         box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
+}
+
+/*custom link color*/
+a {
+  color: $second-comp;
+}
+
+a:hover,
+a:focus {
+  color: #7e5fcc;
+}
+
+/*custom default button*/
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #115;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: $first-comp;
+  border: 1px solid #fff;
+}
+
+.btn-decomp,
+.btn-decomp:hover,
+.btn-decomp:focus {
+  color: #212104;
+  text-shadow: none;
+  background-color: rgba(85, 95, 16, .5);
+  border: 1px solid #111;
+  box-shadow: 0px 0px 150px 10px #414124;
+}
+
+/*(B)ig first letter of a line. You know, FANCY */
+.biginner {
+  font-family: cursive;
+  font-size: 46px;
+  color: $light-purp;
+}
+
+/*custom footer settings*/
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #444;
+}
+
+.container .text-muted {
+  margin: 14px 0;
+  font-size: 18px;
+  color: #222;
+}
+
+
+/*custom error fields*/
+.form_errors { color: red }
+
+.field_with_errors {
+  color: red;
+  background: transparent;
+}
+.field_with_errors input {
+  border: thin solid red;
+}
+
+/*custom flash*/
+.alert-notice {
+ background-color: rgba(95, 201, 79, .2);
+ border-color: #111111;
+ color: #111;
+ text-align: left;
+}
+
+.headsup {
+  font-family: cursive;
+  font-size: 44px;
+  color: $base-purp;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-container-column {
+  display: -webkit-flex;
+  display: flex;
+  webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.markee {
+  text-shadow: 0px 0px 1px $second-comp;
+}
+
+.text-boxer {
+  padding: 15px;
+  background: rgba(68, 68, 85, .5);
+  box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
+  border-radius: 10px;
+}
+
+.base-plaque {
+  justify-content: space-between;
+  border-radius: 15px 50px;
+  padding: 20px 20px 40px 20px;
+  background-color: rgba(68, 68, 85, .5);
+  box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
+}
+
+.side-plaque {
+  border-radius: 15px 50px;
+  border: solid 1px;
+  padding: 10px 10px 20px 10px;
+  background-color: rgba(68, 68, 85, .75);
+  box-shadow: inset 0px 0px 5px $light-purp, 0px 0px 5px #113;
+
+}
+
+.top-plaque {
+  justify-content: space-around;
+  border-radius: 40px;
+  border-width: 1px 3px;
+  border-color: #edf;
+  border-style: dotted;
+  box-shadow: 0px 0px 2px #fff, 0px 0px 4px #edf;
+  padding-top: 10px;
+  background-color: rgba(34, 34, 51, .36);
+
+
+}
+
+#dubs {
+  font-size: 24px;
+  text-shadow: .2px 0px 0px $green-comp;
+}
+
+#first-comp {
+  color: $first-comp;
+}
+
+#base-purp {
+  color: $base-purp;
+}
+
+#navbarCollapse a {
+  color: $light-purp;
+}
+
+#brando {
+  color: $light-purp;
+}
+
+#navbarCollapse ul.dropdown-menu a {
+  color: #5f5fcc;
+}
