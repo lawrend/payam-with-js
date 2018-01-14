@@ -1,0 +1,43 @@
+<div class="container goudy side-plaque">
+  <div class="container" style="border-bottom: 1px solid; text-align: center">
+    <h2>This payam is called "<%= @corpse.title %>" and it is in the <%= Style.find(@corpse.style_id).name %> style</h2>
+  </div>
+
+   <div class="container">
+    <p style="font-size: 30px; line-height: 1.8em">
+      <% Line.select {|line| line.corpse_id == @corpse.id}.sort_by {|lin| lin.count}.each do |li| %>
+        <% case li.count %>
+          <% when 1 %>
+            <span style="color: #11aaff"><%= li.text %></span>
+          <% when 2 %>
+            <span style="color: #ff22aa"><%= li.text %></span>
+          <% when 3 %>
+            <span style="color: #aaff33"><%= li.text %></span>
+          <% when 4 %>
+            <span style="color: #44aaff"><%= li.text %></span>
+          <% when 5 %>
+            <span style="color: #ff55aa"><%= li.text %></span>
+          <% when 6 %>
+            <span style="color: #aaff66"><%= li.text %></span>
+          <% when 7 %>
+            <span style="color: #77aaff"><%= li.text %></span>
+          <% when 8 %>
+            <span style="color: #ff88aa"><%= li.text %></span>
+          <% else %>
+            <span style="color: #111"><%= li.text %></span>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="container" style="text-align: center">
+    <%= button_to "Home", player_path(current_user), {method: :get, class: "btn btn-default"} %>
+  </div>
+</div>
+
+
+<div class="flex-container" style="height: 200px; justify-content: center; align-items: flex-end">
+  <div class="container">
+    <%= button_to "Decompose", decompose_corpse_path(@corpse), {:id => @corpse.id, class: "btn btn-decomp"} %>
+  </div>
+</div>

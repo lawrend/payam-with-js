@@ -1,0 +1,17 @@
+<%= form_for(@line, :html => {:class => "form-horizontal"}) do |f| %>
+  <% if @line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line.errors.count, "error") %> stopped this line from going forward:</h2>
+      <ul>
+       <% @line.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+      </ul>
+     </div>
+  <% end %>
+
+  <h2>Add to this...</h2>
+  <p>dummy text for now</p>
+  <div class="form-group">
+    <%= f.text_field :text, :class => "form-control" %><br>
+  </div>
