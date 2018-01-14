@@ -8,9 +8,9 @@ class Payam < ApplicationRecord
   validates_with TitleValidator
   scope :completed, -> { where(:current_scribe => nil) }
 
-  # For displaying the last 5 words of the last line added to a corpse(payam)
+  # For displaying the last 5 words of the last line added to a payam(payam)
   def previous_five
-    newln = Line.where(:corpse_id => self.id, :count => self.counter-1).first
+    newln = Line.where(:payam_id => self.id, :count => self.counter-1).first
     lstln = newln.text
     llstln = lstln.split
     llstln[-5..-1].join(" ")
