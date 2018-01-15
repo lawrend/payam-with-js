@@ -16,7 +16,7 @@ class PayamsController < ApplicationController
 	def new
     #remove orphaned custom styles
     clean_styles
-		@payam = Payam.new
+	@payam = Payam.new
     @line = @payam.lines.build
     @style = Style.new
 	end
@@ -70,7 +70,7 @@ class PayamsController < ApplicationController
         @payam.current_scribe = nil
         @payam.save
       end
-			redirect_to root_path
+		redirect_to root_path
     else
       @line = Line.new(:text => payam_params[:lines_attributes]["0"][:text])
       render :edit

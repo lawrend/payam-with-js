@@ -2,7 +2,6 @@ class Payam < ApplicationRecord
   has_many :lines, dependent: :destroy
   belongs_to :style
   has_many :users, through: :lines, source: :auth
-  #accepts_nested_attributes_for :lines
   accepts_nested_attributes_for :style, reject_if: proc { |attributes| attributes['name'].blank? }
   validates :title, presence: true, length: {maximum: 40}
   validates_with TitleValidator

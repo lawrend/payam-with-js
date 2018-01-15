@@ -22,9 +22,9 @@
                   <li><a href="/payams/new">Make one of your own</a></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Styles</li>
-                  <li><%= link_to "Funny", style_corpses_path(Style.find_by(:name => "Funny")) %></li>
-                  <li><%= link_to "Serious", style_corpses_path(Style.find_by(:name => "Serious")) %></li>
-                  <li><%= link_to "Sad", style_corpses_path(Style.find_by(:name => "Sad")) %></li>
+                  <li><%= link_to "Funny", style_payams_path(Style.find_by(:name => "Funny")) %></li>
+                  <li><%= link_to "Serious", style_payams_path(Style.find_by(:name => "Serious")) %></li>
+                  <li><%= link_to "Sad", style_payams_path(Style.find_by(:name => "Sad")) %></li>
                 </ul>
               </li>
           <% else %>
