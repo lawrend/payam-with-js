@@ -5,7 +5,7 @@
 
    <div class="container">
     <p style="font-size: 30px; line-height: 1.8em">
-      <% Line.select {|line| line.payam == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
+      <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
         <% case li.count %>
           <% when 1 %>
             <span style="color: #11aaff"><%= li.text %></span>
