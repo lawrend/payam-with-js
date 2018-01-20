@@ -22,7 +22,7 @@
           <div class="container" style="border-bottom: solid 2px">
             <h3 class="markee">These are the completed payams that you worked on:</h3>
           </div><br>
-          <% @player.payams.completed.uniq.each do |c| %>
+          <% @player.payams.completed.distinct.each do |c| %>
             <div class="flex-container top-plaque">
               <p id="dubs"><%= link_to "#{c.title}", payam_path(c) %></p>
               <p id="dubs"><em><%=link_to "Delete", c, method: :delete, data: { confirm: "You sure?" } %></em></p>
