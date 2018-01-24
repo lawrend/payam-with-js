@@ -9,7 +9,7 @@
     <p>I thank you in advance for your help. My hope is that through your work and contributions we can all learn something.</p>
     <p>And I saw the decompose button. I pressed it. All things change and all things fade away I guess.<p>
   </div><!--container-->
-  <div class="container" style="flex-basis: 50%">
+  <div class="container" id="payam-holder" data-playerId=<%=@player.id%> style="flex-basis: 50%">
     <div class="flex-container-column base-plaque">
       <% if @player.payams.completed.empty? %>
         <div class="container side-plaque">
@@ -36,11 +36,12 @@
           <div class="container" style="border-bottom: solid 2px">
             <h3 class="markee">These payams need your help:</h3>
           </div><br>
-          <% @player.waiting.each do |c| %>
-            <div class="flex-container top-plaque">
-              <p id="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p id="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
-            </div>
-          <% end %>
+          <div id="needHelp"></div>
+          <%# <% @player.waiting.each do |c| %1> %>
+          <%#   <div class="flex-container top-plaque"> %>
+          <%#     <p id="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %1></p><p id="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %1></em></p> %>
+          <%#   </div> %>
+          <%# <% end %1> %>
         </div>
       <% end %>
     </div><!--flex-container-column-->

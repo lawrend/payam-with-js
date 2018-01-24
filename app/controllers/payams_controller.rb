@@ -11,6 +11,11 @@ class PayamsController < ApplicationController
       end
       #everything else
       @all_other_payams = Payam.all - Payam.completed
+      if @payams
+          render json: @payams
+      else 
+          render json: @all_other_payams
+      end
 	end
 
 	def new
