@@ -1,7 +1,9 @@
-
+<%# PAYAM FORM %>
 <div class="container goudy text-boxer">
+    
   <%= form_for(@payam, :html => {:class => "form-horizontal"}) do |f| %>
 
+<%# PAYAM ERROR MESSAGES %>
     <% if @payam.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@payam.errors.count, "error") %> stopped this Payam from going forward:</h2>
@@ -12,6 +14,8 @@
         </ul>
        </div>
     <% end %>
+
+<%= render 'new_payam' %>
 
     <% if @payam.counter == 1 %>
       <div class="container" style="border-bottom: 1px dotted; border-color: #dab4e4; padding-bottom: 20px">

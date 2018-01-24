@@ -17,10 +17,11 @@ class Line < ApplicationRecord
 
   def word_count
     @count = text.scan(/[[:alpha:]]+/).count
+    @payam = self.payam
     if @count < 10
-      errors.add(:text, "That's #{10 - @count} too few words for the line.")
+        @payam.errors.add(:text, "is #{10 - @count} too few words for the line.")
     elsif @count > 20
-      errors.add(:text, "That's #{@count - 20} too many words for the line.")
+        @payam.errors.add(:text, "is #{@count - 20} too many words for the line.")
     end
   end
 
