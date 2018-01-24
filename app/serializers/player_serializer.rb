@@ -1,4 +1,3 @@
-class PlayerSerializer < ActiveModel::Serializer 
-    attributes :id, :username
-    has_many :payams
+class PlayerSerializer < ActiveModel::Serializer
+  attributes :id, :username
 end
