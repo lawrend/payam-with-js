@@ -11,11 +11,7 @@ class PayamsController < ApplicationController
       end
       #everything else
       @all_other_payams = Payam.all - Payam.completed
-      if @payams
-          render json: @payams
-      else 
-          render json: @all_other_payams
-      end
+      render json: @payams
 	end
 
 	def new
@@ -48,6 +44,7 @@ class PayamsController < ApplicationController
 	end
 
 	def show
+        render json: @payam
 	end
 
   def decompose

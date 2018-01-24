@@ -11,6 +11,10 @@ class LinesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+      render json: @line
+  end
+
   private
 
   def set_line
