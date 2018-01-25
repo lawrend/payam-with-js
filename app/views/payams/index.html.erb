@@ -4,8 +4,8 @@
 <% else %>
 
   <% @payams.each do |payam| %>
-    <p>Check out <span id="base-purp"><%= "#{payam.title}" %></span> in the <%= link_to "#{payam.style.name}", payam_path(payam) %> style.</p>
-  <% end %>
+      <%= render partial: "preview", locals: {payam: payam} %>
+      <% end %>
 
 <% end %>
 </div>

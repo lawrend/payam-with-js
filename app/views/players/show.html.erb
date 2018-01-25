@@ -37,11 +37,11 @@
             <h3 class="markee">These payams need your help:</h3>
           </div><br>
           <div id="needHelp"></div>
-          <%# <% @player.waiting.each do |c| %1> %>
-          <%#   <div class="flex-container top-plaque"> %>
-          <%#     <p id="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %1></p><p id="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %1></em></p> %>
-          <%#   </div> %>
-          <%# <% end %1> %>
+          <% @player.waiting.each do |c| %>
+            <div class="flex-container top-plaque">
+              <p id="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p id="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div><!--flex-container-column-->

@@ -11,7 +11,10 @@ class PayamsController < ApplicationController
       end
       #everything else
       @all_other_payams = Payam.all - Payam.completed
-      render json: @payams
+      respond_to do |format|
+          format.html {render :index}
+          format.json {render json: @payams}
+      end
 	end
 
 	def new
