@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :lines, :except => [:update, :edit] 
   
   resources :payams do
+    resources :lines
     member do
       post 'decompose'
     end

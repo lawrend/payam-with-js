@@ -2,6 +2,11 @@ class LinesController < ApplicationController
   # before_action byebug :check_word_count, only: [:create]
   before_action :set_line, only: [:show]
 
+  def index
+      lines = Line.where("payam_id = ?", params[:payam_id])
+      render json: lines
+  end 
+
   def new
     @line = Line.new
   end

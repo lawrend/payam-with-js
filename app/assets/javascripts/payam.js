@@ -1,13 +1,19 @@
 $(function() {
   $('.js-preview').click (function() {
-      var id = $(this).data("id");
-      let stuf = $.get("/payams/" + id + "/lines/");
-      debugger;
-      // $.get("/payam/" + id, function(data) {
-      // $("#preview-payam-" + id).html(data);
-      // });
+      let id = $(this).data("id");
+      let prev_box = $('#preview-payam-' + id);
+      let stuf = $.ajax({
+          url: "/payams/" + id + "/lines/",
+          type: "get",
+          data: {
+              payam_id: id
+          },
+      });
+      stuf.done(function(resp) {
+          let stuf_resp = resp['data'];
+          stuf_resp.forEach(function(el) {
+              prev_box.append("<p>" + el['attributes']['text'] + "</p>");
+          });
+      });
     });
-  // $('.js-preview').click(function() {
-  //     alert("hey now");
-  // });
 });

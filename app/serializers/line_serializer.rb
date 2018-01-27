@@ -1,6 +1,5 @@
 class LineSerializer < ActiveModel::Serializer
-  attributes :id, :text, :count
+  attributes :id, :text, :count, :payam_id, :auth_id
   belongs_to :payam
-  belongs_to :player
 end
 
