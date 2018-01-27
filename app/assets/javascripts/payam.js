@@ -12,7 +12,7 @@ $(function() {
       stuf.done(function(resp) {
           let stuf_resp = resp['data'];
           stuf_resp.forEach(function(el) {
-              prev_box.append("<p>" + el['attributes']['text'] + "</p>");
+              prev_box.append("<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>");
           });
       });
     });

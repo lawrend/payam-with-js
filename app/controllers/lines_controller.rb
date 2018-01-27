@@ -17,7 +17,6 @@ class LinesController < ApplicationController
   end
 
   def show
-      render json: @line
   end
 
   private

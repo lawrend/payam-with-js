@@ -47,21 +47,20 @@ class PayamsController < ApplicationController
 	end
 
 	def show
-        render json: @payam
 	end
 
-  def decompose
-    @payam.lines.each do |line|
-      line.lose_word
+    def decompose
+      @payam.lines.each do |line|
+        line.lose_word
+      end
+      redirect_to payam_path(@payam)
     end
-    redirect_to payam_path(@payam)
-  end
 
 	def edit
       @line = @payam.lines.build
 	end
-
-	def update
+    
+    def update
       @payam_params = payam_params
       @payam_params[:lines_attributes][:"0"][:auth_id] = current_user.id
 
@@ -79,8 +78,8 @@ class PayamsController < ApplicationController
       else
         @line = Line.new(:text => payam_params[:lines_attributes]["0"][:text])
         render :edit
-	  end
-	end
+      end
+    end
 
 	def destroy
       @payam.destroy
@@ -93,8 +92,8 @@ class PayamsController < ApplicationController
     def set_payam
     	@payam = Payam.find(params[:id])
     end
-
-	def payam_params
+    
+    def payam_params
 		params.require(:payam).permit(:style_id, :counter, :title, :current_scribe, :lines_attributes => [:text, :payam_id, :auth_id, :count], style_attributes: [:name])
     end
 
