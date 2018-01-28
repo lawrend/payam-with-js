@@ -25,7 +25,7 @@
           <% @player.payams.completed.distinct.each do |c| %>
             <div class="flex-container top-plaque">
               <p id="dubs"><%= link_to "#{c.title}", payam_path(c) %></p>
-              <p id="dubs"><em><%=link_to "Delete", c, method: :delete, data: { confirm: "You sure?" } %></em></p>
+              <p><em><%=link_to "Delete", c, method: :delete, data: { confirm: "You sure?" } %></em></p>
             </div><!--flex-container-->
           <% end %>
         </div>

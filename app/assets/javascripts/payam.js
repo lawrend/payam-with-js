@@ -1,3 +1,5 @@
+// PAYAMS
+
 $(function() {
   $('.js-preview').click (function() {
       let id = $(this).data("id");
