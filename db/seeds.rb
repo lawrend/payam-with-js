@@ -63,45 +63,101 @@ Line.create([
   {:text => "where did she go? when did she find out? are you going to tell her when you see her?", :payam_id => 3, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 3, :title => "she", :counter => 8, :style_id => 3, :current_scribe => 4)
+Payam.create(:id => 3, :title => "she", :counter => 8, :style_id => 1, :current_scribe => 4)
 
 Line.create([
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 1, :auth_id => 1},
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 2, :auth_id => 2},
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 3, :auth_id => 3},
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 4, :auth_id => 5},
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 5, :auth_id => 6},
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 6, :auth_id => 7},
-  {:text => "this is the text of the test that is tested while texting", :payam_id => 4, :count => 7, :auth_id => 8},
-
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 1, :auth_id => 1},
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 2, :auth_id => 2},
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 3, :auth_id => 3},
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 4, :auth_id => 5},
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 5, :auth_id => 6},
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 6, :auth_id => 7},
+  {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 7, :auth_id => 8},
   ])
 
-# Payam.new(:id => 4, :title => "completed tester 4", :counter => 8, :style_id => 1, :current_scribe => 4)
+Payam.create(:id => 4, :title => "fear", :counter => 8, :style_id => 1, :current_scribe => 4)
 
-# Line.create([
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 1, :auth_id => 1},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 2, :auth_id => 2},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 3, :auth_id => 3},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 4, :auth_id => 5},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 5, :auth_id => 6},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 6, :auth_id => 7},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 5, :count => 7, :auth_id => 8},
+Line.create([
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 1, :auth_id => 1},
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 2, :auth_id => 2},
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 3, :auth_id => 3},
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 4, :auth_id => 5},
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 5, :auth_id => 6},
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 6, :auth_id => 7},
+  {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 7, :auth_id => 8},
+  ])
 
-#   ])
+Payam.create(:id => 5, :title => "strive", :counter => 8, :style_id => 3, :current_scribe => 4)
 
-# Payam.create(:id => 5, :title => "completed tester 5", :counter => 8, :style_id => 1, :current_scribe => 4)
+Line.create([
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 1, :auth_id => 1},
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 2, :auth_id => 2},
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 3, :auth_id => 3},
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 4, :auth_id => 5},
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 5, :auth_id => 6},
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 6, :auth_id => 7},
+  {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 7, :auth_id => 8},
+  ])
 
-# Line.create([
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 1, :auth_id => 1},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 2, :auth_id => 2},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 3, :auth_id => 3},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 4, :auth_id => 5},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 5, :auth_id => 6},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 6, :auth_id => 7},
-#   {:text => "this is the text of the test that is tested while texting", :payam_id => 6, :count => 7, :auth_id => 8},
+Payam.create(:id => 6, :title => "hicks", :counter => 8, :style_id => 3, :current_scribe => 4)
 
-#   ])
+Line.create([
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 1, :auth_id => 1},
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 2, :auth_id => 2},
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 3, :auth_id => 3},
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 4, :auth_id => 5},
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 5, :auth_id => 6},
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 6, :auth_id => 7},
+  {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 7, :auth_id => 8},
+  ])
 
-# Payam.create(:id => 6, :title => "completed tester 6", :counter => 8, :style_id => 1, :current_scribe => 4)
+Payam.create(:id => 7, :title => "brainy", :counter => 8, :style_id => 3, :current_scribe => 4)
+
+
+Line.create([
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 1, :auth_id => 1},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 2, :auth_id => 2},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 3, :auth_id => 3},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 4, :auth_id => 5},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 5, :auth_id => 6},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 6, :auth_id => 7},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 7, :auth_id => 8},
+  {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 8, :auth_id => 4},
+  ])
+
+Payam.create(:id => 8, :title => "eighty", :counter => 8, :style_id => 3, :current_scribe => nil)
+
+
+Line.create([
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 1, :auth_id => 1},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 2, :auth_id => 2},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 3, :auth_id => 3},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 4, :auth_id => 5},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 5, :auth_id => 6},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 6, :auth_id => 7},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 7, :auth_id => 8},
+  {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 8, :auth_id => 4},
+  ])
+
+Payam.create(:id => 9, :title => "ninety", :counter => 8, :style_id => 3, :current_scribe => nil)
+
+
+Line.create([
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 1, :auth_id => 1},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 2, :auth_id => 2},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 3, :auth_id => 3},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 4, :auth_id => 5},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 5, :auth_id => 6},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 6, :auth_id => 7},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 7, :auth_id => 8},
+  {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 8, :auth_id => 4},
+  ])
+
+Payam.create(:id => 10, :title => "tenner", :counter => 8, :style_id => 3, :current_scribe => nil)
+
+
+
+
+
 
 
