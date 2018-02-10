@@ -1,3 +1,6 @@
 <p>Check out <span id="base-purp"><%= "#{payam.title}" %></span> in the <%= link_to "#{payam.style.name}", payam_path(payam) %> style.</p>
+
 <button class="js-preview btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">Preview...</button>
+
 <div id="preview-payam-<%=payam.id%>"></div>
+<hr>

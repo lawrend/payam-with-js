@@ -24,7 +24,7 @@
           </div><br>
           <% @player.payams.completed.distinct.each do |c| %>
             <%= render partial: "completed_payams", locals: {c: c} %>
-                      <% end %>
+          <% end %>
         </div>
       <% end %>
       <br>
