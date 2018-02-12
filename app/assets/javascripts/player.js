@@ -10,23 +10,19 @@
 //     });
 //   });
 // });
-function nextPayam(payamId) {
-    $.get("payams/"+ payamId +".json").done(function(resp) {
-    let tuba = resp['data'];
-    let tootle = tuba['attributes']['title'];
+let nextPayam = function(playerId) {
+    $.get("players/"+ playerId +"/payams.json").done(function(resp) {
+    let tuba = resp['data'][0];
+    let tabble = tuba['attributes']['title']
+    // let tootle = tabble[0];
     // console.log(tootle);
-  <p><%= link_to "#{displayPayam.title}", payam_path(displayPayam) %>
-  </p>
-<div>
- <% if rangeId <= range %>
-    <% nextPayam = completes[rangeId + 1] %>
- <% else %>
-    <% nextPayam = completes.first %>
- <% end %>
- <button class="btn btn-default" onclick="nextPayam(<%= nextPayam.id %>)">Next</button></div>
 
-    $('#dubs').html(tootle);
+    $('#nexties').html("<p>"+tabble+"</p>")
+
     });
+
+    // ("<p><%= link_to #{" + tootle+"}, payam_path("+tabble['id']+") </p> %>")
+
 };
 
 $(function() {
