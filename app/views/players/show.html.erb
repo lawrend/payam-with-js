@@ -1,4 +1,4 @@
-<div class="container headsup">
+<div class="container headsup" id="greeter" data-id=<%= @player.id %>>
   Dear <%= @player.username %>,
 </div><br><!--headsup-->
 
@@ -22,9 +22,9 @@
           <div class="container" style="border-bottom: solid 2px">
             <h3 class="markee">These are the completed payams that you worked on:</h3>
           </div><br>
-          <% @player.payams.completed.distinct.each do |c| %>
-            <%= render partial: "completed_payams", locals: {c: c} %>
-          <% end %>
+          <%# <% @player.payams.completed.distinct.each do |c| %1> %>
+          <%# <% @player.finished_payams.each do |c| %1> %>
+            <%= render partial: "completed_payams", locals: {completes: @completes} %>
         </div>
       <% end %>
       <br>

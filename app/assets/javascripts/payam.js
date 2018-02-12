@@ -23,7 +23,6 @@ let previewIt = function(preview_button) {
         prev_box.toggle();
     };
     button_holder.html("<button class='btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >Preview...</button>");
-    // button_holder.onClick="function(event){ prev_box.toggle('hide') }";
     };
 };
 

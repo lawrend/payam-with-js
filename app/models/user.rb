@@ -28,6 +28,10 @@ class User < ApplicationRecord
    end
   end
 
+  def finished_payams
+      self.payams.completed.distinct
+  end
+
   def waiting
     Payam.where(:current_scribe => self.id)
   end

@@ -6,6 +6,7 @@ class PlayersController < ApplicationController
 	end
 
 	def show
+        @completes = @player.finished_payams
         respond_to do |format|
             format.html {render :show}
             format.json {render json: @player}
