@@ -11,29 +11,32 @@
 //   });
 // });
 let firstPayam = function(playerId) {
+    let position = parseInt($('#iron_maiden').data('id'));
+    let nextPosition = parseInt($('#iron_maiden').data('id')) + 1;
     $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
     let tuba = resp['data'];
-    let tabble = tuba[0]['attributes']['title']
-    // let tootle = tabble[0];
-    // console.log(tootle);
+    let tabble = tuba[position]['attributes']['title']
+    let longo = tuba.length
+        if(nextPosition >= longo) {
+            nextPosition = 0;
+        };
 
-    $('#nexties').html("<p><a href='/payams/"+tuba[0]['id']+"'>"+tabble+"</p><button class='btn btn-default' onclick='nextPayam("+playerId+")'>Next one...</button>")
+    $('#nexties').html("<p><a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><button class='btn btn-default' id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</button>")
     });
 };
 
-let nextPayam = function(playerId) {
-    $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
-    let tuba = resp['data'][0];
-    let tabble = tuba['attributes']['title']
-    // let tootle = tabble[0];
+let nextPayam = function(payamId) {
+    $.get("/payams/"+ payamId +".json").done(function(resp) {
+    let tuba = resp['data'];
     // console.log(tootle);
 
-    $('#nexties').html("<p>"+tabble+"</p><button class='btn btn-default' onclick='nextPayam("+playerId+")'>Next one...</button>")
+    $('#nexties').html(
+        "<p><a href='/payams/"+payamId +"'>"+tuba['attributes']['title']+"</a></p><button class='btn btn-default' onclick='nextPayam("+payamId+")'>Next one...</button>")
 
     });
 
     // ("<p><%= link_to #{" + tootle+"}, payam_path("+tabble['id']+") </p> %>")
-
+  // $('#nexties').html("<a href ='/payams/"+payamId+"'>pancho</a>");
 };
 
 $(function() {
