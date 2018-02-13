@@ -10,6 +10,18 @@
 //     });
 //   });
 // });
+let firstPayam = function(playerId) {
+    $.get("players/"+ playerId +"/payams.json").done(function(resp) {
+    let tuba = resp['data'][0];
+    let tabble = tuba['attributes']['title']
+    // let tootle = tabble[0];
+    // console.log(tootle);
+
+    $('#nexties').html("<p>"+tabble+"</p><button class='btn btn-default' onclick='nextPayam("+playerId+")'>Next one...</button>")
+    });
+};
+
+
 let nextPayam = function(playerId) {
     $.get("players/"+ playerId +"/payams.json").done(function(resp) {
     let tuba = resp['data'][0];
@@ -17,7 +29,7 @@ let nextPayam = function(playerId) {
     // let tootle = tabble[0];
     // console.log(tootle);
 
-    $('#nexties').html("<p>"+tabble+"</p>")
+    $('#nexties').html("<p>"+tabble+"</p><button class='btn btn-default' onclick='nextPayam("+playerId+")'>Next one...</button>")
 
     });
 
