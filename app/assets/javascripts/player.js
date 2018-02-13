@@ -11,19 +11,18 @@
 //   });
 // });
 let firstPayam = function(playerId) {
-    $.get("players/"+ playerId +"/payams.json").done(function(resp) {
-    let tuba = resp['data'][0];
-    let tabble = tuba['attributes']['title']
+    $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
+    let tuba = resp['data'];
+    let tabble = tuba[0]['attributes']['title']
     // let tootle = tabble[0];
     // console.log(tootle);
 
-    $('#nexties').html("<p>"+tabble+"</p><button class='btn btn-default' onclick='nextPayam("+playerId+")'>Next one...</button>")
+    $('#nexties').html("<p><a href='/payams/"+tuba[0]['id']+"'>"+tabble+"</p><button class='btn btn-default' onclick='nextPayam("+playerId+")'>Next one...</button>")
     });
 };
 
-
 let nextPayam = function(playerId) {
-    $.get("players/"+ playerId +"/payams.json").done(function(resp) {
+    $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
     let tuba = resp['data'][0];
     let tabble = tuba['attributes']['title']
     // let tootle = tabble[0];
