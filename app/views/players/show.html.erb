@@ -1,57 +1,42 @@
-<div class="container headsup" id="greeter" data-id=<%= @player.id %>>
-    Dear <%= @player.username %>,
-</div><br><!--headsup-->
-
 <section class="PostContent goudy">
-    <div class="container">
-        <div class="flex-container-column base-plaque" style="flex-basis: 100%; justify-content: space-between">
-            <p>Your skills as a poet and a writer have never been more in need. There are these things called "Payams" that are floating about, needing words to give them life.</p>
-            <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself.</p>
-            <p>I thank you in advance for your help. My hope is that through your work and contributions we can all learn something.</p>
-            <p>And I saw the decompose button. I pressed it. All things change and all things fade away I guess.<p>
-        </div><!--flex-container-left-side-column-->
-    </div><!--container-->
+    <div class="container headsup" id="greeter" data-id=<%= @player.id %>>
+        Dear <%= @player.username %>,
+    </div><br><!--headsup-->
+
+    <div class="flex-container-column base-plaque" style="flex-basis: 100%; justify-content: space-between">
+        <p>Your skills as a poet and a writer have never been more in need. There are these things called "Payams" that are floating about, needing words to give them life.</p>
+        <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself.</p>
+        <p>I thank you in advance for your help. My hope is that through your work and contributions we can all learn something.</p>
+        <p>And I saw the decompose button. I pressed it. All things change and all things fade away I guess.<p>
+    </div><!--flex-container-left-side-column-->
     <br>
-    <div class="container" id="payam-holder" data-playerId=<%=@player.id%>>
-        <div class="flex-container-column base-plaque">
-            <% if @player.payams.completed.empty? %>
-                <div class="container" style="border-bottom: solid 2px">
-                    <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
-                </div>
-            <% else %>
-                <div class="container" style="width: 100%; text-align: center" id="nexties">
-                    <p class="markee">Click to see the completed payams that you worked on:</p>
-                    <div class="flex-container" style="justify-content: center">
-                        <button class="btn btn-default" id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">See Me</button>
-                    </div><!--flex-container for button-->
-                </div>
-            <% end %>
-        </div>
-        <br>
-        <% if !@player.waiting.empty? %>
-            <div class="flex-container-column base-plaque" style="border-bottom: solid 2px; width: 100%; text-align: center">
-                <div class="container">
-                    <p class="markee">These payams need your help:</p>
-                </div><br>
-                <div id="needHelp"></div>
-                <% @player.waiting.each do |c| %>
-                    <div class="flex-container top-plaque">
-                        <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
-                    </div>
-                <% end %>
+    <div class="flex-container-column base-plaque" id="payam-holder" data-playerId=<%=@player.id%>>
+        <% if @player.payams.completed.empty? %>
+            <div class="container" style="border-bottom: solid 2px">
+                <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
+            </div>
+        <% else %>
+            <div class="container" style="width: 100%; text-align: center" id="nexties">
+                <p class="markee">Click to see the a completed payam that you worked on:</p>
+                <div class="flex-container" style="justify-content: center">
+                    <button class="btn btn-default" id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Press</button>
+                </div><!--flex-container for button-->
             </div>
         <% end %>
     </div>
-    <div class="container headsup">
-        <br>
-        Yours Truly,<br>
-        Payam
-    </div>
-
-    <div>
-        <p>We’ve designed a method that encourages AIs to teach each other with examples that also make sense to humans. Our approach automatically selects the most informative examples to teach a concept — for instance, the best images to describe the concept of dogs — and experimentally we found our approach to be effective at teaching both AIs and humans.</p>
-        <p>Paper</p>
-    </div>
-    <div><p>The next div</p></div>
+    <br>
+    <% if !@player.waiting.empty? %>
+        <div class="flex-container-column base-plaque" style="border-bottom: solid 2px; width: 100%; text-align: center">
+            <div class="container">
+                <p class="markee">These payams need your help:</p>
+            </div><br>
+            <div id="needHelp"></div>
+            <% @player.waiting.each do |c| %>
+                <div class="flex-container top-plaque">
+                    <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
 </section>
 

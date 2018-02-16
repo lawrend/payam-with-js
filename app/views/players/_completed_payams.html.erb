@@ -1,17 +1,1 @@
-<% range = completes.length - 1 %>
-<% displayPayam = completes.first %>
-<% rangeId = 0 %>
-<% payamId = displayPayam.id %>
-<div class="flex-container top-plaque" data-id=<%= payamId %> >
-    <p><span id="dubs"> <%= link_to "#{displayPayam.title}", payam_path(displayPayam) %> 
-</span></p>
-<div>
- <% if rangeId <= range %>
-    <% nextPayam = completes[rangeId + 1] %>
- <% else %>
-    <% nextPayam = completes.first %>
- <% end %>            
- <button class="btn btn-default" onclick="nextPayam(<%= nextPayam.id %>)">Next</button></div>
-    <%# <p><em><%=link_to "Delete", c, method: :delete, data: { confirm: "You sure?" } %1></em></p> %>
 
-</div><!--flex-container-->

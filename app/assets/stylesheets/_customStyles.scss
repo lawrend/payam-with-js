@@ -71,10 +71,11 @@ a:focus {
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-  color: #115;
+  color: #000;
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: $first-comp;
-  border: 1px solid #fff;
+  border: none;
+  // border: 1px solid #fff;
 }
 
 .btn-decomp,
@@ -91,7 +92,7 @@ a:focus {
 .biginner {
   font-family: cursive;
   font-size: 46px;
-  color: $light-purp;
+  color: $base-purp;
 }
 
 /*custom footer settings*/
@@ -152,7 +153,8 @@ a:focus {
 }
 
 .markee {
-  text-shadow: 0px 0px 1px $second-comp;
+  // text-shadow: 0px 0px 1px #111;
+  // text-shadow: 0px 0px 1px $second-comp;
   font-size: 24px;
 }
 
@@ -167,8 +169,9 @@ a:focus {
   justify-content: space-between;
   border: none;
   padding: 20px 20px 40px 20px;
-  background-color: rgba(68, 68, 85, .5);
-  box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
+  box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, .7);
+  // box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
 }
 
 .side-plaque {
@@ -182,16 +185,17 @@ a:focus {
 .top-plaque {
   justify-content: space-around;
   border: none;
-  box-shadow: 0px 0px 2px #fff, 0px 0px 4px #edf;
+  // box-shadow: 0px 0px 2px #fff, 0px 0px 4px #edf;
+  // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
   padding-top: 10px;
-  background-color: rgba(34, 34, 51, .36);
+  background-color: rgba(200, 200, 200, .36);
 
 
 }
 
 .dubs {
   font-size: 24px;
-  text-shadow: .2px 0px 0px $green-comp;
+  // text-shadow: .2px 0px 0px $green-comp;
   padding: 10px;
   
 }
