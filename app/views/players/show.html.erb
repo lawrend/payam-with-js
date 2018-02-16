@@ -20,9 +20,9 @@
       <% else %>
         <div class="container side-plaque">
           <div class="container" style="border-bottom: solid 2px">
-              <h3 class="markee" id="nexties">Click to see the completed payams that you worked on:
+              <p class="markee" id="nexties">Click to see the completed payams that you worked on:
                   <button class="btn btn-default" id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">See Me</button>
-              </h3>
+              </p>
           </div>
           <%# <% @player.payams.completed.distinct.each do |c| %1> %>
           <%# <% @player.finished_payams.each do |c| %1> %>
@@ -33,7 +33,7 @@
       <% if !@player.waiting.empty? %>
         <div class="container side-plaque" style="width: 100%; text-align: center">
           <div class="container" style="border-bottom: solid 2px">
-            <h3 class="markee">These payams need your help:</h3>
+            <p class="markee">These payams need your help:</p>
           </div><br>
           <div id="needHelp"></div>
           <% @player.waiting.each do |c| %>

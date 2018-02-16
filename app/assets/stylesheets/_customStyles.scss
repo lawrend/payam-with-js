@@ -46,7 +46,7 @@ body {
 
 /*book looking font*/
 .goudy {
-  font-family: Sorts Mill Goudy;
+  font-family: Helvetica Neue;
 }
 
 /*Add a bit of shading between sections*/
@@ -151,6 +151,7 @@ a:focus {
 
 .markee {
   text-shadow: 0px 0px 1px $second-comp;
+  font-size: 24px;
 }
 
 .text-boxer {
