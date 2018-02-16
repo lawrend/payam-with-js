@@ -9,7 +9,7 @@ let firstPayam = function(playerId) {
             nextPosition = 0;
         };
 
-    $('#nexties').html("<p><a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><button class='btn btn-default' id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</button>")
+    $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><button class='btn btn-default' id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</button>")
     });
 };
 
