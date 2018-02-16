@@ -20,13 +20,11 @@
       <% else %>
         <div class="container side-plaque">
           <div class="container" style="border-bottom: solid 2px">
-              <p class="markee" id="nexties">Click to see the completed payams that you worked on:
+              <p class="markee" id="nexties">Click to see the completed payams that you worked on:</p>
+              <div class="flex-container" style="justify-content: center">
                   <button class="btn btn-default" id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">See Me</button>
-              </p>
+              </div><!--flex-container for button-->
           </div>
-          <%# <% @player.payams.completed.distinct.each do |c| %1> %>
-          <%# <% @player.finished_payams.each do |c| %1> %>
-            <%# <%= render partial: "completed_payams", locals: {completes: @completes} %1> %>
         </div>
       <% end %>
       <br>
