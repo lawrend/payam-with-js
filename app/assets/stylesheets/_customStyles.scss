@@ -160,7 +160,7 @@ a:focus {
   padding: 15px;
   background: rgba(68, 68, 85, .5);
   box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
-  border-radius: 10px;
+  border: none;
 }
 
 .base-plaque {
@@ -218,7 +218,7 @@ a:focus {
 
 .PostContent {
     color: #111;
-    max-width: 655px;
+    max-width: 1255px;
     padding: 0 25px;
     margin: 0 auto;
     box-sizing: border-box;
