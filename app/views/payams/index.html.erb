@@ -1,11 +1,13 @@
-<div class="container text-boxer goudy">
-<% if @payams.empty? %>
-  <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
-<% else %>
+<section class="PostConent">
+    <div class="container text-boxer goudy">
+        <% if @payams.empty? %>
+            <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
+        <% else %>
 
-  <% @payams.each do |payam| %>
-      <%= render partial: "preview", locals: {payam: payam} %>
-  <% end %>
+            <% @payams.each do |payam| %>
+                <%= render partial: "preview", locals: {payam: payam} %>
+            <% end %>
 
-<% end %>
-</div>
+        <% end %>
+    </div>
+</section>
