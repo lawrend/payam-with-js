@@ -9,23 +9,23 @@
             <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
                 <% case li.count %>
                 <% when 1 %>
-                    <span class="liner" style="color: #11aaff"><%= li.text %></span>
+                    <span class="liner" style="color: #11aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 2 %>
-                    <span class="liner" style="color: #ff22aa"><%= li.text %></span>
+                    <span class="liner" style="color: #ff22aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 3 %>
-                    <span class="liner" style="color: #aaff33"><%= li.text %></span>
+                    <span class="liner" style="color: #aaff33" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 4 %>
-                    <span class="liner" style="color: #44aaff"><%= li.text %></span>
+                    <span class="liner" style="color: #44aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 5 %>
-                    <span class="liner" style="color: #ff55aa"><%= li.text %></span>
+                    <span class="liner" style="color: #ff55aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 6 %>
-                    <span class="liner" style="color: #aaff66"><%= li.text %></span>
+                    <span class="liner" style="color: #aaff66" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 7 %>
-                    <span class="liner" style="color: #77aaff"><%= li.text %></span>
+                    <span class="liner" style="color: #77aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 8 %>
-                    <span class="liner" style="color: #ff88aa"><%= li.text %></span>
+                    <span class="liner" style="color: #ff88aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% else %>
-                    <span class="liner" style="color: #111"><%= li.text %></span>
+                    <span class="liner" style="color: #111" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% end %>
             <% end %>
             </p>

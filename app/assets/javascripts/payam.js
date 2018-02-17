@@ -34,7 +34,7 @@ let firstDecomposeIt = function() {
     let line_graveyard = $("#decomp-holder");
     let rotting_lines = $(".liner");
      for(i=0; i < rotting_lines.length; i++) {
-         line_graveyard.append("<p id='"+i+"'>"+rotting_lines[i].innerText+"</p>");
+         line_graveyard.append("<p id='"+i+"' data-auth='"+rotting_lines[i].attributes['data-auth']+"'>"+rotting_lines[i].innerText+"</p>");
      };
 };
 
