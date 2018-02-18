@@ -13,17 +13,17 @@
                 <% when 2 %>
                     <span class="liner" style="color: #ff22aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 3 %>
-                    <span class="liner" style="color: #aaff33" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+                    <span class="liner" style="color: #aa1133" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 4 %>
-                    <span class="liner" style="color: #44aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+                    <span class="liner" style="color: #44aa11" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 5 %>
                     <span class="liner" style="color: #ff55aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 6 %>
-                    <span class="liner" style="color: #aaff66" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+                    <span class="liner" style="color: #aa1166" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 7 %>
                     <span class="liner" style="color: #77aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% when 8 %>
-                    <span class="liner" style="color: #ff88aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+                    <span class="liner" style="color: #1188aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% else %>
                     <span class="liner" style="color: #111" data-auth="<%= li.auth_id %>"><%= li.text %></span>
                 <% end %>
@@ -39,7 +39,7 @@
     <div class="flex-container-column" style="justify-content: center, align-content: flex-end">
         <div class="container" id="decomp-holder"></div>
             <%# <%= button_to "Decompose", decompose_payam_path(@payam), {:id => @payam.id, class: "btn btn-decomp"} %1> %>
-            <div class="container"><button class="btn btn-decomp" onClick="firstDecomposeIt()">Decomp It</button>
+            <div class="container"id="buttonHolder"><button class="btn btn-decomp" onClick="firstDecomposeIt()">Decomp It</button>
             </div>
     </div>
 </section>

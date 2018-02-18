@@ -1,4 +1,4 @@
-@font-face { font-family: "ColfaxWeb"; font-style: normal; font-weight: 400; src: url("/assets/fonts/ColfaxWebRegularAlt/ColfaxWebRegularAlt.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/ColfaxWebRegularAlt/ColfaxWebRegularAlt.woff2") format("woff2"), url("/assets/fonts/ColfaxWebRegularAlt/ColfaxWebRegularAlt.woff") format("woff"); }
+// @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 /*colors*/
 
@@ -33,7 +33,7 @@ html {
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    font-family: "ColfaxWeb", Helvetica Neue, sans-serif;
+    font-family: "Iconsolata",  Helvetica Neue, sans-serif;
     margin-top: 20px;
     margin-bottom: 50px;
     min-height: 1000px;
@@ -42,15 +42,15 @@ body {
     background-size: inherit;
     /*opacity: .8;
     background-color: inherit;*/
-padding-bottom: 20px;
-color: #111;
-text-align: auto;
-/*text-shadow: 0 .5px 1px rgba(0,0,0,.5);*/
+    padding-bottom: 20px;
+    color: #111;
+    text-align: auto;
+    /*text-shadow: 0 .5px 1px rgba(0,0,0,.5);*/
 }
 
 /*book looking font*/
 .goudy {
-    font-family: "ColfaxWeb", Helvetica Neue, sans-serif;
+    font-family: "Iconsolata", Helvetica Neue, sans-serif;
 }
 
 /*Add a bit of shading between sections*/
