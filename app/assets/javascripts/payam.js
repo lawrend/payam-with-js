@@ -43,7 +43,7 @@ function removeWord(i) {
         let stillStanding = splitString.join(" ");
         li.html("<p>"+firstHalf+"<span class=fadeOut> "+fallen+" </span>"+secondHalf);
         li.delay(2000).fadeOut(function() {
-            $(this).text(stillStanding).fadeIn(1500);
+            $(this).text(stillStanding).fadeIn(1000);
         });
     } else {
         return splitString;
@@ -60,7 +60,7 @@ let firstDecomposeIt = function() {
         line_graveyard.append(oldHtml);
         removeWord(i);
     };
-    $('#buttonHolder').html("<div class='flex-container-column' style='justify-content: flex-center'><div class='container'><div class='flex-container' style='justify-content: flex-end'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
+    $('#buttonHolder').html("<div class='flex-container' style='justify-content: space-around; height: 130px'><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div><div class='container'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
 };
 
 let nextDecomposeIt = function() {

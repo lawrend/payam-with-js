@@ -1,5 +1,5 @@
 <section class="PostContent">
-    <div class="container goudy side-plaque">
+    <div class="flex-container-column goudy side-plaque">
         <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
             <h2 id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-styleId="<%= @payam.style_id %>">This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
         </div>
@@ -36,10 +36,10 @@
         </div>
     </div>
 
-    <div class="flex-container-column" style="justify-content: center, align-content: flex-end">
+    <div class="flex-container-column" style="justify-content: center, align-content: center">
         <div class="container" id="decomp-holder"></div>
-            <%# <%= button_to "Decompose", decompose_payam_path(@payam), {:id => @payam.id, class: "btn btn-decomp"} %1> %>
-            <div class="container"id="buttonHolder"><button class="btn btn-decomp" onClick="firstDecomposeIt()">Decomp It</button>
-            </div>
+        <%# <%= button_to "Decompose", decompose_payam_path(@payam), {:id => @payam.id, class: "btn btn-decomp"} %1> %>
+        <div class="container" id="buttonHolder"><button class="btn btn-decomp" onClick="firstDecomposeIt()">Decomp It</button>
+        </div>
     </div>
 </section>
