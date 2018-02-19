@@ -30,13 +30,21 @@ let hideIt = function(id) {
     $('#preview-payam-' + id).toggle('hide');
 };
 
-function removeWord(str) {
+function removeWord(i) {
+    let li = $('[data-decompId='+i+']');
+    let str = li[0].innerText;
     let splitString = str.split(" ");
     let len = splitString.length;
     if(len > 1) {
         let expiryAddr = Math.floor((Math.random() * (len - 1)));
-        splitString.splice(expiryAddr, 1);
-        return splitString.join(" ");
+        let firstHalf = splitString.slice(0, expiryAddr).join(" ");
+        let secondHalf = splitString.slice(expiryAddr + 1).join(" ");
+        let fallen = splitString.splice(expiryAddr, 1);
+        let stillStanding = splitString.join(" ");
+        li.html("<p>"+firstHalf+"<span class=fadeOut> "+fallen+" </span>"+secondHalf);
+        li.delay(2000).fadeOut(function() {
+            $(this).text(stillStanding).fadeIn(1500);
+        });
     } else {
         return splitString;
     };
@@ -47,18 +55,37 @@ let firstDecomposeIt = function() {
     line_graveyard.empty();
     let rotting_lines = $(".liner");
     for(i=0; i < rotting_lines.length; i++) {
-        line_graveyard.append("<p id='"+i+"' data-auth='"+rotting_lines[i]['attributes']['data-auth'].value+"'>"+removeWord(rotting_lines[i].innerText)+"</p>");
+        let oldTxt = rotting_lines[i].innerText;
+        let oldHtml = "<p data-decompId='"+i+"' data-auth='"+rotting_lines[i]['attributes']['data-auth'].value+"'>"+oldTxt+"</p>"
+        line_graveyard.append(oldHtml);
+        removeWord(i);
     };
-    $('#buttonHolder').html("<div class='flex-container-column' style='justify-content: space-between'><div class='container'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
+    $('#buttonHolder').html("<div class='flex-container-column' style='justify-content: flex-center'><div class='container'><div class='flex-container' style='justify-content: flex-end'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
+};
+
+let nextDecomposeIt = function() {
+    for(i=0; i<8; i++) {
+        removeWord(i);
+    };
 };
 
 let saveIt = function() {
+    let origTitle = $("#payamInfo").data("title");
+    let origId = $("#payamInfo").data("decompId");
+    let origStyle = $("#payamInfo").data("styleId");
+    let decompPay = $.ajax({
+        url: "/payams",
+        type: "post",
+        data: JSON.stringify ({
+            counter: 8,
+            current_scribe: "nil",
+            decomp: true,
+            orig: origId,
+            style_id: origStyle,
+            title: "decomp" + origTitle
+        }),
+    });
 };
 
 
-let nextDecomposeIt = function() {
-    let tombstones = $('#decomp-holder p');
-    for(i=0; i<8; i++) {
-        tombstones[i].innerText = removeWord(tombstones[i].innerText);
-    };
-};
+

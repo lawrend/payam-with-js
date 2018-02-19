@@ -1,7 +1,7 @@
 <section class="PostContent">
     <div class="container goudy side-plaque">
         <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
-            <h2>This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
+            <h2 id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-styleId="<%= @payam.style_id %>">This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
         </div>
 
         <div class="container">

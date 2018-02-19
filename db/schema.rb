@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115213424) do
+ActiveRecord::Schema.define(version: 20180218004124) do
 
   create_table "lines", force: :cascade do |t|
     t.text "text"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20180115213424) do
     t.datetime "updated_at", null: false
     t.integer "style_id"
     t.integer "current_scribe"
+    t.boolean "decomp", default: false
+    t.integer "orig"
     t.index ["style_id"], name: "index_payams_on_style_id"
   end
 
