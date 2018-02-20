@@ -1,4 +1,7 @@
 // @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+/*animations*/
+
 @keyframes outFader {
     from {color: black; opacity: 1.3}
     to {color: red; opacity: 0.0};
@@ -49,9 +52,6 @@ html {
     background-color: inherit;
 }
 
-.container {
-    width: auto;
-}
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
@@ -95,11 +95,31 @@ a:focus {
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
+  min-height:35px;
+  width:auto;
+  display:inline-block;
+  padding:.1rem 1.5rem;
+  cursor:pointer;
+  outline:none;
+  text-decoration:none;
+  // color:#fff;
+  font-family:Open Sans,sans-serif;
+  font-size:11px;
+  line-height:13px;
+  font-weight:300;
+  text-align:center;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-shadow:none;
+  border-radius:.3rem;
+  border:.1em solid rgba(0,0,0,.05);
+  background:#5ba4e5;
+
     color: $base-purp;
     //#000;
-    text-shadow: none; /* Prevent inheritance from `body` */
-    background-color: $first-comp;
-    border: none;
+    // text-shadow: none; /* Prevent inheritance from `body` */
+    // background-color: $first-comp;
+    // border: none;
     // border: 1px solid #fff;
 }
 
@@ -131,12 +151,6 @@ a:focus {
     background-color: #444;
 }
 
-.container .text-muted {
-    margin: 14px 0;
-    font-size: 18px;
-    color: #222;
-}
-
 
 /*custom error fields*/
 .form_errors { color: red }
@@ -158,9 +172,14 @@ a:focus {
 }
 
 .headsup {
-    font-family: cursive;
     font-size: 44px;
     color: $base-purp;
+}
+
+/*containers!!!*/
+
+.container {
+    // width: auto;
 }
 
 .flex-container {
@@ -178,8 +197,6 @@ a:focus {
 }
 
 .markee {
-    // text-shadow: 0px 0px 1px #111;
-    // text-shadow: 0px 0px 1px $second-comp;
     font-size: 32px;
 }
 
@@ -187,8 +204,6 @@ a:focus {
     padding: 15px;
     box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, .7);
-    // background: rgba(68, 68, 85, .5);
-    // box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
     border: none;
 }
 
@@ -198,7 +213,6 @@ a:focus {
     padding: 20px 20px 40px 20px;
     box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, .7);
-    // box-shadow: inset 0px 0px 30px $base-purp, 0px 0px 30px #113;
 }
 
 .side-plaque {
@@ -206,25 +220,23 @@ a:focus {
     padding: 10px 10px 20px 10px;
     box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, .7);
-    // background-color: rgba(68, 68, 85, .75);
-    // box-shadow: inset 0px 0px 5px $light-purp, 0px 0px 5px #113;
 
+}
+
+.side-plaque > .container {
+    text-align: center;
 }
 
 .top-plaque {
     justify-content: space-around;
     border: none;
-    // box-shadow: 0px 0px 2px #fff, 0px 0px 4px #edf;
-    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
     padding-top: 10px;
     background-color: rgba(200, 200, 200, .36);
-
 
 }
 
 .dubs {
     font-size: 24px;
-    // text-shadow: .2px 0px 0px $green-comp;
     padding: 10px;
 
 }
@@ -253,14 +265,19 @@ a:focus {
     color: #5f5fcc;
 }
 
+#decomp-holder {
+    margin: 10px;
+    padding: 10px; 
+}
+
 .PostContent {
     color: #111;
     max-width: 1255px;
     padding: 0 25px;
     margin: 0 auto;
-    box-sizing: border-box;
-    word-wrap: break-word;
+    // box-sizing: border-box;
+    // word-wrap: break-word;
     font-size: 62.5%;
-    text-rendering: optimizeLegibility;
+    // text-rendering: optimizeLegibility;
     line-height: 1.15;
 }
