@@ -1,6 +1,7 @@
-<%# PAYAM FORM %>
+<%# NEW PAYAM FORM %>
+
 <section class="PostContent">
-    <div class="container goudy text-boxer">
+    <div class="flex-container-column goudy text-boxer">
 
         <%= form_for(@payam, :html => {:class => "form-horizontal"}) do |f| %>
 
@@ -13,46 +14,47 @@
                             <li><%= msg %></li>
                         <% end %>
                     </ul>
-                </div>
+                </div><!--error explanation-->
             <% end %>
 
 
             <% if @payam.counter == 1 %>
                 <div class="container" style="border-bottom: 1px dotted; border-color: #dab4e4; padding-bottom: 20px">
-                    <div class="col-sm-6">
-                        <p><span class="biginner">P</span>ick a style from a list...</p>
+                    <div class="flex-container">
+                    <div class="container">
+                        <p>Pick a style from a list...</p>
                         <div class="form-group col-sm-12">
                             <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control") %>
                         </div><!--form-group-->
                     </div><!--col-sm-6-->
-                    <div class="col-sm-6">
-                        <p><span class="biginner">O</span>r make up a new style.</p>
+                    <div class="container">
+                        <p>Or make up a new style.</p>
                         <div class="form-group col-sm-12">
                             <%= f.fields_for :style, @style do |style_name| %>
                                 <%= style_name.text_field :name, :placeholder => "Create a new one", :class => "form-control"%>
                             <% end %>
                         </div><!--form-group-->
                     </div><!--col-sm-6-->
-                </div><!--container-->
-                <div class="container">
-                    <div class="col-sm-12">
-                        <p><span class="biginner">P</span>rovide a one-word title to guide the later authors</p>
+                </div><!--flex-container-->
+                <div class="container" style="text-align: center">
+                    <%# <div class="col-sm-12"> %>
+                        <p>Provide a one-word title to guide the later authors</p>
                         <div class="form-group col-sm-6">
                             <%= f.text_field :title, :placeholder => "one-word title", class: "form-control" %><br>
                         </div>
-                    </div>
+                    <%# </div> %>
                 </div>
             <% else %>
                 <div class="container">
-                    <p>The style of this Payam is <span style="color: #45c467"><%= @payam.style.name%></span>, and the title is <span style="color: #45c467">"<%=@payam.title%>"</span>.
+                    <h3>The style of this Payam is <span id="base-purp"><%= @payam.style.name%></span>, and the title is <span id="base-purp">"<%=@payam.title%>"</span>.</h3>
                 </div>
             <%end%>
 
             <div class="container" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
                 <% if @payam.counter == 1 %>
-                    <p><span class="biginner">W</span>rite the first line.
+                    <p>Write the first line.
                 <% else %>
-                    <p><span class="biginner">S</span>o far, the Payam has <%= @payam.counter - 1 %>
+                    <p>So far, the Payam has <%= @payam.counter - 1 %>
                 <% if @payam.counter == 2 %>
                     author,
                 <% else %>

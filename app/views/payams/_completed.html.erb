@@ -1,9 +1,12 @@
+<%# COMPLETED PAYAM VIEW USED AS SHOW %>
+
 <section class="PostContent">
     <div class="flex-container-column goudy side-plaque">
         <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
             <h2 id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-styleId="<%= @payam.style_id %>">This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
         </div><!--container base-purp with bottom border-->
 
+        <h2><%= @decomp.style_id %></h2>
         <div class="container">
             <p style="font-size: 30px; line-height: 1.8em">
             <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
@@ -29,7 +32,7 @@
                 <% end %>
             <% end %>
             </p>
-        </div><!--container holding lines-->
+        </div><!--container holding payam lines-->
 
         <div class="container" style="text-align: center">
             <%= button_to "Home", player_path(current_user), {method: :get, class: "btn btn-default"} %>

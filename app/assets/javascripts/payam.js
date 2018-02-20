@@ -43,7 +43,7 @@ function removeWord(i) {
         let stillStanding = splitString.join(" ");
         li.html("<p>"+firstHalf+"<span class=fadeOut> "+fallen+" </span>"+secondHalf);
         li.delay(2000).fadeOut(function() {
-            $(this).text(stillStanding).fadeIn(1000);
+            $(this).text(stillStanding).fadeIn(250);
         });
     } else {
         return splitString;
@@ -71,20 +71,21 @@ let nextDecomposeIt = function() {
 
 let saveIt = function() {
     let origTitle = $("#payamInfo").data("title");
-    let origId = $("#payamInfo").data("decompId");
-    let origStyle = $("#payamInfo").data("styleId");
-    let decompPay = $.ajax({
-        url: "/payams",
-        type: "post",
-        data: JSON.stringify ({
-            counter: 8,
-            current_scribe: "nil",
-            decomp: true,
-            orig: origId,
-            style_id: origStyle,
-            title: "decomp" + origTitle
-        }),
-    });
+    let deco = decomp;
+    debugger;
+
+     // let decompPay = $.ajax({
+     //    url: "/payams",
+     //    type: "post",
+     //    data: JSON.stringify ({
+     //        counter: 8,
+     //        current_scribe: "nil",
+     //        decomp: true,
+     //        orig: origId,
+     //        style_id: origStyle,
+     //        title: "decomp" + origTitle
+     //    }),
+    // });
 };
 
 
