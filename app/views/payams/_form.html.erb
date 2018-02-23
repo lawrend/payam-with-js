@@ -39,7 +39,7 @@
                 <div class="container" style="text-align: center">
                     <%# <div class="col-sm-12"> %>
                         <p>Provide a one-word title to guide the later authors</p>
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-push-3 col-sm-6">
                             <%= f.text_field :title, :placeholder => "one-word title", class: "form-control" %><br>
                         </div>
                     <%# </div> %>
@@ -89,7 +89,7 @@
             <%= f.hidden_field :current_scribe, :value => current_user.id %>
             <div class="container">
                 <div class="form-group">
-                    <div class="col-sm-1">
+                    <div class="col-sm-push-5 col-sm-1">
                         <%= f.submit "Submit", class: "btn btn-default" %>
                     </div>
                 </div> <!-- form-group-->

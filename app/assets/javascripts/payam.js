@@ -70,23 +70,18 @@ let nextDecomposeIt = function() {
 };
 
 let saveIt = function() {
-    let origTitle = $("#payamInfo").data("title");
-    let deco = decomp;
-    debugger;
-
-     // let decompPay = $.ajax({
-     //    url: "/payams",
-     //    type: "post",
-     //    data: JSON.stringify ({
-     //        counter: 8,
-     //        current_scribe: "nil",
-     //        decomp: true,
-     //        orig: origId,
-     //        style_id: origStyle,
-     //        title: "decomp" + origTitle
-     //    }),
-    // });
+    let newTitle = $("#payamInfo").data("title") + " Decomp";
+    let origId = $("#payamInfo").data("id");
+    // let decoomp = $('#buttonHolder').data('decomp');
+    let decompPay = $.ajax({
+        url: "/payams/decompose",
+        type: "post",
+        data: {title: newTitle,
+        orig: origId},
+    });
+    decompPay.done(function(resp) {
+        console.log(resp);
+    });
 };
-
 
 

@@ -1,5 +1,5 @@
 class PayamsController < ApplicationController
-    before_action :set_payam, only: [:show, :edit, :update, :destroy, :decompose]
+    before_action :set_payam, only: [:show, :edit, :update, :destroy]
 
     def index
         #only display completed payams of one style
@@ -49,7 +49,7 @@ class PayamsController < ApplicationController
     def show
         @decomp = Payam.new(:decomp => true, :orig => @payam.id, :counter => 8, :style_id => @payam.style_id)
         @decompLine = @decomp.lines.build
-        
+
         respond_to do |format|
             format.html {render :show}
             format.json {render json: @payam}
@@ -57,10 +57,14 @@ class PayamsController < ApplicationController
     end
 
     def decompose
-        @payam.lines.each do |line|
-            line.lose_word
-        end
-        redirect_to payam_path(@payam)
+        # @payam.lines.each do |line|
+        #     line.lose_word
+        # end
+        # redirect_to payam_path(@payam)
+        @payam = Payam.new
+        @payam.title = (params[:title])
+        @payam.decomp = true
+        render json: @payam
     end
 
     def edit

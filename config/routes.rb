@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   
   resources :payams do
     resources :lines
-    member do
-      post 'decompose'
-    end
+    # member do
+    #   post 'decompose'
+    # end
   end
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   # keep user id out of the visible url
   get 'player' => 'players#show'
+  post 'payams/decompose' => 'payams#decompose'
   
 end 

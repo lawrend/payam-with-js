@@ -6,7 +6,6 @@
             <h2 id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-styleId="<%= @payam.style_id %>">This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
         </div><!--container base-purp with bottom border-->
 
-        <h2><%= @decomp.style_id %></h2>
         <div class="container">
             <p style="font-size: 30px; line-height: 1.8em">
             <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
@@ -41,7 +40,7 @@
             <div class="flex-container-column" style="justify-content: center, align-content: center">
                 <div class="container" id="decomp-holder"></div><!--container holding decomp lines-->
                 <%# <%= button_to "Decompose", decompose_payam_path(@payam), {:id => @payam.id, class: "btn btn-decomp"} %1> %>
-                <div class="container" id="buttonHolder"><button class="btn btn-decomp" onClick="firstDecomposeIt()">Decomp It</button>
+                <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
                 </div><!--container holding decomp buttons-->
             </div><!--flex container holding decomps and decomp buttons-->
         </div><!--container holding flex-container why?-->

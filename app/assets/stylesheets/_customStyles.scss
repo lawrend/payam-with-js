@@ -115,12 +115,6 @@ a:focus {
   border:.1em solid rgba(0,0,0,.05);
   background:#5ba4e5;
 
-    // color: $base-purp;
-    //#000;
-    // text-shadow: none; /* Prevent inheritance from `body` */
-    // background-color: $first-comp;
-    // border: none;
-    // border: 1px solid #fff;
 }
 
 .btn-decomp,
@@ -144,15 +138,8 @@ a:focus {
   text-shadow:none;
   border-radius:.3rem;
   border:.1em solid rgba(0,0,0,.05);
-  background:#33eebb;
+  background:#aa2537;
 
-    // color: $base-purp;
-
-    // color: #212104;
-    // text-shadow: none;
-    // background-color: rgba(85, 95, 16, .5);
-    // border: 1px solid #111;
-    // box-shadow: 0px 0px 150px 10px #414124;
 }
 
 /*(B)ig first letter of a line. You know, FANCY */
@@ -194,7 +181,6 @@ a:focus {
 }
 
 .headsup {
-    // font-size: 44px;
     color: $base-purp;
 }
 
@@ -255,6 +241,14 @@ a:focus {
     padding-top: 10px;
     background-color: rgba(200, 200, 200, .36);
 
+}
+
+.form-horizontal .container {
+    text-align: center; 
+}
+
+.col-sm-6 .form-control {
+    text-align: center; 
 }
 
 .dubs {
