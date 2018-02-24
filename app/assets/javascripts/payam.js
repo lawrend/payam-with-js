@@ -42,13 +42,14 @@ function removeWord(i) {
         let fallen = splitString.splice(expiryAddr, 1);
         let stillStanding = splitString.join(" ");
         li.html("<p>"+firstHalf+"<span class=fadeOut> "+fallen+" </span>"+secondHalf);
-        li.delay(2000).fadeOut(function() {
+        li.fadeOut(function() {
             $(this).text(stillStanding).fadeIn(250);
         });
     } else {
         return splitString;
     };
 }
+
 
 let firstDecomposeIt = function() {
     let line_graveyard = $("#decomp-holder");
@@ -63,25 +64,38 @@ let firstDecomposeIt = function() {
     $('#buttonHolder').html("<div class='flex-container' style='height: 130px'><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div><div class='container'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
 };
 
+
 let nextDecomposeIt = function() {
     for(i=0; i<8; i++) {
         removeWord(i);
     };
 };
 
+
 let saveIt = function() {
-    let newTitle = $("#payamInfo").data("title") + " Decomp";
+    let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
+    let curUsr = $("#payamInfo").data("current-user-id");
     let origId = $("#payamInfo").data("id");
+    let styleId = $("#payamInfo").data("style-id");
     // let decoomp = $('#buttonHolder').data('decomp');
     let decompPay = $.ajax({
         url: "/payams/decompose",
         type: "post",
         data: {title: newTitle,
+        style_id: styleId,
+        decomp: true,
+        curUsr: curUsr,
         orig: origId},
+        current_scribe: null,
     });
+
     decompPay.done(function(resp) {
-        console.log(resp);
+        let style = resp['data']['attributes'];
+        let bounce_back = resp['data']['attributes'];
+        let title = bounce_back['title'];
+        // let style = bounce_back["'style_id'"];
+
+        $("#decomps").append("<h3>"+title+"</h3>");
     });
 };
-
 

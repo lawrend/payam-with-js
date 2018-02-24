@@ -47,8 +47,8 @@ class PayamsController < ApplicationController
     end
 
     def show
-        @decomp = Payam.new(:decomp => true, :orig => @payam.id, :counter => 8, :style_id => @payam.style_id)
-        @decompLine = @decomp.lines.build
+        # @decomp = Payam.new(:decomp => true, :orig => @payam.id, :counter => 8, :style_id => @payam.style_id)
+        # @decompLine = @decomp.lines.build
 
         respond_to do |format|
             format.html {render :show}
@@ -57,13 +57,20 @@ class PayamsController < ApplicationController
     end
 
     def decompose
-        # @payam.lines.each do |line|
-        #     line.lose_word
-        # end
-        # redirect_to payam_path(@payam)
         @payam = Payam.new
+        # @title_number = Payam.count(title:  params[:title])
+        # if @title_number > 0
+        #     @payam.title = (params[:title]) + "-" + (@title_number + 1) 
+        # else
         @payam.title = (params[:title])
-        @payam.decomp = true
+        # end
+        @payam.decomp = (params[:decomp])
+        @payam.current_scribe = (params[:current_scribe])
+        @payam.counter = 8
+        @payam.orig = (params[:orig])
+        @payam.style_id = (params[:style_id])
+        @payam.save
+
         render json: @payam
     end
 
@@ -105,7 +112,7 @@ class PayamsController < ApplicationController
     end
 
     def payam_params
-        params.require(:payam).permit(:style_id, :counter, :title, :current_scribe, :lines_attributes => [:text, :payam_id, :auth_id, :count], style_attributes: [:name])
+        params.require(:payam).permit(:style_id, :counter, :title, :current_scribe, :decomp, :orig, :lines_attributes => [:text, :payam_id, :auth_id, :count], style_attributes: [:name])
     end
 
     def style_check

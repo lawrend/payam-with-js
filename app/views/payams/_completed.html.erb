@@ -3,7 +3,7 @@
 <section class="PostContent">
     <div class="flex-container-column goudy side-plaque">
         <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
-            <h2 id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-styleId="<%= @payam.style_id %>">This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
+            <h2 id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-style-id="<%= @payam.style_id %>" data-current-user-name="<%= current_user.username %>"data-current-user-id="<%= current_user.id %>">This payam is called "<%= @payam.title %>" and it is in the <%= Style.find(@payam.style_id).name %> style</h2>
         </div><!--container base-purp with bottom border-->
 
         <div class="container">
@@ -41,8 +41,9 @@
                 <div class="container" id="decomp-holder"></div><!--container holding decomp lines-->
                 <%# <%= button_to "Decompose", decompose_payam_path(@payam), {:id => @payam.id, class: "btn btn-decomp"} %1> %>
                 <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
-                </div><!--container holding decomp buttons-->
+                </div><!--container holding decomp, save, start over buttons-->
             </div><!--flex container holding decomps and decomp buttons-->
+            <div id="decomps"></div>
         </div><!--container holding flex-container why?-->
     </div><!--flex container holding it all-->
 </section><!--PostContent section-->
