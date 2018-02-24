@@ -1,5 +1,6 @@
 // PAYAMS
 
+// FUNCTIONS TO SHOW&HIDE PREVIEW LINES
 let previewIt = function(preview_button) {
     let id = $(preview_button).data("id");
     let prev_box = $('#preview-payam-' + id);
@@ -30,6 +31,23 @@ let hideIt = function(id) {
     $('#preview-payam-' + id).toggle('hide');
 };
 
+// PACKAGING LINES FOR DECOMP PAYAM
+function Decomp(title, origId, styleId) {
+    this.title = title;
+    this.origId = origId;
+    this.styleId = styleId;
+    this.decomp = true;
+};
+
+let payamPackage = function() {
+    let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
+    let origId = $("#payamInfo").data("id");
+    let styleId = $("#payamInfo").data("style-id");
+    let sendOff = new Decomp (newTitle, origId, styleId);
+    return sendOff;
+};
+
+// FUNCTIONS TO DECOMPOSE AND SAVE NEW DECOMP
 function removeWord(i) {
     let li = $('[data-decompId='+i+']');
     let str = li[0].innerText;
@@ -50,7 +68,6 @@ function removeWord(i) {
     };
 }
 
-
 let firstDecomposeIt = function() {
     let line_graveyard = $("#decomp-holder");
     line_graveyard.empty();
@@ -64,29 +81,25 @@ let firstDecomposeIt = function() {
     $('#buttonHolder').html("<div class='flex-container' style='height: 130px'><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div><div class='container'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
 };
 
-
 let nextDecomposeIt = function() {
     for(i=0; i<8; i++) {
         removeWord(i);
     };
 };
 
-
 let saveIt = function() {
-    let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
-    let curUsr = $("#payamInfo").data("current-user-id");
-    let origId = $("#payamInfo").data("id");
-    let styleId = $("#payamInfo").data("style-id");
-    // let decoomp = $('#buttonHolder').data('decomp');
+    // let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
+    // let curUsr = $("#payamInfo").data("current-user-id");
+    // let origId = $("#payamInfo").data("id");
+    // let styleId = $("#payamInfo").data("style-id");
+    let sendOff = payamPackage();
     let decompPay = $.ajax({
         url: "/payams/decompose",
         type: "post",
-        data: {title: newTitle,
-        style_id: styleId,
-        decomp: true,
-        curUsr: curUsr,
-        orig: origId},
-        current_scribe: null,
+        data: {title: sendOff.title,
+            style_id: sendOff.styleId,
+            decomp: true,
+            orig: sendOff.origId},
     });
 
     decompPay.done(function(resp) {

@@ -39,7 +39,6 @@
         <div class="container">
             <div class="flex-container-column" style="justify-content: center, align-content: center">
                 <div class="container" id="decomp-holder"></div><!--container holding decomp lines-->
-                <%# <%= button_to "Decompose", decompose_payam_path(@payam), {:id => @payam.id, class: "btn btn-decomp"} %1> %>
                 <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
                 </div><!--container holding decomp, save, start over buttons-->
             </div><!--flex container holding decomps and decomp buttons-->
