@@ -58,12 +58,12 @@ class PayamsController < ApplicationController
 
     def decompose
         @payam = Payam.new
-        # @title_number = Payam.count(title:  params[:title])
-        # if @title_number > 0
-        #     @payam.title = (params[:title]) + "-" + (@title_number + 1) 
-        # else
-        @payam.title = (params[:title])
-        # end
+        if Payam.where(:title => params[:title]).count > 1
+            @title_number = Payam.where(:title => params[:title]).count            
+            @payam.title = "#{params[:title]}-#{@title_number + 1}" 
+        else
+            @payam.title = (params[:title])
+        end
         @payam.decomp = (params[:decomp])
         @payam.current_scribe = (params[:current_scribe])
         @payam.counter = 8
