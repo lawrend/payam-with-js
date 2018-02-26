@@ -47,10 +47,20 @@ class PayamsController < ApplicationController
     end
 
     def show
+        if @payam.decomp == true
+            orig = Payam.find(@payam.orig)
+            redirect_to payam_path(orig)
+        else
         respond_to do |format|
             format.html {render :show}
             format.json {render json: @payam}
         end
+        end
+    end
+
+    def showdecomp
+        @orig = Payam.find(@payam.orig)
+        redirect_to "/payams"
     end
 
     def decompose
