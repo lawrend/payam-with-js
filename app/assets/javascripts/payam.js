@@ -32,18 +32,29 @@ let hideIt = function(id) {
 };
 
 // PACKAGING LINES FOR DECOMP PAYAM
-function Decomp(title, origId, styleId) {
+function Decomp(title, origId, styleId, lines) {
     this.title = title;
     this.origId = origId;
     this.styleId = styleId;
     this.decomp = true;
+    this.lines = lines;
+
+    this.prettyTitle = function() {
+        return title.split("-").join(" ");
+    };
 };
 
 let payamPackage = function() {
     let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
     let origId = $("#payamInfo").data("id");
     let styleId = $("#payamInfo").data("style-id");
-    let sendOff = new Decomp (newTitle, origId, styleId);
+    let decompLines = $("#decomp-holder")[0]['childNodes'];
+    let linesToSend = [];
+    for(i=0; i<8; i++) {
+        // console.log(decompLines[i]);
+        linesToSend.push(decompLines[i].innerText);
+    };
+    let sendOff = new Decomp (newTitle, origId, styleId, linesToSend);
     return sendOff;
 };
 
@@ -88,10 +99,6 @@ let nextDecomposeIt = function() {
 };
 
 let saveIt = function() {
-    // let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
-    // let curUsr = $("#payamInfo").data("current-user-id");
-    // let origId = $("#payamInfo").data("id");
-    // let styleId = $("#payamInfo").data("style-id");
     let sendOff = payamPackage();
     let decompPay = $.ajax({
         url: "/payams/decompose",
@@ -99,16 +106,17 @@ let saveIt = function() {
         data: {title: sendOff.title,
             style_id: sendOff.styleId,
             decomp: true,
-            orig: sendOff.origId},
+            orig: sendOff.origId,
+            lines: sendOff.lines},
     });
 
     decompPay.done(function(resp) {
-        let style = resp['data']['attributes'];
         let bounce_back = resp['data']['attributes'];
         let title = bounce_back['title'];
-        // let style = bounce_back["'style_id'"];
-
-        $("#decomps").append("<h3>"+title+"</h3>");
+        let orig = bounce_back['orig'];
+        let styleId = bounce_back['style_id'];
+        let prodigalPayam = new Decomp(title, orig, styleId);
+        $("#decomps").append("<h3>"+prodigalPayam.prettyTitle()+"</h3>");
     });
 };
 

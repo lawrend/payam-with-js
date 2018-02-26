@@ -47,9 +47,6 @@ class PayamsController < ApplicationController
     end
 
     def show
-        # @decomp = Payam.new(:decomp => true, :orig => @payam.id, :counter => 8, :style_id => @payam.style_id)
-        # @decompLine = @decomp.lines.build
-
         respond_to do |format|
             format.html {render :show}
             format.json {render json: @payam}
@@ -65,11 +62,14 @@ class PayamsController < ApplicationController
             @payam.title = (params[:title])
         end
         @payam.decomp = (params[:decomp])
-        @payam.current_scribe = (params[:current_scribe])
+        @payam.current_scribe = nil 
         @payam.counter = 8
         @payam.orig = (params[:orig])
         @payam.style_id = (params[:style_id])
         @payam.save
+        params[:lines].each_with_index do |line, index|
+            Line.create(:text => line, :auth_id => current_user.id, :count => index + 1, :payam_id => @payam.id);
+        end
 
         render json: @payam
     end
