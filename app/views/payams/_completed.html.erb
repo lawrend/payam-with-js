@@ -42,7 +42,16 @@
                 <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
                 </div><!--container holding decomp, save, start over buttons-->
             </div><!--flex container holding decomps and decomp buttons-->
-            <div id="decomps"></div>
+            <div id="decomps-banner"></div>
+            <div id="decomps">
+                <% @decomps.each do |decomp| %>
+                    <%# <p><%= decomp.to_json %1></p> %>
+                    <script>
+<%# console.log(decomp); %>
+existingDecomp(<%= decomp.to_json %>);
+                    </script>
+                <% end %>
+            </div>
         </div><!--container holding flex-container why?-->
     </div><!--flex container holding it all-->
 </section><!--PostContent section-->

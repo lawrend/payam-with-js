@@ -1,4 +1,10 @@
 // PAYAMS
+document.addEventListener('DOMContentLoaded', function() {
+    let decomps = $('#decomps-banner');
+    if(decomps.length != 0) {
+        decomps.append("<h3>De-Compositions</h3>")
+    };
+}, false);
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
 let previewIt = function(preview_button) {
@@ -51,7 +57,6 @@ let payamPackage = function() {
     let decompLines = $("#decomp-holder")[0]['childNodes'];
     let linesToSend = [];
     for(i=0; i<8; i++) {
-        // console.log(decompLines[i]);
         linesToSend.push(decompLines[i].innerText);
     };
     let sendOff = new Decomp (newTitle, origId, styleId, linesToSend);
@@ -116,7 +121,12 @@ let saveIt = function() {
         let orig = bounce_back['orig'];
         let styleId = bounce_back['style_id'];
         let prodigalPayam = new Decomp(title, orig, styleId);
-        $("#decomps").append("<h3>"+prodigalPayam.prettyTitle()+"</h3>");
+        $("#decomps").prepend("<h3>"+prodigalPayam.prettyTitle()+"</h3>");
     });
 };
 
+// FORMAT DECOMPS UPON PAGE LOAD
+let existingDecomp = function(decomp) {
+    let already_existing_decomp = new Decomp(decomp['title'], decomp['orig'], decomp['sytle_id']);
+    $("#decomps").append("<h3>"+already_existing_decomp.prettyTitle()+"</h3>");
+};

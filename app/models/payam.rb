@@ -2,6 +2,8 @@ class Payam < ApplicationRecord
     has_many :lines, dependent: :destroy
     belongs_to :style
     has_many :users, through: :lines, source: :auth 
+    has_many :decomps, :class_name => "Payam", :foreign_key => "orig" 
+    belongs_to :original, :class_name => "Payam", :foreign_key => "orig" 
     accepts_nested_attributes_for :style, reject_if: proc { |attributes| attributes['name'].blank? }
     validates :title, presence: true, length: {maximum: 40}
     validates_with TitleValidator
