@@ -51,11 +51,6 @@ class PayamsController < ApplicationController
             orig = Payam.find(@payam.orig)
             redirect_to payam_path(orig)
         else
-            @decomps = Payam.where(orig: @payam.id).to_json
-            # @decompsjj = []
-            # @decomps.each do |decomp|
-            #     @decompsjj << decomp.to_json
-            # end
             respond_to do |format|
                 format.html {render :show}
                 format.json {render json: @payam}

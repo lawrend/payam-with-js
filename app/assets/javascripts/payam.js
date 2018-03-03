@@ -126,7 +126,10 @@ let saveIt = function() {
 };
 
 // FORMAT DECOMPS UPON PAGE LOAD
-let existingDecomp = function(decomp) {
-    let already_existing_decomp = new Decomp(decomp['title'], decomp['orig'], decomp['sytle_id']);
-    $("#decomps").append("<h3>"+already_existing_decomp.prettyTitle()+"</h3>");
+let existingDecomp = function(title, orig, style) {
+    let oldOne = new Decomp(title, orig, style);
+   $('#decomps').append("<p>"+oldOne.prettyTitle()+"</p>");
+
+    // let already_existing_decomp = new Decomp(decomp['title'], decomp['orig'], decomp['sytle_id']);
+    // $("#decomps").append("<h3>"+already_existing_decomp.prettyTitle()+"</h3>");
 };
