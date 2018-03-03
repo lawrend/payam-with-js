@@ -45,10 +45,9 @@
             <div id="decomps-banner"></div>
             <div id="decomps">
                 <% @payam.decomps.each do |decomp| %>
-                    <%# <p><%= decomp.to_json %1></p> %>
                     <script>
 <%# console.log(<%= decomp %1>); %>
-existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>);
+                            existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>);
                     </script>
                 <% end %>
             </div>

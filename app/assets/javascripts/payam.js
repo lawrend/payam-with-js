@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let decomps = $('#decomps-banner');
     if(decomps.length != 0) {
-        decomps.append("<h3>De-Compositions</h3>")
+        decomps.append("<h3 class='em base-purp'>De-Compositions</h3>")
     };
 }, false);
 
@@ -121,15 +121,12 @@ let saveIt = function() {
         let orig = bounce_back['orig'];
         let styleId = bounce_back['style_id'];
         let prodigalPayam = new Decomp(title, orig, styleId);
-        $("#decomps").prepend("<h3>"+prodigalPayam.prettyTitle()+"</h3>");
+        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"</p><p>by</p><p>"+$('#payamInfo').data('current-user-name')+"</p>");
     });
 };
 
-// FORMAT DECOMPS UPON PAGE LOAD
-let existingDecomp = function(title, orig, style) {
-    let oldOne = new Decomp(title, orig, style);
-   $('#decomps').append("<p>"+oldOne.prettyTitle()+"</p>");
-
-    // let already_existing_decomp = new Decomp(decomp['title'], decomp['orig'], decomp['sytle_id']);
-    // $("#decomps").append("<h3>"+already_existing_decomp.prettyTitle()+"</h3>");
-};
+        // FORMAT DECOMPS UPON PAGE LOAD
+        let existingDecomp = function(title, orig, style) {
+            let oldOne = new Decomp(title, orig, style);
+            $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"</p>");
+        };
