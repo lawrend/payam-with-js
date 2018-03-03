@@ -1,8 +1,9 @@
 // PAYAMS
 document.addEventListener('DOMContentLoaded', function() {
-    let decomps = $('#decomps-banner');
+    let decomp_banner = $('#decomps-banner');
+    let decomps = $('#decomps');
     if(decomps.length != 0) {
-        decomps.append("<h3 class='em base-purp'>De-Compositions</h3>")
+        decomp_banner.append("<h3 class='em base-purp'>De-Compositions</h3>")
     };
 }, false);
 
@@ -121,7 +122,7 @@ let saveIt = function() {
         let orig = bounce_back['orig'];
         let styleId = bounce_back['style_id'];
         let prodigalPayam = new Decomp(title, orig, styleId);
-        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"</p><p>by</p><p>"+$('#payamInfo').data('current-user-name')+"</p>");
+        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"</p>");
     });
 };
 
