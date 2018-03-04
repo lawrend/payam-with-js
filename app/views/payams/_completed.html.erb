@@ -47,7 +47,7 @@
                 <% @payam.decomps.each do |decomp| %>
                     <script>
 <%# console.log(<%= decomp %1>); %>
-                            existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>);
+                            existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>);
                     </script>
                 <% end %>
             </div>

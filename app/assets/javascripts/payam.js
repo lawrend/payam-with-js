@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
+let changeButtonText = function(button) {
+    if(button.innerText == "PREVIEW...") button.innerText = "HIDE...";
+    else button.innerText = "PREVIEW...";
+};
+
 let previewIt = function(preview_button) {
     let id = $(preview_button).data("id");
     let prev_box = $('#preview-payam-' + id);
@@ -30,11 +35,14 @@ let previewIt = function(preview_button) {
         function prev_boxer() {
             prev_box.toggle();
         };
-        button_holder.html("<button class='btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >Preview...</button>");
+        button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE...</button>");
     };
 };
 
 let hideIt = function(id) {
+    let hideyButtonObj = $('.btn[data-id='+id+']');
+    let hideyButton = hideyButtonObj[0];
+    changeButtonText(hideyButton);
     $('#preview-payam-' + id).toggle('hide');
 };
 
@@ -52,7 +60,7 @@ function Decomp(title, origId, styleId, lines) {
 };
 
 let payamPackage = function() {
-    let newTitle = $("#payamInfo").data("title") + "-Decomp-"+ $("#payamInfo").data("current-user-name");
+    let newTitle = "Decomp of "+$("#payamInfo").data("title");
     let origId = $("#payamInfo").data("id");
     let styleId = $("#payamInfo").data("style-id");
     let decompLines = $("#decomp-holder")[0]['childNodes'];
@@ -120,14 +128,15 @@ let saveIt = function() {
         let bounce_back = resp['data']['attributes'];
         let title = bounce_back['title'];
         let orig = bounce_back['orig'];
+        let id = bounce_back['id'];
         let styleId = bounce_back['style_id'];
         let prodigalPayam = new Decomp(title, orig, styleId);
-        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"</p>");
+        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"<br><div class='btn-holder' data-id="+id+"><button class decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
     });
 };
 
-        // FORMAT DECOMPS UPON PAGE LOAD
-        let existingDecomp = function(title, orig, style) {
-            let oldOne = new Decomp(title, orig, style);
-            $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"</p>");
-        };
+// FORMAT DECOMPS UPON PAGE LOAD
+let existingDecomp = function(title, orig, style, id) {
+    let oldOne = new Decomp(title, orig, style);
+    $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+};

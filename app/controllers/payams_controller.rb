@@ -130,9 +130,6 @@ class PayamsController < ApplicationController
             @payam.style_id = payam_params[:style_id]
             @style = Style.new(:name => payam_params[:style_attributes][:name])
             @payam.errors.add(:style, "must be selected or created--not both")
-            #elsif payam_params[:style_id].blank? && payam_params[:style_attributes][:name].blank?
-            #  @payam.errors.add(:style, "add a style, ya goof")
-            #  @style = Style.new
         end
     end
 
