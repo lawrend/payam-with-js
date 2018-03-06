@@ -29,7 +29,6 @@ class PayamsController < ApplicationController
         @payam_params = payam_params
         @payam_params[:lines_attributes][:"0"][:auth_id] = current_user.id
         @payam = Payam.new(@payam_params)
-        #@payam.lines.last.auth_id = current_user.id
         #check for both selection from dropdown and new entry in text field
         if style_check
             render :new

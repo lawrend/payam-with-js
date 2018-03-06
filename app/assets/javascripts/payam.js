@@ -15,26 +15,27 @@ let previewIt = function(preview_button) {
     let id = $(preview_button).data("id");
     let prev_box = $('#preview-payam-' + id);
 
-    if (prev_box.text() == "") {
-        let stuf = $.ajax({
-            url: "/payams/" + id + "/lines/",
-            type: "get",
-            data: {
-                payam_id: id
-            },
+    let stuf = $.ajax({
+        url: "/payams/" + id + "/lines/",
+        type: "get",
+        data: {
+            payam_id: id
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert(textStatus);
+        },
+    });
+    stuf.done(function(resp) {
+        let stuf_resp = resp['data'];
+        stuf_resp.forEach(function(el) {
+            // prev_box.append("<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>");
+            let html = "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
+            prev_box.append(html);
         });
-        stuf.done(function(resp) {
-            let stuf_resp = resp['data'];
-            stuf_resp.forEach(function(el) {
-                prev_box.append("<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>");
-            });
-        });
-        let button_holder = $('.btn-holder[data-id='+id+']');
-        function prev_boxer() {
-            prev_box.toggle('show');
-        };
-        button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE...</button>");
-    };
+    });
+
+    let button_holder = $('.btn-holder[data-id='+id+']');
+    button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE...</button>");
 };
 
 let hideIt = function(id) {
