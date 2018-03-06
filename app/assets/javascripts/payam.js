@@ -1,11 +1,4 @@
 // PAYAMS
-// document.addEventListener('DOMContentLoaded', function() {
-//     let decomp_banner = $('#decomps-banner');
-//     let decomps = $('#decomps');
-//     if(decomps.length != 0) {
-//         decomp_banner.append("<h3 class='em base-purp'>De-Compositions</h3>")
-//     };
-// }, false);
 
 let decompBanner = function() {
     let decomp_banner = $('#decomps-banner');
@@ -38,7 +31,7 @@ let previewIt = function(preview_button) {
         });
         let button_holder = $('.btn-holder[data-id='+id+']');
         function prev_boxer() {
-            prev_box.toggle();
+            prev_box.toggle('show');
         };
         button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE...</button>");
     };
@@ -51,21 +44,24 @@ let hideIt = function(id) {
     $('#preview-payam-' + id).toggle('hide');
 };
 
-// PACKAGING LINES FOR DECOMP PAYAM
-function Decomp(title, origId, styleId, lines) {
+// DECOMP JS PROTOTYPE
+function Decomp(title, origId, styleId, id, lines, firstUser) {
     this.title = title;
     this.origId = origId;
     this.styleId = styleId;
     this.decomp = true;
     this.lines = lines;
+    this.id = id;
+    this.firstUser = firstUser;
 
     this.prettyTitle = function() {
         return title.split("-").join(" ");
     };
 };
 
+// PACKAGING LINES FOR DECOMP PAYAM
 let payamPackage = function() {
-    let newTitle = "Decomp of "+$("#payamInfo").data("title");
+    let newTitle = "Decomp-of-"+$("#payamInfo").data("title");
     let origId = $("#payamInfo").data("id");
     let styleId = $("#payamInfo").data("style-id");
     let decompLines = $("#decomp-holder")[0]['childNodes'];
@@ -73,7 +69,7 @@ let payamPackage = function() {
     for(i=0; i<8; i++) {
         linesToSend.push(decompLines[i].innerText);
     };
-    let sendOff = new Decomp (newTitle, origId, styleId, linesToSend);
+    let sendOff = new Decomp (newTitle, origId, styleId, null, linesToSend);
     return sendOff;
 };
 
@@ -133,15 +129,16 @@ let saveIt = function() {
         let bounce_back = resp['data']['attributes'];
         let title = bounce_back['title'];
         let orig = bounce_back['orig'];
-        let id = bounce_back['id'];
-        let styleId = bounce_back['style_id'];
-        let prodigalPayam = new Decomp(title, orig, styleId);
-        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"<br><div class='btn-holder' data-id="+id+"><button class decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+        let id = resp['data']['id'];
+        let styleId = bounce_back['stylee'];
+        let firstUser = bounce_back['first-user'];
+        let prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser);
+        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
     });
 };
 
 // FORMAT DECOMPS UPON PAGE LOAD
-let existingDecomp = function(title, orig, style, id) {
-    let oldOne = new Decomp(title, orig, style);
-    $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+$('#payamInfo').data('current-user-name')+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+let existingDecomp = function(title, orig, style, id, firstUser) {
+    let oldOne = new Decomp(title, orig, style, id, null, firstUser);
+    $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
 };
