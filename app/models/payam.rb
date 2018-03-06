@@ -31,7 +31,9 @@ class Payam < ApplicationRecord
     end
 
     def first_user
-        User.find(self.users.first.id)
+        if self.users
+            User.find(self.users.first.id).username
+        end
     end
 
     private

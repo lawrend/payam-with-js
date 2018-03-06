@@ -44,10 +44,14 @@
             </div><!--flex container holding decomps and decomp buttons-->
             <div id="decomps-banner"></div>
             <div id="decomps">
+                <% if @payam.decomps %>
+                    <script>
+                        decompBanner();
+                    </script>
+                <% end %>
                 <% @payam.decomps.each do |decomp| %>
                     <script>
-<%# console.log(<%= decomp %1>); %>
-                            existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>);
+                        existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>);
                     </script>
                 <% end %>
             </div>

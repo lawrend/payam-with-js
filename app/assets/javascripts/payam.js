@@ -1,11 +1,16 @@
 // PAYAMS
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
+//     let decomp_banner = $('#decomps-banner');
+//     let decomps = $('#decomps');
+//     if(decomps.length != 0) {
+//         decomp_banner.append("<h3 class='em base-purp'>De-Compositions</h3>")
+//     };
+// }, false);
+
+let decompBanner = function() {
     let decomp_banner = $('#decomps-banner');
-    let decomps = $('#decomps');
-    if(decomps.length != 0) {
-        decomp_banner.append("<h3 class='em base-purp'>De-Compositions</h3>")
-    };
-}, false);
+    decomp_banner.append("<h3 class='em base-purp'>De-Compositions</h3>");
+};
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
 let changeButtonText = function(button) {

@@ -65,12 +65,7 @@ class PayamsController < ApplicationController
 
     def decompose
         @payam = Payam.new
-        if Payam.where(:title => params[:title]).count > 1
-            @title_number = Payam.where(:title => params[:title]).count            
-            @payam.title = "#{params[:title]}-#{@title_number + 1}" 
-        else
-            @payam.title = (params[:title])
-        end
+        @payam.title = (params[:title])
         @payam.decomp = (params[:decomp])
         @payam.current_scribe = nil 
         @payam.counter = 8
@@ -80,7 +75,6 @@ class PayamsController < ApplicationController
         params[:lines].each_with_index do |line, index|
             Line.create(:text => line, :auth_id => current_user.id, :count => index + 1, :payam_id => @payam.id);
         end
-
         render json: @payam
     end
 
