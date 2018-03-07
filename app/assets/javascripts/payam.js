@@ -7,8 +7,8 @@ let decompBanner = function() {
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
 let changeButtonText = function(button) {
-    if(button.innerText == "PREVIEW...") button.innerText = "HIDE...";
-    else button.innerText = "PREVIEW...";
+    if(button.innerText == "SHOW...") button.innerText = "HIDE...";
+    else button.innerText = "SHOW...";
 };
 
 let previewIt = function(preview_button) {
@@ -27,11 +27,19 @@ let previewIt = function(preview_button) {
     });
     stuf.done(function(resp) {
         let stuf_resp = resp['data'];
+
+        let new_lines = ""
         stuf_resp.forEach(function(el) {
-            // prev_box.append("<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>");
-            let html = "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
-            prev_box.append(html);
+              new_lines += "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
         });
+        prev_box.append(new_lines).hide().slideDown(400);
+
+
+
+               // stuf_resp.forEach(function(el) {
+        //     let html = "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
+        //     prev_box.append(html);
+        // });
     });
 
     let button_holder = $('.btn-holder[data-id='+id+']');
@@ -42,11 +50,11 @@ let hideIt = function(id) {
     let hideyButtonObj = $('.btn[data-id='+id+']');
     let hideyButton = hideyButtonObj[0];
     changeButtonText(hideyButton);
-    $('#preview-payam-' + id).toggle('hide');
+    $('#preview-payam-' + id).slideToggle('hide');
 };
 
 // DECOMP JS PROTOTYPE
-function Decomp(title, origId, styleId, id, lines, firstUser) {
+function Decomp(title, origId, styleId, id, olines, firstUser) {
     this.title = title;
     this.origId = origId;
     this.styleId = styleId;
@@ -147,5 +155,5 @@ let saveIt = function() {
 // FORMAT DECOMPS UPON PAGE LOAD
 let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
-    $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+    $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
 };
