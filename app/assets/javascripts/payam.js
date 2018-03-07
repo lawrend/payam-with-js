@@ -134,6 +134,12 @@ let saveIt = function() {
         let styleId = bounce_back['stylee'];
         let firstUser = bounce_back['first-user'];
         let prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser);
+        let banner = $('#decomps-banner');
+
+        if($('#decomps-banner')[0].textContent == "") {
+            decompBanner();
+        };
+
         $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
     });
 };

@@ -44,15 +44,15 @@
             </div><!--flex container holding decomps and decomp buttons-->
             <div id="decomps-banner"></div>
             <div id="decomps">
-                <% if @payam.decomps %>
+                <% if @payam.decomps.length != 0 %>
+                <script>
+decompBanner();
+                </script>
+            <% end %>
+                <% @payam.decomps.each do |decomp| %>
                     <script>
-                        decompBanner();
+existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>');
                     </script>
-                    <% @payam.decomps.each do |decomp| %>
-                        <script>
-                            existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>');
-                        </script>
-                    <% end %>
                 <% end %>
             </div>
         </div><!--container holding flex-container why?-->
