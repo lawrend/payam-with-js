@@ -1,8 +1,9 @@
 <%# PLAYERS SHOW VIEW %>
 
-<section class="PostContent goudy">
+<section class="PostContent">
     <div class="container headsup" id="greeter" data-id=<%= @player.id %>>
-        <h1>Dear <%= @player.username %>,</h1>
+        <div><%= @player.username %>.</div>
+        <hr>
     </div><br><!--headsup-->
 
     <div class="flex-container-column base-plaque" style="flex-basis: 100%; justify-content: space-between">
@@ -26,7 +27,7 @@
             </div>
         <% end %>
     </div>
-    <br>
+    <br><hr>
     <% if !@player.waiting.empty? %>
         <div class="flex-container-column base-plaque" style="border-bottom: solid 2px; width: 100%; text-align: center">
             <div class="container">

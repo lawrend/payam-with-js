@@ -30,16 +30,9 @@ let previewIt = function(preview_button) {
 
         let new_lines = ""
         stuf_resp.forEach(function(el) {
-              new_lines += "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
+            new_lines += "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
         });
         prev_box.append(new_lines).hide().slideDown(400);
-
-
-
-               // stuf_resp.forEach(function(el) {
-        //     let html = "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
-        //     prev_box.append(html);
-        // });
     });
 
     let button_holder = $('.btn-holder[data-id='+id+']');
@@ -54,7 +47,7 @@ let hideIt = function(id) {
 };
 
 // DECOMP JS PROTOTYPE
-function Decomp(title, origId, styleId, id, olines, firstUser) {
+function Decomp(title, origId, styleId, id, lines, firstUser) {
     this.title = title;
     this.origId = origId;
     this.styleId = styleId;
@@ -148,12 +141,12 @@ let saveIt = function() {
             decompBanner();
         };
 
-        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>Preview...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
     });
 };
 
 // FORMAT DECOMPS UPON PAGE LOAD
 let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
-    $('#decomps').append("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+    $('#decomps').prepend("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
 };

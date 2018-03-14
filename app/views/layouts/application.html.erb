@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class= "full" lang="en">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="doulgas">
+        <meta name="author" content="douglas">
         <title>PayamWithJS</title>
 <%# <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
@@ -14,15 +14,16 @@
     </head>
 
     <body>
-        <div class="container-fluid site-wrapper">
+        <div class="container-fluid">
             <%= render 'layouts/header' %>
             <div class="container">
+                <div id="banner"><h1>PAYAMS</h1></div>
                 <div class="jumbotron">
                     <%= render 'layouts/messages' %>
                     <%= yield %>
                 </div><!--jumbotron-->
             </div><!--container-->
-        </div><!--container-fluid site-wrapper-->
+        </div><!--container-fluid-->
         <%= render 'layouts/footer' %>
     </body>
 </html>

@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 /*animations for decomp on payam show page*/
 
@@ -29,7 +29,6 @@
 
 $light-purp: #ddf;
 $base-purp: #320266;
-//old base #edf
 $first-comp: #e6ddff;
 $second-comp: #5f90cc;
 $green-comp: #99e699;
@@ -38,14 +37,21 @@ $green-comp: #99e699;
 html {
     min-height: 100%;
     position: relative;
+    background-color: #f4f8ff;
 }
 
-.full {
-    background: url('vache-text.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+#banner {
+    background: url('vache-text.jpg') no-repeat 50% 25%;
+    width: 100%;
+    min-height: 240px;
+}
+
+#banner h1 {
+    color: #FFF;
+    padding-top: 20px;
+    font-size: 164px;
+    letter-spacing: 19px;
+    opacity: .62;
 }
 
 .jumbotron {
@@ -59,31 +65,24 @@ body {
     margin-top: 20px;
     margin-bottom: 50px;
     min-height: 1000px;
-    background-color: #333;
     background-image: inherit;
     background-size: inherit;
-    /*opacity: .8;
-    background-color: inherit;*/
+    background-color: inherit;
     padding-bottom: 20px;
     color: #111;
-    text-align: auto;
-    /*text-shadow: 0 .5px 1px rgba(0,0,0,.5);*/
-}
-
-/*book looking font*/
-.goudy {
-    font-family: "Iconsolata", Helvetica Neue, sans-serif;
+    text-align: center;
 }
 
 /*Add a bit of shading between sections*/
 .site-wrapper {
-    -webkit-box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
-    box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
+    // -webkit-box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
+    // box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
 }
 
 /*custom link color*/
 a {
-    color: $second-comp;
+    color: #000;
+    text-decoration: underline;
 }
 
 a:hover,
@@ -154,12 +153,12 @@ a:focus {
     position: absolute;
     bottom: 0;
     width: 100%;
-
+    
     /* Set the fixed height of the footer here */
     height: 50px;
     background-color: #444;
+    text-align: center;
 }
-
 
 /*custom error fields*/
 .form_errors { color: red }
@@ -182,6 +181,10 @@ a:focus {
 
 .headsup {
     color: $base-purp;
+    font-size: 24px;
+    font-weight: 200;
+    opacity: .5;
+    text-transform: uppercase;
 }
 
 /*containers!!!*/
@@ -210,8 +213,8 @@ a:focus {
 
 .text-boxer {
     padding: 15px;
-    box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, .7);
+    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
+    // background-color: rgba(255, 255, 255, .7);
     border: none;
 }
 
@@ -219,15 +222,15 @@ a:focus {
     justify-content: space-between;
     border: none;
     padding: 20px 20px 40px 20px;
-    box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, .7);
+    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
+    // background-color: rgba(255, 255, 255, .7);
 }
 
 .side-plaque {
-    border: none;
-    padding: 10px 10px 20px 10px;
-    box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, .7);
+    // border: none;
+    // padding: 10px 10px 20px 10px;
+    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
+    // background-color: rgba(255, 255, 255, .7);
 
 }
 
@@ -239,7 +242,7 @@ a:focus {
     justify-content: space-around;
     border: none;
     padding-top: 10px;
-    background-color: rgba(200, 200, 200, .36);
+    background-color: rgba(200, 200, 200, .16);
 
 }
 
@@ -273,11 +276,15 @@ a:focus {
 }
 
 #navbarCollapse a {
-    color: $light-purp;
+    text-decoration: none; 
+    color: #FFF;
+    opacity: .82;
 }
 
 #brando {
-    color: $light-purp;
+    text-decoration: none; 
+    color: #FFF;
+    opacity: .82;
 }
 
 #navbarCollapse ul.dropdown-menu a {
@@ -294,9 +301,6 @@ a:focus {
     max-width: 1255px;
     padding: 0 25px;
     margin: 0 auto;
-    // box-sizing: border-box;
-    // word-wrap: break-word;
     font-size: 62.5%;
-    // text-rendering: optimizeLegibility;
     line-height: 1.15;
 }
