@@ -1,8 +1,41 @@
 // PAYAMS
 
+// LINE COLORS
+const color1 ="#11aaff"
+const color2 ="#ff22aa"
+const color3 ="#aa1133"
+const color4 ="#44aa11"
+const color5 ="#ff55aa"
+const color6 ="#aa1166"
+const color7 ="#77aaff"
+const color8 ="#1188aa"
+
+let getColor = function(num) {
+    switch(num) {
+        case 0:
+            return color1;
+        case 1:
+            return color2;
+        case 3:
+            return color3;
+        case 3:
+            return color4;
+        case 4:
+            return color5;
+        case 5:
+            return color6;
+        case 6:
+            return color7;
+        case 7:
+            return color8;
+        default:
+            return "FFF";
+    };
+};
+
 let decompBanner = function() {
     let decomp_banner = $('#decomps-banner');
-    decomp_banner.append("<h3 class='em base-purp'>De-Compositions</h3>");
+    decomp_banner.append("<div style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
 };
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
@@ -102,7 +135,8 @@ let firstDecomposeIt = function() {
     let rotting_lines = $(".liner");
     for(i=0; i < rotting_lines.length; i++) {
         let oldTxt = rotting_lines[i].innerText;
-        let oldHtml = "<p data-decompId='"+i+"' data-auth='"+rotting_lines[i]['attributes']['data-auth'].value+"'>"+oldTxt+"</p>"
+        let lineColor = getColor(i);
+        let oldHtml = "<div style='color:"+lineColor+"'><p data-decompId='"+i+"' data-auth='"+rotting_lines[i]['attributes']['data-auth'].value+"'>"+oldTxt+"</p></div>"
         line_graveyard.append(oldHtml);
         removeWord(i);
     };

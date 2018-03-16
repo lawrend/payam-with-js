@@ -37,7 +37,7 @@ $green-comp: #99e699;
 html {
     min-height: 100%;
     position: relative;
-    background-color: #f4f8ff;
+    background-color: #f9faff;
 }
 
 #banner {
@@ -180,11 +180,14 @@ a:focus {
 }
 
 .headsup {
+    justify-content: center; 
     color: $base-purp;
     font-size: 24px;
     font-weight: 200;
     opacity: .5;
     text-transform: uppercase;
+    background-color: #F1F1FF;
+    align-items: center; 
 }
 
 /*containers!!!*/
@@ -211,39 +214,47 @@ a:focus {
     font-size: 32px;
 }
 
+#greeter {
+    // max-height: 100px;
+}
+
+#nexties a {
+    cursor: pointer;
+}
+
+.payam-title {
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-weight: 200;
+    letter-spacing: 17px;
+    opacity: .7;
+}
+
 .text-boxer {
     padding: 15px;
-    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
-    // background-color: rgba(255, 255, 255, .7);
     border: none;
 }
 
 .base-plaque {
-    justify-content: space-between;
-    border: none;
-    padding: 20px 20px 40px 20px;
-    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
-    // background-color: rgba(255, 255, 255, .7);
+    background: radial-gradient(#FFFAFF, #f9faff);
+    // background-color: #FFFAFF;
+    // justify-content: space-between;
+    // border: none;
+    // padding: 20px 20px 40px 20px;
 }
 
 .side-plaque {
-    // border: none;
-    // padding: 10px 10px 20px 10px;
-    // box-shadow: 0px 0px 70px 70px rgba(255, 255, 255, 0.7);
-    // background-color: rgba(255, 255, 255, .7);
-
 }
 
 .side-plaque > .container {
-    text-align: center;
+    // text-align: center;
 }
 
 .top-plaque {
     justify-content: space-around;
     border: none;
     padding-top: 10px;
-    background-color: rgba(200, 200, 200, .16);
-
+    // background-color: rgba(55, 0, 170, .1);
 }
 
 .form-horizontal .container {

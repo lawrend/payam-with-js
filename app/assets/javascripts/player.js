@@ -19,7 +19,7 @@ let firstPayam = function(playerId) {
             prevPosition = longo - 1;
         };
         //replace html with new buttons with new values
-        $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><br><div class='flex-container' style='justify-content: space-around'><div class='container'><button class='btn btn-default' id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</button></div><div class='container'><button class='btn btn-default' id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</button></div></div>")
+        $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a><p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</a></p></div></div>")
     });
 };
 
@@ -44,7 +44,7 @@ let prevPayam = function(playerId) {
         };
 
         //replace html with new buttons with new values
-        $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><button class='btn btn-default' id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</button></div><div class='container'><button class='btn btn-default' id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</button></div></div>")
+        $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</a></p></div></div>")
     });
 };
 
