@@ -2,7 +2,7 @@
 
 <section class="PostContent">
     <div class="flex-container headsup" id="greeter" data-id=<%= @player.id %>>
-        <div class="container"><%= @player.username %></div>
+        <div class="container" id="font-tester"><%= @player.username %></div>
         <hr>
     </div><br><!--headsup-->
     <div class="flex-container-column base-plaque" style="flex-basis: 100%; justify-content: space-between">
@@ -10,7 +10,7 @@
         <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself.</p>
         <p>I thank you in advance for your help. My hope is that through your work and contributions we can all learn something.</p>
         <p>And I saw the decompose button. I pressed it. All things change and all things fade away I guess.<p>
-    </div><!--flex-container-left-side-column-->
+    </div><!--flex-container-column base-plaque-->
     <br><hr>
     <div class="flex-container-column base-plaque" id="payam-holder" data-playerId=<%=@player.id%>>
         <% if @player.payams.completed.empty? %>
@@ -18,16 +18,22 @@
                 <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
             </div>
         <% else %>
-            <div class="container" style="width: 100%; text-align: center" id="nexties">
-                <p class="markee">Click to see the a completed payam that you worked on:</p>
-                <div class="flex-container" style="justify-content: center">
-                    <div class="container">
-                    <p><a id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Press</a></p>
-                    </div>
-                </div><!--flex-container for button-->
-            </div>
+            <div class="flex-container-column inlay-holder">
+                <div class="flex-container plaque">
+                    <div class="container plaque-letters">YOU GOTTA SEE THESE THINGS
+                    </div><!--plaque-letters-->
+                </div><!--plaque-->
+                <div class="flex-container-column overlay" id="nexties">
+                    <p class="markee">Click to see the a completed payam that you worked on:</p>
+                    <div class="flex-container" style="justify-content: center">
+                        <div class="container">
+                            <p><a id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Press</a></p>
+                        </div><!--container-->
+                    </div><!--flex-container for links-->
+                </div><!--flex-container-column-->
+            </div><!--flex-container-column inlay-holder-->
         <% end %>
-    </div>
+    </div><!--base-plaque payam-holder-->
     <br><hr>
     <% if !@player.waiting.empty? %>
         <div class="flex-container-column base-plaque" style="border-bottom: solid 2px; width: 100%; text-align: center">
@@ -42,5 +48,11 @@
             <% end %>
         </div>
     <% end %>
+    <div class="flex-container-column inlay-holder">
+        <div class="flex-container-column plaque">
+            <div class="container plaque-letters"><span class="capitalizer">HEY THERE <%= @player.username %></span>! HEY YOU!! LOOK AT ME!!!!</div>
+        </div>
+        <div class="container overlay"><p>so it is you</p><p>I should have known</p></div>
+    </div>
 </section>
 

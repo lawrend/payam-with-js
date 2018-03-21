@@ -1,6 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Dosis|Playfair+Display+SC|Inconsolata|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Anton|Asap|Fjalla+One');
 
 /*animations for decomp on payam show page*/
+
+#font-tester {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    opacity: .3;
+    color: #F1F1FF;
+};
 
 @keyframes outFader {
     from {color: red; opacity: 1.3}
@@ -24,7 +33,7 @@
     animation-fill-mode: forwards;
 };
 
-    
+
 /*colors*/
 
 $light-purp: #ddf;
@@ -38,7 +47,7 @@ html {
     min-height: 100%;
     position: relative;
     background-color: #f9faff;
-}
+};
 
 #banner {
     background: url('vache-text.jpg') no-repeat 50% 25%;
@@ -61,7 +70,7 @@ html {
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    font-family: "Iconsolata",  Helvetica Neue, sans-serif;
+    font-family: "Asap",  Helvetica Neue, sans-serif;
     margin-top: 20px;
     margin-bottom: 50px;
     min-height: 1000px;
@@ -73,10 +82,7 @@ body {
     text-align: center;
 }
 
-/*Add a bit of shading between sections*/
 .site-wrapper {
-    // -webkit-box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
-    // box-shadow: inset 0 10px 25px -6px rgba(0,0,0,.5);
 }
 
 /*custom link color*/
@@ -94,50 +100,50 @@ a:focus {
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-  min-height:35px;
-  width:auto;
-  display:inline-block;
-  padding:.1rem 1.5rem;
-  cursor:pointer;
-  outline:none;
-  text-decoration:none;
-  color:#fff;
-  font-family:Open Sans,sans-serif;
-  font-size:11px;
-  line-height:13px;
-  font-weight:300;
-  text-align:center;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  text-shadow:none;
-  border-radius:.3rem;
-  border:.1em solid rgba(0,0,0,.05);
-  background:#5ba4e5;
+    min-height:35px;
+    width:auto;
+    display:inline-block;
+    padding:.1rem 1.5rem;
+    cursor:pointer;
+    outline:none;
+    text-decoration:none;
+    color:#fff;
+    font-family:Open Sans,sans-serif;
+    font-size:11px;
+    line-height:13px;
+    font-weight:300;
+    text-align:center;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-shadow:none;
+    border-radius:.3rem;
+    border:.1em solid rgba(0,0,0,.05);
+    background:#5ba4e5;
 
 }
 
 .btn-decomp,
 .btn-decomp:hover,
 .btn-decomp:focus {
-  min-height:35px;
-  width:auto;
-  display:inline-block;
-  padding:.1rem 1.5rem;
-  cursor:pointer;
-  outline:none;
-  text-decoration:none;
-  color:#fff;
-  font-family:Open Sans,sans-serif;
-  font-size:11px;
-  line-height:13px;
-  font-weight:300;
-  text-align:center;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  text-shadow:none;
-  border-radius:.3rem;
-  border:.1em solid rgba(0,0,0,.05);
-  background:#aa2537;
+    min-height:35px;
+    width:auto;
+    display:inline-block;
+    padding:.1rem 1.5rem;
+    cursor:pointer;
+    outline:none;
+    text-decoration:none;
+    color:#fff;
+    font-family:Open Sans,sans-serif;
+    font-size:11px;
+    line-height:13px;
+    font-weight:300;
+    text-align:center;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-shadow:none;
+    border-radius:.3rem;
+    border:.1em solid rgba(0,0,0,.05);
+    background:#aa2537;
 
 }
 
@@ -153,7 +159,7 @@ a:focus {
     position: absolute;
     bottom: 0;
     width: 100%;
-    
+
     /* Set the fixed height of the footer here */
     height: 50px;
     background-color: #444;
@@ -181,19 +187,16 @@ a:focus {
 
 .headsup {
     justify-content: center; 
-    color: $base-purp;
-    font-size: 24px;
     font-weight: 200;
-    opacity: .5;
+    opacity: .8;
     text-transform: uppercase;
-    background-color: #F1F1FF;
+    background-color: #FFF;
     align-items: center; 
 }
 
 /*containers!!!*/
 
 .container {
-    // width: auto;
 }
 
 .flex-container {
@@ -214,13 +217,18 @@ a:focus {
     font-size: 32px;
 }
 
-#greeter {
-    // max-height: 100px;
-}
-
-#nexties a {
+.markee a {
     cursor: pointer;
-}
+};
+
+// #nexties {
+//     width: 100%;
+//     text-align: center;
+// };
+
+// #nexties  a {
+//     cursor: pointer;
+// }
 
 .payam-title {
     padding-bottom: 10px;
@@ -237,24 +245,18 @@ a:focus {
 
 .base-plaque {
     background: radial-gradient(#FFFAFF, #f9faff);
-    // background-color: #FFFAFF;
-    // justify-content: space-between;
-    // border: none;
-    // padding: 20px 20px 40px 20px;
 }
 
 .side-plaque {
 }
 
 .side-plaque > .container {
-    // text-align: center;
 }
 
 .top-plaque {
     justify-content: space-around;
     border: none;
     padding-top: 10px;
-    // background-color: rgba(55, 0, 170, .1);
 }
 
 .form-horizontal .container {
@@ -315,3 +317,68 @@ a:focus {
     font-size: 62.5%;
     line-height: 1.15;
 }
+
+#scratch {
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+    justify-content: center; 
+    align-items: center; 
+};
+
+//STRUCTURE FOR BACKGROUND BARELY SEEN TEXT//
+
+// **Container outside of all content to be held; add this style to flex-container-column** //
+.inlay-holder {
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+    justify-content: center; 
+    align-items: center; 
+};
+
+//set position for overlapping divs//
+.plaque,
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+};
+
+// ****Container for background text and color; add this style to flex-container-column**** //
+.plaque {
+    font-weight: 200;
+    opacity: .8;
+    justify-content: center; 
+    background-color: #FFF;
+    align-items: center; 
+};
+
+// ******Container for background text; add this style to container****** //
+.plaque-letters {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    opacity: .3;
+    color: #F1F1FF;
+};
+
+// ****Close plaque-letters container**** //
+// ****Close plaque flex-container**** //
+
+// ****Container for the content on top; add this style to container **** //
+.overlay {
+    z-index: 10;
+    padding: 10px;
+};
+
+.overlay a {
+    cursor: pointer;
+};
+
+// **Close inlay-holder container** //
+
+
+
+.capitalizer {
+    text-transform: uppercase;
+};

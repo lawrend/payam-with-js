@@ -65,7 +65,7 @@ let previewIt = function(preview_button) {
         stuf_resp.forEach(function(el) {
             new_lines += "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
         });
-        prev_box.append(new_lines).hide().slideDown(400);
+        prev_box.append("<br>"+new_lines).hide().slideDown(400);
     });
 
     let button_holder = $('.btn-holder[data-id='+id+']');
