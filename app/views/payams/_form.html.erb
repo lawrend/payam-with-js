@@ -2,7 +2,6 @@
 
 <section class="PostContent">
     <div class="flex-container-column text-boxer">
-
         <%= form_for(@payam, :html => {:class => "form-horizontal"}) do |f| %>
 
             <%# PAYAM ERROR MESSAGES %>
@@ -19,38 +18,41 @@
 
 
             <% if @payam.counter == 1 %>
-                <div class="container" style="border-bottom: 1px dotted; border-color: #dab4e4; padding-bottom: 20px">
-                    <div class="flex-container">
-                    <div class="container">
-                        <p>Pick a style from a list...</p>
-                        <div class="form-group col-sm-12">
-                            <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control") %>
+                <div class="container-child">
+                    <div class="flex-container" style="border-bottom: 1px dotted; border-color: #dab4e4; justify-content: space-around">
+                        <div class="container capitalizer box-label">
+                            <p>Pick a style from a list</p>
+                            <div class="form-group col-sm-12">
+                                <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
+                            </div><!--form-group-->
+                        </div><!--col-sm-6-->
+                        <div class="container capitalizer box-label">
+                            <p>Or make up a new style</p>
+                            <div class="form-group col-sm-12">
+                                <%= f.fields_for :style, @style do |style_name| %>
+                                    <%= style_name.text_field :name, :placeholder => "Create a new one", :class => "form-control input-box"%>
+                                <% end %>
+                            </div><!--form-group-->
+                        </div><!--col-sm-6-->
+                    </div><!--flex-container-->
+                </div><!--container-child-->
+                <div class="flex-container-column">
+                    <div class="container-child">
+                        <p class="capitalizer box-label">Provide a one-word title to guide the later authors</p>
+                    </div><!--container-child-->
+                    <div class="container-child">
+                        <div class="form-group col-sm-push-3 col-sm-6 ">
+                            <%= f.text_field :title, :placeholder => "one-word title", class: "form-control input-box" %><br>
                         </div><!--form-group-->
-                    </div><!--col-sm-6-->
-                    <div class="container">
-                        <p>Or make up a new style.</p>
-                        <div class="form-group col-sm-12">
-                            <%= f.fields_for :style, @style do |style_name| %>
-                                <%= style_name.text_field :name, :placeholder => "Create a new one", :class => "form-control"%>
-                            <% end %>
-                        </div><!--form-group-->
-                    </div><!--col-sm-6-->
-                </div><!--flex-container-->
-                <div class="container" style="text-align: center">
-                    <%# <div class="col-sm-12"> %>
-                        <p>Provide a one-word title to guide the later authors</p>
-                        <div class="form-group col-sm-push-3 col-sm-6">
-                            <%= f.text_field :title, :placeholder => "one-word title", class: "form-control" %><br>
-                        </div>
-                    <%# </div> %>
-                </div>
+                    </div><!--container-child-->
+                </div><!--flex-container-column-->
             <% else %>
-                <div class="container">
+                <div class="container-child capitalizer box-label">
                     <h3>The style of this Payam is <span id="base-purp"><%= @payam.style.name%></span>, and the title is <span id="base-purp">"<%=@payam.title%>"</span>.</h3>
                 </div>
             <%end%>
 
-            <div class="container" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
+            <div class="container-child box-label" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
                 <% if @payam.counter == 1 %>
                     <p>Write the first line.
                 <% else %>
@@ -71,23 +73,23 @@
                     Make it between 10-20 words. The next writer will only see the last 5 words you write.</p><br>
                 <% end %>
 
-                <div class="container">
-                    <div class="form-group">
+                <div class="container-child">
+                    <div class="form-group ">
                         <%= f.fields_for :lines, @line do |line| %>
 
                             <% if @payam.counter < 8 %>
-                                <%= line.text_field :text, class: "form-control", placeholder: "Think about your last 5 words as they will be what the next author sees..." %><br>
+                                <%= line.text_field :text, class: "form-control input-box", placeholder: "Think about your last 5 words as they will be what the next author sees..." %><br>
                             <% else %>
-                                <%= line.text_field :text, class: "form-control", placeholder: "These are the last words of the Payam..." %><br>
+                                <%= line.text_field :text, class: "form-control input-box", placeholder: "These are the last words of the Payam..." %><br>
                             <% end %>
                             <!-- where the hidden fields were -->
                         <% end %>
 
                     </div><!--form-group-->
                 </div><!--container-->
-            </div><!--container with border-bottom-->
+                <%# </div><!--container with border-bottom--> %>
             <%= f.hidden_field :current_scribe, :value => current_user.id %>
-            <div class="container">
+            <div class="container-child">
                 <div class="form-group">
                     <div class="col-sm-push-5 col-sm-1">
                         <%= f.submit "Submit", class: "btn btn-default" %>
@@ -96,4 +98,8 @@
             </div><!--container-->
         <% end %><!--end of form_for-->
     </div>
+    </div>
 </section>
+
+<%# NEW FORM TESTING AREA %>
+

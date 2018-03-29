@@ -184,3 +184,6 @@ let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
     $('#decomps').prepend("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
 };
+
+// // NEW FORM TESTING AREA
+
