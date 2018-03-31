@@ -7,19 +7,19 @@ let firstPayam = function(playerId) {
 
     //GET all completed payams for this player
     $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
-        let tuba = resp['data'];
-        let tabble = tuba[position]['attributes']['title']
-        let longo = tuba.length
+        let respo = resp['data'];
+        let respo_title_attr = respo[position]['attributes']['title']
+        let respo_length = respo.length
         //allow for looping through array
-        if(nextPosition >= longo) {
+        if(nextPosition >= respo_length) {
             nextPosition = 0;
         };
 
         if(prevPosition < 0) {
-            prevPosition = longo - 1;
+            prevPosition = respo_length - 1;
         };
         //replace html with new buttons with new values
-        $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a><p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</a></p></div></div>")
+        $('#nexties').html("<p class='markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a><p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>")
     });
 };
 
@@ -32,19 +32,19 @@ let prevPayam = function(playerId) {
     // let prevPosition = position - 1;
     let prevPosition = parseInt($('#scorps').data('id')) - 1;
     $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
-        let tuba = resp['data'];
-        let tabble = tuba[position]['attributes']['title'];
-        let longo = tuba.length;
-        if(nextPosition >= longo) {
+        let respo = resp['data'];
+        let respo_title_attr = respo[position]['attributes']['title'];
+        let respo_length = respo.length;
+        if(nextPosition >= respo_length) {
             nextPosition = 0;
         };
 
         if(prevPosition < 0) {
-            prevPosition = longo - 1;
+            prevPosition = respo_length - 1;
         };
 
         //replace html with new buttons with new values
-        $('#nexties').html("<p class='markee'>Title: <a href='/payams/"+tuba[position]['id']+"'>"+tabble+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next one...</a></p></div></div>")
+        $('#nexties').html("<p class='markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>")
     });
 };
 

@@ -1,12 +1,12 @@
-<div class="flex-container-column text-boxer">
+<div class="flex-container-column text-boxer" style="text-align: left;">
     <div class="container">
         <h2>Edit <%= resource_name.to_s.humanize %></h2>
     </div><!--container-->
 
-    <div class="container">
+    <div class="container ">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => "form-horizontal"  }) do |f| %>
             <%= devise_error_messages! %>
-
+            <div class="container">
             <div class="form-group">
                 <div class="col-sm-6">
                     <%= f.label :username %><br />

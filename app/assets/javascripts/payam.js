@@ -40,8 +40,8 @@ let decompBanner = function() {
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
 let changeButtonText = function(button) {
-    if(button.innerText == "SHOW...") button.innerText = "HIDE...";
-    else button.innerText = "SHOW...";
+    if(button.innerText == "SHOW") button.innerText = "HIDE";
+    else button.innerText = "SHOW";
 };
 
 let previewIt = function(preview_button) {
@@ -69,7 +69,7 @@ let previewIt = function(preview_button) {
     });
 
     let button_holder = $('.btn-holder[data-id='+id+']');
-    button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE...</button>");
+    button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE</button>");
 };
 
 let hideIt = function(id) {
@@ -175,14 +175,14 @@ let saveIt = function() {
             decompBanner();
         };
 
-        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+        $('#decomps').prepend("<p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
     });
 };
 
 // FORMAT DECOMPS UPON PAGE LOAD
 let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
-    $('#decomps').prepend("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW...</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
+    $('#decomps').prepend("<p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p>");
 };
 
 // // NEW FORM TESTING AREA

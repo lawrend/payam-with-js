@@ -1,7 +1,7 @@
 <div style="border-bottom: 1px dotted; border-color: $border-color; padding-bottom: 20px"><p>Check out <span id="base-purp"><%= link_to "#{payam.title}", payam_path(payam) %></span> in the <%= link_to "#{payam.style.name}", style_payams_path(payam.style) %> style.</p>
 
     <div class="btn-holder" data-id="<%= payam.id %>">
-        <button class="js-preview btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">SHOW...</button>
+        <button class="js-preview btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">SHOW</button>
     </div>
 
     <div id="preview-payam-<%=payam.id%>"></div>

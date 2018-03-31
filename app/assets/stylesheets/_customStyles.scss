@@ -62,16 +62,71 @@ body {
     text-align: center;
 }
 
+//HEADER//
+
+#navbar a {
+    text-decoration: none; 
+    color: $default-background;
+    opacity: .82;
+}
+
+#navbar a:hover {
+    color: $brown-comp;
+}
+
+#dead-link a:hover {
+    color: $default-background;
+}
+
+#brando {
+    // text-decoration: none; 
+    color: $default-background;
+    opacity: .82;
+}
+
+
+#navbarCollapse ul.dropdown-menu a {
+    color: $base-purp;
+}
+
+//BANNER//
+
+/*for cover background picture as top banner on all pages*/
+html {
+    min-height: 100%;
+    position: relative;
+    background-color: $default-background;
+};
+
+#banner {
+    background: url('vache-text.jpg') no-repeat 50% 25%;
+    width: 100%;
+    min-height: 240px;
+}
+
+#banner h1 {
+    color: #FFF;
+    padding-top: 20px;
+    font-size: 164px;
+    letter-spacing: 19px;
+    opacity: .62;
+}
+
+//*FOOTER*//
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    background-color: #444;
+    text-align: center;
+}
+
 //*RANDOM FORMATTING*//
 
-.headsup {
-    justify-content: center; 
-    font-weight: 200;
-    opacity: .8;
-    text-transform: uppercase;
-    background-color: #FFF;
-    align-items: center; 
-}
 
 .jumbotron {
     background-color: inherit;
@@ -85,6 +140,7 @@ body {
     cursor: pointer;
 };
 
+/*used on payam show page and player page*/
 .payam-title {
     padding-bottom: 10px;
     font-size: 32px;
@@ -118,13 +174,6 @@ body {
     position: relative;
     justify-content: center; 
     align-items: center; 
-};
-
-#font-tester {
-    font-family: 'Roboto', sans-serif;
-    font-size: 44px;
-    opacity: .3;
-    color: #F1F1FF;
 };
 
 .dubs {
@@ -162,43 +211,6 @@ body {
     animation-fill-mode: forwards;
 };
 
-
-//BANNER//
-
-/*for cover background picture as top banner on all pages*/
-html {
-    min-height: 100%;
-    position: relative;
-    background-color: $default-background;
-};
-
-#banner {
-    background: url('vache-text.jpg') no-repeat 50% 25%;
-    width: 100%;
-    min-height: 240px;
-}
-
-#banner h1 {
-    color: #FFF;
-    padding-top: 20px;
-    font-size: 164px;
-    letter-spacing: 19px;
-    opacity: .62;
-}
-
-
-//*FOOTER*//
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    /* Set the fixed height of the footer here */
-    height: 50px;
-    background-color: #444;
-    text-align: center;
-}
 
 //*ERRORS AND ALERTS*//
 
@@ -238,7 +250,7 @@ html {
 /*custom link color*/
 a {
     color: $blue-comp;
-    text-decoration: underline;
+    // text-decoration: underline;
 }
 
 a:hover,
@@ -308,7 +320,6 @@ a:focus {
 
 /*flex containers*/
 .flex-container {
-    // background-color: blue;
     display: -webkit-flex;
     display: flex;
     webkit-flex-direction: row;
@@ -316,7 +327,6 @@ a:focus {
 }
 
 .flex-container-column {
-    // background-color: orange;
     display: -webkit-flex;
     display: flex;
     webkit-flex-direction: column;
@@ -332,50 +342,16 @@ a:focus {
 .side-plaque {
 }
 
-.side-plaque > .container {
-}
-
 .top-plaque {
     justify-content: space-around;
     border: none;
     padding-top: 10px;
 }
 
-.form-horizontal .container {
-    // text-align: center; 
-}
-
 .col-sm-6 .form-control {
     text-align: center; 
 }
 
-
-//HEADER//
-
-#navbar a {
-    text-decoration: none; 
-    color: $default-background;
-    opacity: .82;
-}
-
-#navbar a:hover {
-    color: $brown-comp;
-}
-
-#dead-link a:hover {
-    color: $default-background;
-}
-
-#brando {
-    // text-decoration: none; 
-    color: $default-background;
-    opacity: .82;
-}
-
-
-#navbarCollapse ul.dropdown-menu a {
-    color: $base-purp;
-}
 
 //*STRUCTURE FOR BACKGROUND BARELY SEEN TEXT*//
 
@@ -400,6 +376,7 @@ a:focus {
 .plaque {
     font-weight: 200;
     opacity: .8;
+    text-transform: uppercase;
     justify-content: center; 
     background-color: #FFF;
     align-items: center; 
@@ -428,6 +405,23 @@ a:focus {
 
 /*Close inlay-holder container*/
 
+/*username above intro on player show page*/
+.headsup {
+    text-transform: uppercase;
+    justify-content: center; 
+    font-weight: 200;
+    opacity: .8;
+    background-color: #FFF;
+    align-items: center; 
+    // color: 
+}
+
+#font-tester {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    opacity: .3;
+    color: #F1F1FF;
+};
 
 
 //*FORM INPUTS HOVER CHANGE COLOR STUFF*//
@@ -458,6 +452,7 @@ a:focus {
 
 .input-box:focus::placeholder {
     color: $base-purp;
+    opacity: .4;
 }
 
 .input-box:hover::placeholder {
