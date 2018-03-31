@@ -1,6 +1,6 @@
 <%# NEW PAYAM FORM %>
 
-<section class="PostContent">
+<section class="PageContent">
     <div class="flex-container-column text-boxer">
         <%= form_for(@payam, :html => {:class => "form-horizontal"}) do |f| %>
 
@@ -19,7 +19,7 @@
 
             <% if @payam.counter == 1 %>
                 <div class="container-child">
-                    <div class="flex-container" style="border-bottom: 1px dotted; border-color: #dab4e4; justify-content: space-around">
+                    <div class="flex-container" style="border-bottom: 1px dotted; border-color: $border-color; justify-content: space-around">
                         <div class="container capitalizer box-label">
                             <p>Pick a style from a list</p>
                             <div class="form-group col-sm-12">
@@ -52,7 +52,7 @@
                 </div>
             <%end%>
 
-            <div class="container-child box-label" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
+            <div class="container-child box-label base-plaque" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
                 <% if @payam.counter == 1 %>
                     <p>Write the first line.
                 <% else %>

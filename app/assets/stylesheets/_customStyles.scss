@@ -1,8 +1,124 @@
+//FONTS//
+
+/*some not in use*/
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
 @import url('https://fonts.googleapis.com/css?family=Bangers|Dosis|Playfair+Display+SC|Inconsolata|Roboto');
 @import url('https://fonts.googleapis.com/css?family=Anton|Asap|Fjalla+One');
 
-/*animations for decomp on payam show page*/
+//*COLORS*//
+
+$default-background: #eeeff4;
+$default-text: #111;
+$light-purp: #9da5c0;
+$base-purp: #495786;
+$blue-comp: #717ca2;
+$yellow-comp: #efe39d;
+$brown-comp: #efc59d;
+$brown-comp-2: #c69261;
+$border-color: #dab4e4;
+
+#blue-comp {
+    color: $blue-comp;
+}
+
+#base-purp {
+    color: $base-purp;
+}
+
+.base-purp {
+    color: $base-purp;
+}
+
+.bottom-border-dotted {
+    border-bottom: 1px dotted $border-color;
+}
+
+//*TEXT MANIPULATION*//
+
+/*italic*/
+.em {
+    font-style: italic;
+}
+
+/*capitalize all*/
+.capitalizer {
+    text-transform: uppercase;
+};
+
+//*BODY*//
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    font-family: "Asap",  Helvetica Neue, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    min-height: 1000px;
+    background-image: inherit;
+    background-size: inherit;
+    background-color: inherit;
+    padding-bottom: 20px;
+    color: $default-text;
+    text-align: center;
+}
+
+//*RANDOM FORMATTING*//
+
+.headsup {
+    justify-content: center; 
+    font-weight: 200;
+    opacity: .8;
+    text-transform: uppercase;
+    background-color: #FFF;
+    align-items: center; 
+}
+
+.jumbotron {
+    background-color: inherit;
+}
+
+.markee {
+    font-size: 32px;
+}
+
+.markee a {
+    cursor: pointer;
+};
+
+.payam-title {
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-weight: 200;
+    letter-spacing: 17px;
+    opacity: .7;
+}
+
+.text-boxer {
+    padding: 15px;
+    border: none;
+}
+
+#decomp-holder {
+    margin: 10px;
+    padding: 10px; 
+}
+
+.PageContent {
+    color: #111;
+    max-width: 1255px;
+    padding: 0 25px;
+    margin: 0 auto;
+    font-size: 62.5%;
+    line-height: 1.15;
+}
+
+#scratch {
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+    justify-content: center; 
+    align-items: center; 
+};
 
 #font-tester {
     font-family: 'Roboto', sans-serif;
@@ -11,6 +127,19 @@
     color: #F1F1FF;
 };
 
+.dubs {
+    font-size: 24px;
+    padding: 10px;
+}
+
+
+.box-label {
+}; 
+
+
+//*ANIMATIONS*//
+
+/*for decomp on payam show page*/
 @keyframes outFader {
     from {color: red; opacity: 1.3}
     to {color: red; opacity: 0.0};
@@ -34,19 +163,13 @@
 };
 
 
-/*colors*/
+//BANNER//
 
-$light-purp: #ddf;
-$base-purp: #320266;
-$first-comp: #e6ddff;
-$second-comp: #5f90cc;
-$green-comp: #99e699;
-
-/*for cover background picture*/
+/*for cover background picture as top banner on all pages*/
 html {
     min-height: 100%;
     position: relative;
-    background-color: #f9faff;
+    background-color: $default-background;
 };
 
 #banner {
@@ -63,43 +186,68 @@ html {
     opacity: .62;
 }
 
-.jumbotron {
-    background-color: inherit;
-}
 
+//*FOOTER*//
 
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-    font-family: "Asap",  Helvetica Neue, sans-serif;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    min-height: 1000px;
-    background-image: inherit;
-    background-size: inherit;
-    background-color: inherit;
-    padding-bottom: 20px;
-    color: #111;
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    background-color: #444;
     text-align: center;
 }
 
-.site-wrapper {
+//*ERRORS AND ALERTS*//
+
+/*custom error fields*/
+.form_errors { color: red }
+
+.field_with_errors {
+    color: red;
+    background: transparent;
 }
+.field_with_errors input {
+    border: thin solid red;
+}
+
+/*custom flash alerts*/
+.alert-notice {
+    background-color: rgba(95, 201, 79, .2);
+    border-color: #111111;
+    color: #111;
+    text-align: left;
+}
+
+/*error message formatting*/
+
+#error_explanation {
+    font-family: "Asap",  Helvetica Neue, sans-serif;
+}
+
+#error_explanation li {
+    font-size: 20px; 
+    color: $blue-comp;
+}
+
+
+//*LINKS AND BUTTONS*//
 
 /*custom link color*/
 a {
-    color: #000;
+    color: $blue-comp;
     text-decoration: underline;
 }
 
 a:hover,
 a:focus {
-    color: #7e5fcc;
+    color: $brown-comp-2;
 }
 
 /*custom default button*/
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
+.btn-default {
     min-height:35px;
     width:auto;
     display:inline-block;
@@ -118,10 +266,16 @@ a:focus {
     text-shadow:none;
     border-radius:.3rem;
     border:.1em solid rgba(0,0,0,.05);
-    background:#5ba4e5;
+    background: $brown-comp;
 
 }
 
+.btn-default:hover,
+.btn-default:focus {
+    background: $brown-comp-2;
+}
+
+/*custom decomp button*/
 .btn-decomp,
 .btn-decomp:hover,
 .btn-decomp:focus {
@@ -147,58 +301,12 @@ a:focus {
 
 }
 
-/*(B)ig first letter of a line. You know, FANCY */
-.biginner {
-    font-family: cursive;
-    font-size: 46px;
-    color: $base-purp;
-}
-
-/*custom footer settings*/
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    /* Set the fixed height of the footer here */
-    height: 50px;
-    background-color: #444;
-    text-align: center;
-}
-
-/*custom error fields*/
-.form_errors { color: red }
-
-.field_with_errors {
-    color: red;
-    background: transparent;
-}
-.field_with_errors input {
-    border: thin solid red;
-}
-
-/*custom flash*/
-.alert-notice {
-    background-color: rgba(95, 201, 79, .2);
-    border-color: #111111;
-    color: #111;
-    text-align: left;
-}
-
-.headsup {
-    justify-content: center; 
-    font-weight: 200;
-    opacity: .8;
-    text-transform: uppercase;
-    background-color: #FFF;
-    align-items: center; 
-}
-
-/*containers!!!*/
+//*CONTAINERS*//
 
 .container {
 }
 
+/*flex containers*/
 .flex-container {
     // background-color: blue;
     display: -webkit-flex;
@@ -215,38 +323,10 @@ a:focus {
     flex-direction: column;
 }
 
-.markee {
-    font-size: 32px;
-}
-
-.markee a {
-    cursor: pointer;
-};
-
-// #nexties {
-//     width: 100%;
-//     text-align: center;
-// };
-
-// #nexties  a {
-//     cursor: pointer;
-// }
-
-.payam-title {
-    padding-bottom: 10px;
-    font-size: 32px;
-    font-weight: 200;
-    letter-spacing: 17px;
-    opacity: .7;
-}
-
-.text-boxer {
-    padding: 15px;
-    border: none;
-}
+//*BACKGROUND DIV STYLES*//
 
 .base-plaque {
-    background: radial-gradient(#FFFAFF, #f9faff);
+    background: radial-gradient(closest-side, #fffef8, $default-background);
 }
 
 .side-plaque {
@@ -269,68 +349,37 @@ a:focus {
     text-align: center; 
 }
 
-.dubs {
-    font-size: 24px;
-    padding: 10px;
-}
 
-.em {
-    font-style: italic;
-}
+//HEADER//
 
-#first-comp {
-    color: $first-comp;
-}
-
-#base-purp {
-    color: $base-purp;
-}
-
-.base-purp {
-    color: $base-purp;
-}
-
-#navbarCollapse a {
+#navbar a {
     text-decoration: none; 
-    color: #FFF;
+    color: $default-background;
     opacity: .82;
+}
+
+#navbar a:hover {
+    color: $brown-comp;
+}
+
+#dead-link a:hover {
+    color: $default-background;
 }
 
 #brando {
-    text-decoration: none; 
-    color: #FFF;
+    // text-decoration: none; 
+    color: $default-background;
     opacity: .82;
 }
 
+
 #navbarCollapse ul.dropdown-menu a {
-    color: #5f5fcc;
+    color: $base-purp;
 }
 
-#decomp-holder {
-    margin: 10px;
-    padding: 10px; 
-}
+//*STRUCTURE FOR BACKGROUND BARELY SEEN TEXT*//
 
-.PostContent {
-    color: #111;
-    max-width: 1255px;
-    padding: 0 25px;
-    margin: 0 auto;
-    font-size: 62.5%;
-    line-height: 1.15;
-}
-
-#scratch {
-    min-height: 100px;
-    width: 100%;
-    position: relative;
-    justify-content: center; 
-    align-items: center; 
-};
-
-//STRUCTURE FOR BACKGROUND BARELY SEEN TEXT//
-
-// **Container outside of all content to be held; add this style to flex-container-column** //
+/*Container outside of all content to be held; add this style to flex-container-column*/
 .inlay-holder {
     min-height: 100px;
     width: 100%;
@@ -339,7 +388,7 @@ a:focus {
     align-items: center; 
 };
 
-//set position for overlapping divs//
+/*set position for overlapping divs*/
 .plaque,
 .overlay {
     width: 100%;
@@ -347,7 +396,7 @@ a:focus {
     position: absolute;
 };
 
-// ****Container for background text and color; add this style to flex-container-column**** //
+/*Container for background text and color; add this style to flex-container-column*/
 .plaque {
     font-weight: 200;
     opacity: .8;
@@ -356,7 +405,7 @@ a:focus {
     align-items: center; 
 };
 
-// ******Container for background text; add this style to container****** //
+/*Container for background text; add this style to container*/
 .plaque-letters {
     font-family: 'Roboto', sans-serif;
     font-size: 44px;
@@ -364,10 +413,10 @@ a:focus {
     color: #F1F1FF;
 };
 
-// ****Close plaque-letters container**** //
-// ****Close plaque flex-container**** //
+/*Close plaque-letters container*/
+/*Close plaque flex-container*/
 
-// ****Container for the content on top; add this style to container **** //
+/*Container for the content on top; add this style to container*/
 .overlay {
     z-index: 10;
     padding: 10px;
@@ -377,81 +426,94 @@ a:focus {
     cursor: pointer;
 };
 
-// **Close inlay-holder container** //
+/*Close inlay-holder container*/
 
 
 
-.capitalizer {
-    text-transform: uppercase;
-};
+//*FORM INPUTS HOVER CHANGE COLOR STUFF*//
 
-.box-label {
-    // // font-family: 'Lato', sans-serif;
-    //     transition: all 0.3s ease-in-out;
-    // -webkit-transition: all 0.3s ease-in-out;
-    // -moz-transition: all 0.3s ease-in-out;
-    // -ms-transition: all 0.3s ease-in-out;
-    // font-size: 0.875em;
-}; 
-
+/*normal inputs*/
 .input-box { 
-    color: $base-purp;
-    transition: all 0.3s ease-in-out;
+    color: $blue-comp;
+    transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
 };
 
+.input-box:hover {
+    background: $brown-comp;
+    color: $blue-comp;
+};
+
+.input-box:focus {
+    color: $blue-comp;
+    background: $brown-comp;
+};
+
+.input-box::placeholder {
+    color: $light-purp;
+    font-size: 0.875em;
+}
+
+.input-box:focus::placeholder {
+    color: $base-purp;
+}
+
+.input-box:hover::placeholder {
+    color: $base-purp;
+    font-size: 0.875em;
+}
+
+
+/*dropdown menus*/
 .input-box-dropdown { 
-    color: #aca49c;
-    transition: all 0.3s ease-in-out;
+    color: $light-purp;
+    transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
 };
 
 .input-box-dropdown:hover {
-    background: #b3aca7;
-    color: #e2dedb;
+    background: $brown-comp;
+    color: $blue-comp;
 };
 
 .input-box-dropdown:focus {
-    color: $base-purp;
+    color: $blue-comp;
 };
 
-.input-box:hover {
-    background: #b3aca7;
-    color: #e2dedb;
-};
-
-.input-box:focus {
-    color: $base-purp;
-};
-
-.input-box::placeholder {
-  color: #aca49c;
-  font-size: 0.875em;
-}
-
-.input-box:focus::placeholder {
-  color: #bbb5af;
-}
-
-.input-box:hover::placeholder {
-  color: #e2dedb;
-  font-size: 0.875em;
-}
-
+/*random formatting*/
 .container-child {
     padding: 10px;
     margin: 15px;
 }
-// .input-box:hover:focus::placeholder {
-//   color: #cbc6c1;
-// }
-//
-// .input-box:hover:focus::-ms-placeholder {
-//   color: #cbc6c1;
-// }
+
+//*COLOR EXPERIMENTS*//
+
+.color-primary-0 { color: #F9FAFF }	/* Main Primary color */
+.color-primary-1 { color: #FFFFFF }
+.color-primary-2 { color: #FFFFFF }
+.color-primary-3 { color: #BEC8FF }
+.color-primary-4 { color: #90A1FE }
+
+.color-secondary-1-0 { color: #FBF9FF }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #FFFFFF }
+.color-secondary-1-2 { color: #FFFFFF }
+.color-secondary-1-3 { color: #D3BCFF }
+.color-secondary-1-4 { color: #B38CFE }
+
+.color-secondary-2-0 { color: #FFFEF8 }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #FFFFFF }
+.color-secondary-2-2 { color: #FFFFFF }
+.color-secondary-2-3 { color: #FFF5B5 }
+.color-secondary-2-4 { color: #FFEF80 }
+
+.color-complement-0 { color: #FFFDF8 }	/* Main Complement color */
+.color-complement-1 { color: #FFFFFF }
+.color-complement-2 { color: #FFFFFF }
+.color-complement-3 { color: #FFEAB5 }
+.color-complement-4 { color: #FFDA80 }
 
 
