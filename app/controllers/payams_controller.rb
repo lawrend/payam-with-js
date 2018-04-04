@@ -5,13 +5,11 @@ class PayamsController < ApplicationController
     def index
         #only display completed payams of one style
         if params[:style_id]
-            @payams = Payam.completed.where(:style_id => params[:style_id])
+            @payams = Payam.completed.where("style_id = ? AND decomp = ?", params[:style_id], false)
         else
         #or all completed payams
             @payams = Payam.completed.where(decomp: false)
         end
-        #everything else
-        @all_other_payams = Payam.all - Payam.completed
         respond_to do |format|
             format.html {render :index}
             format.json {render json: @payams}

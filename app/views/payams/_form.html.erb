@@ -19,14 +19,14 @@
 
             <% if @payam.counter == 1 %>
                 <div class="container-child">
-                    <div class="flex-container" style="border-bottom: 1px dotted; border-color: $border-color; justify-content: center">
-                        <div class="container capitalizer box-label">
+                    <div class="flex-container base-plaque" style="border-bottom: 1px dotted; border-color: $border-color; justify-content: center">
+                        <div class="container capitalizer">
                             <p>Pick a style from a list</p>
                             <div class="form-group col-sm-12">
                                 <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
                             </div><!--form-group-->
                         </div><!--col-sm-6-->
-                        <div class="container capitalizer box-label">
+                        <div class="container capitalizer">
                             <p>Or make up a new style</p>
                             <div class="form-group col-sm-12">
                                 <%= f.fields_for :style, @style do |style_name| %>
@@ -36,9 +36,9 @@
                         </div><!--col-sm-6-->
                     </div><!--flex-container-->
                 </div><!--container-child-->
-                <div class="flex-container-column">
+                <div class="flex-container-column base-plaque">
                     <div class="container-child">
-                        <p class="capitalizer box-label">Provide a one-word title to guide the later authors</p>
+                        <p class="capitalizer">Provide a one-word title to guide the later authors</p>
                     </div><!--container-child-->
                     <div class="container-child">
                         <div class="form-group col-sm-push-3 col-sm-6 ">
@@ -47,12 +47,12 @@
                     </div><!--container-child-->
                 </div><!--flex-container-column-->
             <% else %>
-                <div class="container-child capitalizer box-label">
+                <div class="container-child capitalizer base-plaque">
                     <h3>The style of this Payam is <span id="base-purp"><%= @payam.style.name%></span>, and the title is <span id="base-purp">"<%=@payam.title%>"</span>.</h3>
                 </div>
             <%end%>
 
-            <div class="container-child box-label base-plaque" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
+            <div class="container-child base-plaque" style="border-top: 1px dotted; border-color: #dab4e4; padding-top: 20px">
                 <% if @payam.counter == 1 %>
                     <p>Write the first line.
                 <% else %>
@@ -63,7 +63,7 @@
                     authors,
                 <% end %>
                 and you are number <%= @payam.counter %>.</p>
-                    <p>The previous author's last five words were:<em><blockquote id="base-purp" style="font-size: 20px">...<%= @payam.previous_five%></blockquote></em></p>
+                    <p>The previous author's last five words were:<em><blockquote id="last-lines" style="font-size: 20px">...<%= @payam.previous_five%></blockquote></em></p>
                     <p>Write the next line.
                 <% end %>
 

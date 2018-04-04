@@ -25,41 +25,52 @@
                     </div><!--plaque-letters-->
                 </div><!--plaque-->
                 <div class="flex-container-column overlay" id="nexties">
-                    <p class="markee">Click to see a completed payam you worked on:</p>
-                    <div class="flex-container" style="justify-content: center">
-                        <div class="container">
-                            <p><a id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Press</a></p>
-                        </div><!--container-->
-                    </div><!--flex-container for links-->
+                    <p class="markee"></p>
+                    <div class="container">
+                        <p class="payam-title capitalizer"><a id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Completed Payams</a></p>
+                    </div><!--container-->
                 </div><!--flex-container-column-->
             </div><!--flex-container-column inlay-holder-->
         <% end %>
     </div><!--base-plaque payam-holder-->
     <br><hr>
     <% if !@player.waiting.empty? %>
+        <div class="flex-container-column inlay-holder">
+            <div class="flex-container plaque">
+                <div class="container plaque-letters">
+                    HEY THERE <%= @player.username %>! HEY YOU!!
+                </div>
+            </div>
+            <div class="flex-container-column overlay">
+                <div class="container">
+                    <p id="hide-helpers" class="payam-title capitalizer"><a>GET ON THESE</a></p>
+                </div>
+            </div>
+        </div>
+        <br>
+
         <div class="flex-container-column base-plaque" style="border-bottom: solid 2px; width: 100%; text-align: center">
             <div class="container">
-                <p class="markee">These payams need your help:</p>
-            </div><br>
-            <div id="needHelp">
-            <% @player.waiting.each do |c| %>
-                <div id="bottom-border-dotted" class="flex-container top-plaque">
-                    <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
+                <div id="needHelp" class="initially-hidden">
+                    <% @player.waiting.each do |c| %>
+                        <div id="bottom-border-dotted" class="flex-container top-plaque">
+                            <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
+                        </div>
+                    <% end %>
                 </div>
-            <% end %>
+            </div>
+        <% end %>
+        <div class="flex-container-column inlay-holder">
+            <div class="flex-container plaque">
+                <div class="container plaque-letters">
+                    HEY THERE <%= @player.username %>! HEY YOU!!
+                </div>
+            </div>
+            <div class="container overlay">
+                <%# <p>so it is you</p> %>
+                <p>I should have known</p>
             </div>
         </div>
-    <% end %>
-    <div class="flex-container-column inlay-holder">
-        <div class="flex-container plaque">
-            <div class="container plaque-letters">
-                HEY THERE <%= @player.username %>! HEY YOU!!
-            </div>
         </div>
-        <div class="container overlay">
-            <p>so it is you</p>
-            <p>I should have known</p>
-        </div>
-    </div>
 </section>
 

@@ -1,3 +1,5 @@
+// PLAYERS
+
 // First time button is pressed and every time "Next" pressed
 let firstPayam = function(playerId) {
     //get position in array of finished payams, value stored in button
@@ -19,7 +21,7 @@ let firstPayam = function(playerId) {
             prevPosition = respo_length - 1;
         };
         //replace html with new links with new values
-        $('#nexties').html("<p class='markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a><p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>");
+        $('#nexties').html("<p class='capitalizer markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a><p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>");
         $('#background-title').html(respo_title_attr);
     });
 };
@@ -45,12 +47,18 @@ let prevPayam = function(playerId) {
         };
 
         //replace html with new buttons with new values
-        $('#nexties').html("<p class='markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>");
+        $('#nexties').html("<p class='capitalizer markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>");
         $('#background-title').html(respo_title_attr);
     });
 };
 
 
 
+
+// hide/show //
 $(function() {
+    $("#hide-helpers").click(function() {
+        $(".initially-hidden").slideToggle(300);
+    });
 });
+

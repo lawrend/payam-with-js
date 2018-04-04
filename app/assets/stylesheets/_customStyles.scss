@@ -17,6 +17,7 @@ $yellow-comp: #efe39d;
 $brown-comp: #efc59d;
 $brown-comp-2: #c69261;
 $border-color: #dab4e4;
+$last-lines: #b29bc1;
 
 #blue-comp {
     color: $blue-comp;
@@ -24,6 +25,10 @@ $border-color: #dab4e4;
 
 #base-purp {
     color: $base-purp;
+}
+
+#last-lines {
+    color: $last-lines;
 }
 
 .base-purp {
@@ -381,7 +386,7 @@ a:focus {
     position: absolute;
 };
 
-/*Container for background text and color; add this style to flex-container-column*/
+/*Container for background text and color; add this style to flex-container*/
 .plaque {
     font-weight: 200;
     opacity: .8;
@@ -402,17 +407,29 @@ a:focus {
 /*Close plaque-letters container*/
 /*Close plaque flex-container*/
 
-/*Container for the content on top; add this style to container*/
+/*Container for the content on top; add this style to flex-container-column*/
 .overlay {
     z-index: 10;
     padding: 10px;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 0;
 };
+
+/*Add content to a div container*/
 
 .overlay a {
     cursor: pointer;
 };
 
+/*Close container div*/
 /*Close inlay-holder container*/
+
+/*dropdown of payams to work on*/
+
+.initially-hidden {
+    display: none;
+}
 
 /*username above intro on player show page*/
 .headsup {
