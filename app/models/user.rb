@@ -28,6 +28,10 @@ class User < ApplicationRecord
    end
   end
 
+  def unfinished_payams
+      self.payams.not_completed.distinct
+  end
+
   def finished_payams
       self.payams.completed.distinct
   end

@@ -8,6 +8,7 @@ class Payam < ApplicationRecord
     validates :title, presence: true, length: {maximum: 40}
     validates_with TitleValidator
     scope :completed, -> { where(:current_scribe => nil) }
+    scope :not_completed, -> { where.not(:current_scribe => nil) } 
 
     # For displaying the last 5 words of the last line added to a payam(payam)
     def previous_five
