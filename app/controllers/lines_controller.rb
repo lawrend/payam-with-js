@@ -1,5 +1,6 @@
 class LinesController < ApplicationController
     # before_action byebug :check_word_count, only: [:create]
+	before_action :authenticate_user!
     before_action :set_line, only: [:show]
 
     def index

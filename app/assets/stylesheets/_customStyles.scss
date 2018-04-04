@@ -34,6 +34,10 @@ $border-color: #dab4e4;
     border-bottom: 1px dotted $border-color;
 }
 
+#bottom-border-dotted {
+    border-bottom: 1px dotted $border-color;
+}
+
 //*TEXT MANIPULATION*//
 
 /*italic*/
@@ -62,7 +66,7 @@ body {
     text-align: center;
 }
 
-//HEADER//
+//*HEADER*//
 
 #navbar a {
     text-decoration: none; 
@@ -89,7 +93,7 @@ body {
     color: $base-purp;
 }
 
-//BANNER//
+//*BANNER*//
 
 /*for cover background picture as top banner on all pages*/
 html {
@@ -126,7 +130,6 @@ html {
 }
 
 //*RANDOM FORMATTING*//
-
 
 .jumbotron {
     background-color: inherit;
@@ -227,13 +230,15 @@ html {
 
 /*custom flash alerts*/
 .alert-notice {
-    background-color: rgba(95, 201, 79, .2);
-    border-color: #111111;
-    color: #111;
+    background-color: rgba(144, 175, 181, .2);
+    font-family: "Inconsolata", Helvetica Neue, sans-serif; 
+    border-color: $border-color;
+    color: $base-purp;
     text-align: left;
 }
 
 /*error message formatting*/
+/*for errors in creating/updating a payam*/
 
 #error_explanation {
     font-family: "Asap",  Helvetica Neue, sans-serif;
@@ -415,14 +420,6 @@ a:focus {
     align-items: center; 
     // color: 
 }
-
-#font-tester {
-    font-family: 'Roboto', sans-serif;
-    font-size: 44px;
-    opacity: .3;
-    color: #F1F1FF;
-};
-
 
 //*FORM INPUTS HOVER CHANGE COLOR STUFF*//
 

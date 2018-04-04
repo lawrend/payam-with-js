@@ -1,10 +1,18 @@
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
-    <a href="#" data-dismiss="alert" class="close">x</a>
-    <ul>
-    	<li>
-    		<%= value %>
-    	</li>
-    </ul>
-  </div>
+    <div class="alert alert-<%= key %>">
+        <a href="#" data-dismiss="alert" class="close">x</a>
+        <ul>
+            <li>
+                <%= value %>
+            </li>
+        </ul>
+    </div>
 <% end %>
+
+<script>
+window.setTimeout(function() {
+    $('.alert').fadeTo(500, 0).slideUp(500, function() {
+    $(this).remove();
+});
+}, 3000);
+</script>

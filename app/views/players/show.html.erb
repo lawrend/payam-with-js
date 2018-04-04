@@ -2,7 +2,7 @@
 
 <section class="PageContent">
     <div class="flex-container headsup" id="greeter" data-id=<%= @player.id %>>
-        <div class="container plaque-letters"><%= @player.username %></div>
+        <div class="container plaque-letters" style="color: #E1B1E1"><%= @player.username %></div>
         <hr>
     </div><br><!--headsup-->
     <div class="flex-container-column base-plaque" style="flex-basis: 100%; justify-content: space-between">
@@ -14,13 +14,14 @@
     <br><hr>
     <div class="flex-container-column base-plaque" id="payam-holder" data-playerId=<%=@player.id%>>
         <% if @player.payams.completed.empty? %>
-            <div class="container" style="border-bottom: solid 2px">
+            <div class="container" style="border-top: solid 2px; border-bottom: solid 2px">
                 <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
+                <h3><%= link_to "START A NEW ONE NOW", new_payam_path %></h3>
             </div>
         <% else %>
             <div class="flex-container-column inlay-holder">
                 <div class="flex-container plaque">
-                    <div class="container plaque-letters">YOU GOTTA SEE THESE THINGS
+                    <div id="background-title" class="container plaque-letters">YOU GOTTA SEE THESE THINGS
                     </div><!--plaque-letters-->
                 </div><!--plaque-->
                 <div class="flex-container-column overlay" id="nexties">
@@ -40,12 +41,13 @@
             <div class="container">
                 <p class="markee">These payams need your help:</p>
             </div><br>
-            <div id="needHelp"></div>
+            <div id="needHelp">
             <% @player.waiting.each do |c| %>
-                <div class="flex-container top-plaque">
+                <div id="bottom-border-dotted" class="flex-container top-plaque">
                     <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
                 </div>
             <% end %>
+            </div>
         </div>
     <% end %>
     <div class="flex-container-column inlay-holder">
