@@ -36,6 +36,14 @@ class User < ApplicationRecord
       self.payams.completed.distinct
   end
 
+  def decomps
+      self.finished_payams.where(decomp: true)
+  end
+
+  def finished_originals
+      self.finished_payams.where(decomp: false)
+  end
+
   def waiting
     Payam.where(:current_scribe => self.id)
   end

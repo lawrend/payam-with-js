@@ -7,8 +7,8 @@ class PayamsController < ApplicationController
         if params[:style_id]
             @payams = Payam.completed.where(:style_id => params[:style_id])
         else
-            #or all completed payams
-            @payams = Payam.completed
+        #or all completed payams
+            @payams = Payam.completed.where(decomp: false)
         end
         #everything else
         @all_other_payams = Payam.all - Payam.completed

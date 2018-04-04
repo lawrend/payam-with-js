@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   # keep user id out of the visible url
   get 'player' => 'players#show'
+
   post 'payams/decompose' => 'payams#decompose'
   
 end 
