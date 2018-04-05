@@ -1,12 +1,12 @@
 <%# COMPLETED PAYAM VIEW USED AS SHOW %>
 
 <section class="PageContent">
-    <div class="flex-container-column side-plaque">
+    <div class="flex-container-column">
         <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
             <div id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-style-id="<%= @payam.style_id %>" data-current-user-name="<%= current_user.username %>"data-current-user-id="<%= current_user.id %>">
-                    <div class="payam-title">
-                        <%= @payam.title %>
-                    </div>
+                <div class="payam-title">
+                    <%= @payam.title %>
+                </div>
             </div><!--payamInfo-->
         </div><!--container base-purp with bottom border-->
 
@@ -37,16 +37,15 @@
             </p>
             <hr>
         </div><!--container holding payam lines-->
-        <%# <div class="container" style="text-align: center"> %>
-        <%#     <%= button_to "Home", player_path(current_user), {method: :get, class: "btn btn-default"} %1> %>
-        <%# </div><!--container holding home button--> %>
         <div class="container">
             <div class="flex-container-column" style="justify-content: center, align-content: center">
-                <div class="container" id="decomp-holder"></div><!--container holding decomp lines-->
+                <div class="container" id="decomp-holder">
+                </div><!--container holding decomp lines-->
                 <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
                 </div><!--container holding decomp, save, start over buttons-->
             </div><!--flex container holding working decomp and its buttons-->
-            <div id="decomps-banner"></div>
+            <div id="decomps-banner">
+            </div>
             <div id="decomps">
                 <% if @payam.decomps.length != 0 %>
                     <script>

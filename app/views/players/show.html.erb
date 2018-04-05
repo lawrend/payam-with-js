@@ -39,14 +39,14 @@
             <div class="flex-container plaque">
                 <div class="container plaque-letters">
                     HEY THERE <%= @player.username %>! HEY YOU!!
-                </div>
-            </div>
+                </div><!--plaque-letters-->
+            </div><!--plaque-->
             <div class="flex-container-column overlay">
                 <div class="container">
                     <p id="hide-helpers" class="payam-title capitalizer"><a>GET ON THESE</a></p>
-                </div>
-            </div>
-        </div>
+                </div><!--container-->
+            </div><!--overlay-->
+        </div><!--inlay-holder-->
         <br>
 
         <div class="flex-container-column base-plaque" style="border-bottom: solid 2px; width: 100%; text-align: center">
@@ -55,22 +55,11 @@
                     <% @player.waiting.each do |c| %>
                         <div id="bottom-border-dotted" class="flex-container top-plaque">
                             <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
-                        </div>
+                        </div><!--top-plaque-->
                     <% end %>
-                </div>
-            </div>
+                </div><!--initially-hidden-->
+            </div><!--container-->
         <% end %>
-        <div class="flex-container-column inlay-holder">
-            <div class="flex-container plaque">
-                <div class="container plaque-letters">
-                    HEY THERE <%= @player.username %>! HEY YOU!!
-                </div>
-            </div>
-            <div class="container overlay">
-                <%# <p>so it is you</p> %>
-                <p>I should have known</p>
-            </div>
-        </div>
-        </div>
+        </div><!--base-plaque-->
 </section>
 
