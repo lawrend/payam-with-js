@@ -194,9 +194,4 @@ let existingDecomp = function(title, orig, style, id, firstUser) {
 
 
 // // NEW FORM TESTING AREA
-let existingDecomps = function(allDecomps) {
-    // allDecomps.forEach(function(dec) {
-        console.log(allDecomps.title);
-    // });
-};
 
