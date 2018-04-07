@@ -35,10 +35,6 @@ let getColor = function(num) {
     };
 };
 
-let decompBanner = function() {
-    let decomp_banner = $('#decomps-banner');
-    decomp_banner.html("<div style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
-};
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
 let changeButtonText = function(button) {
@@ -151,6 +147,10 @@ let nextDecomposeIt = function() {
     };
 };
 
+let addDecompToPage = function(prettyTitle, firstUser, id) {
+    $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+prettyTitle+"<br><span class='em'>by</span><br>"+firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div><hr>");
+};
+
 let saveIt = function() {
     let sendOff = payamPackage();
     let decompPay = $.ajax({
@@ -177,11 +177,17 @@ let saveIt = function() {
             decompBanner();
         };
 
-        $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+prodigalPayam.prettyTitle()+"<br><span class='em'>by</span><br>"+prodigalPayam.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div>");
+        addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, id);
+
     });
 };
 
 // FORMAT DECOMPS UPON PAGE LOAD
+
+let decompBanner = function() {
+    let decomp_banner = $('#decomps-banner');
+    decomp_banner.html("<div class='bottom-border-dotted' style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
+};
 
 let clearDecomp = function() {
     $('#decomps').html("");
@@ -189,7 +195,8 @@ let clearDecomp = function() {
 
 let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
-    $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div>");
+
+    addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id);
 };
 
 
