@@ -47,17 +47,19 @@
             <div id="decomps-banner">
             </div>
             <div id="decomps">
-                <% if @payam.decomps.length != 0 %>
-                    <script>
-decompBanner();
-                    </script>
-                <% end %>
-                <% @payam.decomps.each do |decomp| %>
-                    <script>
-existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>');
-                    </script>
-                <% end %>
             </div>
+            <% if @payam.decomps.length != 0 %>
+                <script>
+                    decompBanner();
+                    clearDecomp();
+                </script>
+            <% end %>
+            <% @payam.decomps.each do |decomp| %>
+                <script>
+                    existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>');
+                    existingDecomps('<%= @payam.decomps %>');
+                </script>
+            <% end %>
         </div><!--container holding flex-container why?-->
     </div><!--flex container holding it all-->
 </section><!--PageContent section-->

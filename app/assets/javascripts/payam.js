@@ -1,22 +1,24 @@
 // PAYAMS
 
-// LINE COLORS
-const color1 ="#11aaff"
-const color2 ="#ff22aa"
-const color3 ="#aa1133"
-const color4 ="#44aa11"
-const color5 ="#ff55aa"
-const color6 ="#aa1166"
-const color7 ="#77aaff"
-const color8 ="#1188aa"
-
 let getColor = function(num) {
+
+    // LINE COLORS
+    const color1 ="#11aaff"
+    const color2 ="#ff22aa"
+    const color3 ="#aa1133"
+    const color4 ="#44aa11"
+    const color5 ="#ff55aa"
+    const color6 ="#aa1166"
+    const color7 ="#77aaff"
+    const color8 ="#1188aa"
+
+
     switch(num) {
         case 0:
             return color1;
         case 1:
             return color2;
-        case 3:
+        case 2:
             return color3;
         case 3:
             return color4;
@@ -35,7 +37,7 @@ let getColor = function(num) {
 
 let decompBanner = function() {
     let decomp_banner = $('#decomps-banner');
-    decomp_banner.append("<div style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
+    decomp_banner.html("<div style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
 };
 
 // FUNCTIONS TO SHOW&HIDE PREVIEW LINES
@@ -180,6 +182,11 @@ let saveIt = function() {
 };
 
 // FORMAT DECOMPS UPON PAGE LOAD
+
+let clearDecomp = function() {
+    $('#decomps').html("");
+};
+
 let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
     $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+oldOne.prettyTitle()+"<br><span class='em'>by</span><br>"+oldOne.firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div>");
@@ -187,4 +194,9 @@ let existingDecomp = function(title, orig, style, id, firstUser) {
 
 
 // // NEW FORM TESTING AREA
+let existingDecomps = function(allDecomps) {
+    // allDecomps.forEach(function(dec) {
+        console.log(allDecomps.title);
+    // });
+};
 
