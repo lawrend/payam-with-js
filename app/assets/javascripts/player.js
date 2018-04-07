@@ -57,8 +57,6 @@ let prevPayam = function(playerId) {
 
 // hide/show //
 document.addEventListener("turbolinks:load", function() {
-
-// $(function() {
     $("#hide-helpers").click(function() {
         $(".initially-hidden").slideToggle(300);
     });
