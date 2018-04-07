@@ -161,6 +161,13 @@ html {
     text-decoration: none;
 }
 
+.non-payam-title {
+    font-weight: 200;
+    letter-spacing: 17px;
+    opacity: .7;
+    text-transform: uppercase;
+}
+
 .text-boxer {
     padding: 15px;
     border: none;
@@ -428,8 +435,12 @@ a:focus {
 
 /*dropdown of payams to work on*/
 
-.initially-hidden {
+.initially-hidden, .hidden-workers {
     display: none;
+}
+
+.hidden-workers {
+    font-style: italic;
 }
 
 /*username above intro on player show page*/

@@ -1,16 +1,5 @@
 // PLAYERS
 
-let whereAreMyPayams = function(playerId) {
-    $.get("/players/"+ playerId +"/outstanding_originals").done(function(resp) {
-        let respo = resp['data'];
-        // let respo_title_attr = respo[0]['attributes']['title'];
-        // let respo_length = respo.length;
-        // let respo_currentUser = respo[0]['attributes']['current_scribe'];
-        // let round = respo[0]['attributes']['counter'];
-    console.log(respo);
-    });
-};
-
 // First time button is pressed and every time "Next" pressed
 let firstPayam = function(playerId) {
     //get position in array of finished payams, value stored in button
@@ -63,13 +52,28 @@ let prevPayam = function(playerId) {
     });
 };
 
-
-
+let whereAreMyPayams = function(playerId) {
+    $.get("/players/"+ playerId +"/outstanding_originals").done(function(resp) {
+        let respo = resp['data'];
+        respo.forEach(function(ind) {
+            let respo_title_attr = ind['attributes']['title'];
+            let respo_currentUser = ind['attributes']['current-scribe-username'];
+            let round = ind['attributes']['counter'];
+    // console.log(respo);
+           $('#outstanding-originals').prepend("<div class='bottom-border-dotted'><p>"+respo_currentUser+" is working on round "+round+" of "+respo_title_attr+"</p></div><br>");
+        });
+    });
+};
 
 // hide/show //
 document.addEventListener("turbolinks:load", function() {
     $("#hide-helpers").click(function() {
         $(".initially-hidden").slideToggle(300);
     });
+
+    $("#hide-workers").click(function() {
+        $(".hidden-workers").slideToggle(300);
+    });
+
 });
 

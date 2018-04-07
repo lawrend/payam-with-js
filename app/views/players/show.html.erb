@@ -6,7 +6,7 @@
 
     <div class="flex-container headsup" id="greeter" data-id=<%= @player.id %>>
         <div class="container plaque-letters" style="color: #E1B1E1"><%= @player.username %>
-        </div><!--plaque-letters-->
+    </div><!--plaque-letters-->
     <hr>
     </div><br><!--headsup-->
 
@@ -79,11 +79,38 @@
             </div><!--container-->
         </div><!--base-plaque-->
     <% end %>
+    <hr>
 
     <%# WHERE ARE MY PAYAMS SECTION %>
 
-    <script>
+    <% if !@player.unfinished_originals.empty? %>
+        <div class="flex-container-column inlay-holder">
+            <div class="flex-container plaque">
+                <div class="container plaque-letters">
+                    WHERE IS <%= @player.username %>'S STUFF???
+                </div><!--plaque-letters-->
+            </div><!--plaque-->
+            <div class="flex-container-column overlay">
+                <div class="container">
+                    <p id="hide-workers" class="payam-title capitalizer"><a>PEOPLE WORKING ON YOUR PAYAMS</a></p>
+                </div><!--container-->
+            </div><!--overlay-->
+        </div><!--inlay-holder-->
+        <br>
+        <div class="flex-container-column base-plaque" style="width: 100%; text-align: center">
+            <div class="container">
+                <div class="hidden-workers">
+                    <div id="bottom-border-dotted" class="flex-container top-plaque">
+                        <div id="outstanding-originals"></div>
+                        <script>
 whereAreMyPayams(<%= @player.id %>);
-    </script>
+                        </script>
+                    </div><!--top-plaque-->
+                </div><!--initially-hidden-->
+            </div><!--container-->
+        </div><!--base-plaque-->
+    <% end %>
+
+
 </section>
 

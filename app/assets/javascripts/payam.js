@@ -42,8 +42,7 @@ let changeButtonText = function(button) {
     else button.innerText = "SHOW";
 };
 
-let previewIt = function(preview_button) {
-    let id = $(preview_button).data("id");
+let previewIt = function(preview_button) { let id = $(preview_button).data("id");
     let prev_box = $('#preview-payam-' + id);
 
     let stuf = $.ajax({
@@ -174,9 +173,11 @@ let saveIt = function() {
         let prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser);
         let banner = $('#decomps-banner');
 
-        if($('#decomps-banner')[0].textContent == "") {
             decompBanner();
-        };
+
+        // if($('#decomps-banner')[0].textContent == "") {
+        //     decompBanner();
+        // };
 
         addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, id);
 
