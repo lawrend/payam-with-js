@@ -37,6 +37,12 @@ class Payam < ApplicationRecord
         end
     end
 
+    def current_scribe_username
+        if self.current_scribe
+            User.find(current_scribe).username
+        end
+    end
+
     private
 
     def style=(name)
