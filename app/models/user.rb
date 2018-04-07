@@ -32,6 +32,10 @@ class User < ApplicationRecord
       self.payams.not_completed.distinct
   end
 
+  def unfinished_originals
+      Payam.not_completed.where(orig: self.id)
+  end
+
   def finished_payams
       self.payams.completed.distinct
   end

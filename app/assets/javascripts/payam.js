@@ -147,6 +147,7 @@ let nextDecomposeIt = function() {
     };
 };
 
+// Use this to format decomps added to the page bc it is used for both display of existing and saving of new decomps created while on page //
 let addDecompToPage = function(prettyTitle, firstUser, id) {
     $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+prettyTitle+"<br><span class='em'>by</span><br>"+firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div><hr>");
 };

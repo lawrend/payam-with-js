@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_player, only: [:show, :update, :edit]
+	before_action :set_player, only: [:show, :update, :edit, :outstanding_originals]
 
 	def index
 	end
@@ -20,6 +20,12 @@ class PlayersController < ApplicationController
 
 	def edit
 	end
+
+    def outstanding_originals
+        @originals = @player.unfinished_originals
+        render json: @originals
+    end
+
 
 	private
 

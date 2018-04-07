@@ -1,5 +1,16 @@
 // PLAYERS
 
+let whereAreMyPayams = function(playerId) {
+    $.get("/players/"+ playerId +"/outstanding_originals").done(function(resp) {
+        let respo = resp['data'];
+        // let respo_title_attr = respo[0]['attributes']['title'];
+        // let respo_length = respo.length;
+        // let respo_currentUser = respo[0]['attributes']['current_scribe'];
+        // let round = respo[0]['attributes']['counter'];
+    console.log(respo);
+    });
+};
+
 // First time button is pressed and every time "Next" pressed
 let firstPayam = function(playerId) {
     //get position in array of finished payams, value stored in button
