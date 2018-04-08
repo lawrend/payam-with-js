@@ -16,129 +16,132 @@
                 </div><!--error explanation-->
             <% end %>
 
-
-
+            <!--TITLE TITLE TITLE-->
             <div class="flex-container-column inlay-holder">
                 <div class="flex-container plaque">
                     <div class="container plaque-letters">
                         ONE WORD TO RULE THEM ALL
                     </div><!--plaque-letters-->
                 </div><!--plaque-->
-                <div class="flex-container-column overlay">
-                    <div class="container">
-                        <p class="payam-title capitalizer">TITLE</p>
+                <div class="flex-container overlay">
+                    <div class="container payam-title">
+                        TITLE
                     </div><!--container-->
                 </div><!--overlay-->
             </div><!--inlay-holder-->
 
             <div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
-                <div class="container style-picker">
-
-                    <% if @payam.counter != 1 %>
-                        <p class="capitalizer non-payam-title">"<%=@payam.title%>"</p>
-                </div><!--style-picker-->
-            <% else %>
-                <p class="em">Provide a one-word title to guide the later authors</p>
-            </div><!--style-picker-->
-            <div class="container style-picker">
-                <div class="form-group col-sm-push-3 col-sm-6 ">
-                    <%= f.text_field :title, :placeholder => "one-word title", class: "form-control input-box" %><br>
-                </div><!--form-group-->
-            </div><!--style-picker-->
-        <% end %>
-    </div><!--flex-container-column-->
-    <div class="flex-container-column inlay-holder">
-        <div class="flex-container plaque">
-            <div class="container plaque-letters">
-                FREAKY STYLEY AND YOU ARE PROUD
-            </div><!--plaque-letters-->
-        </div><!--plaque-->
-        <div class="flex-container-column overlay">
-            <div class="container non-payam-title capitalizer">
-                <p>STYLE</p>
-            </div><!--container-->
-        </div><!--overlay-->
-
-    </div><!--inlay-holder-->
-    <% if @payam.counter != 1 %>
-        <div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
-            <div class="container non-payam-title capitalizer" style="padding: 10px">
-                <p><%= @payam.style.name %></p>
-            </div><!--payam-title-->
-        <% else %>
-            <div class="flex-container base-plaque-new-payam bottom-border-dotted" style="justify-content: center">
-                <div class="container style-picker">
-                    <p class="em">Pick a style from a list</p>
-                    <div class="form-group col-sm-12">
-                        <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
-                    </div><!--form-group-->
-                </div><!--style-picker-->
-                <div class="container style-picker">
-                    <p class="em">Or make up a new style</p>
-                    <div class="form-group col-sm-12">
-                        <%= f.fields_for :style, @style do |style_name| %>
-                            <%= style_name.text_field :name, :placeholder => "Create a new one", :class => "form-control input-box"%>
-                        <% end %>
-                    </div><!--form-group-->
-                </div><!--style-picker-->
-            <% end %><!--payam counter conditional-->
-            </div><!--flex-container-column-->
-
-            <div class="flex-container-column inlay-holder">
-                <div class="flex-container plaque">
-                    <div class="container plaque-letters">
-                        IF ALL ARE LINES THEN WHENCE CIRCLES?
-                    </div><!--plaque-letters-->
-                </div><!--plaque-->
-                <div class="flex-container-column overlay">
-                    <div class="container">
-                        <p class="payam-title capitalizer">WRITE A LINE</p>
-                    </div><!--container-->
-                </div><!--overlay-->
-            </div><!--inlay-holder-->
-            <div class="flex-container-column base-plaque-new-payam" style="padding: 10px">
-                <div class="container"> 
-
-
-                    <% if @payam.counter == 1 %>
-                        <p class="em">Write the first line.
+                <% if @payam.counter != 1 %>
+                    <div class="flex-container payam-form-heading">
+                        <div class="container payam-title">
+                            ~ <%= @payam.title %> ~
+                        </div><!--payam-margins-10-->
                     <% else %>
-                        <p class="capitalizer">You are author No.<%= @payam.counter %></p>
-                        <p class="capitalizer">Last five words of previous line:</p>
-                        <div class="container" style="width: auto; align-items: center">
-                            <p class="em base-purp capitalizer" id="last-lines" style="font-size: 20px">...<%= @payam.previous_five%></p>
-                        </div>
-                    <% end %>
-
-                    <% if @payam.counter == 8 %>
-                        This is the last line, so make it count.</p><br>
-                    <% end %>
-                </div><!--style-picker-->
-                <div class="container ">
-                    <div class="form-group ">
-                        <%= f.fields_for :lines, @line do |line| %>
-
-                            <% if @payam.counter < 8 %>
-                                <%= line.text_field :text, class: "form-control input-box", placeholder: "Think about your last 5 words as they will be what the next author sees..." %><br>
-                            <% else %>
-                                <%= line.text_field :text, class: "form-control input-box", placeholder: "These are the last words of the Payam..." %><br>
-                            <% end %>
-                            <!-- where the hidden fields were -->
+                        <div class="container payam-margins-10">
+                            <div class="em payam-form-text">Provide a one-word title to guide the later authors</p>
+                            </div><!--payam-margins-10-->
+                            <div class="container payam-margins-10">
+                                <div class="form-group col-sm-push-3 col-sm-6 ">
+                                    <%= f.text_field :title, :placeholder => "one-word title", class: "form-control input-box" %><br>
+                                </div><!--form-group-->
+                            </div><!--payam-margins-10-->
                         <% end %>
+                        </div><!--flex-container-column-->
 
-                    </div><!--form-group-->
-                </div><!--style-picker-->
-            </div><!--flex-container base-plaque-new-payam-->
-            <%= f.hidden_field :current_scribe, :value => current_user.id %>
-            <div class="container style-picker">
-                <div class="form-group">
-                    <div class="col-sm-push-5 col-sm-1">
-                        <%= f.submit "Submit", class: "btn btn-default" %>
-                    </div>
-                </div> <!-- form-group-->
-            </div><!--style-picker-->
-        <% end %><!--end of form_for-->
-        </div>
+                        <!--STYLE STYLE STYLE-->
+                        <div class="flex-container-column inlay-holder">
+                            <div class="flex-container plaque">
+                                <div class="container plaque-letters">
+                                    FREAKY STYLEY AND YOU ARE PROUD
+                                </div><!--plaque-letters-->
+                            </div><!--plaque-->
+                            <div class="flex-container overlay">
+                                <div class="container payam-title">
+                                    STYLE
+                                </div><!--container payam-title-->
+                            </div><!--overlay-->
+                        </div><!--inlay-holder-->
+
+                        <% if @payam.counter != 1 %>
+                            <div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
+                                <div class="flex-container payam-form-heading">
+                                    <div class="container payam-title">
+                                       ~ <%= @payam.style.name %> ~
+                                    </div><!--payam-title-->
+                                </div><!--flex-container-->
+                            </div><!--flex-container-column-->
+                        <% else %>
+                            <div class="flex-container base-plaque-new-payam bottom-border-dotted" style="justify-content: center">
+                                <div class="container payam-margins-10">
+                                    <div class="em payam-form-text">Pick a style from a list</div>
+                                    <div class="form-group col-sm-12">
+                                        <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
+                                    </div><!--form-group-->
+                                </div><!--payam-margins-10-->
+                                <div class="container payam-margins-10">
+                                    <div class="em">Or make up a new style</div>
+                                    <div class="form-group col-sm-12">
+                                        <%= f.fields_for :style, @style do |style_name| %>
+                                            <%= style_name.text_field :name, :placeholder => "Create a new one", :class => "form-control input-box"%>
+                                        <% end %>
+                                    </div><!--form-group-->
+                                </div><!--payam-margins-10-->
+                            </div><!--flex-container-column-->
+                        <% end %><!--payam counter conditional-->
+
+                        <!--LINES LINES LINES-->
+                        <div class="flex-container-column inlay-holder">
+                            <div class="flex-container plaque">
+                                <div class="container plaque-letters">
+                                    IF ALL ARE LINES THEN WHENCE CIRCLES?
+                                </div><!--plaque-letters-->
+                            </div><!--plaque-->
+                            <div class="flex-container-column overlay">
+                                <div class="container">
+                                    <div class="payam-title">WRITE A LINE</div>
+                                </div><!--container-->
+                            </div><!--overlay-->
+                        </div><!--inlay-holder-->
+
+                        <div class="flex-container-column base-plaque-new-payam" style="padding: 10px">
+                            <div class="container payam-margins-10"> 
+                                <% if @payam.counter == 1 %>
+                                    <div class="em">Write the first line</div>
+                                <% else %>
+                                    <div id="incomplete-payam-text">
+                                        You are author No.<%= @payam.counter %><br>
+                                        Last five words of previous line:<br>
+                                        <div class="container" style="width: auto; align-items: center">
+                                            <div class="em base-purp" id="last-lines">...<%= @payam.previous_five%></div>
+                                        </div><!--container-->
+                                    </div><!--incomplete-payam-text-->
+                                <% end %>
+                            </div><!--payam-margins-10-->
+                            <div class="container ">
+                                <div class="form-group ">
+                                    <%= f.fields_for :lines, @line do |line| %>
+
+                                        <% if @payam.counter < 8 %>
+                                            <%= line.text_field :text, class: "form-control input-box", placeholder: "Think about your last 5 words as they will be what the next author sees..." %><br>
+                                        <% else %>
+                                            <%= line.text_field :text, class: "form-control input-box", placeholder: "Write the last words of the Payam..." %><br>
+                                        <% end %>
+                                        <!-- where the hidden fields were -->
+                                    <% end %>
+                                </div><!--form-group-->
+                            </div><!--payam-margins-10-->
+                        </div><!--flex-container base-plaque-new-payam-->
+
+                        <%= f.hidden_field :current_scribe, :value => current_user.id %>
+                        <div class="container payam-margins-10">
+                            <div class="form-group">
+                                <div class="col-sm-push-5 col-sm-1">
+                                    <%= f.submit "Submit", class: "btn btn-default" %>
+                                </div><!--col-sm-push-5-->
+                            </div> <!-- form-group-->
+                        </div><!--payam-margins-10-->
+                    <% end %><!--end of form_for-->
+                    </div><!--flex-container-column-->
 </section>
 
 <%# NEW FORM TESTING AREA %>

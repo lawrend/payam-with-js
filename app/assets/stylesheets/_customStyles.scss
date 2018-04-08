@@ -153,25 +153,6 @@ html {
 };
 
 /*used on payam show page and player page*/
-.payam-title {
-    padding-bottom: 10px;
-    font-size: 32px;
-    font-weight: 200;
-    letter-spacing: 17px;
-    opacity: .7;
-}
-
-.payam-title a:hover {
-    text-decoration: none;
-}
-
-.non-payam-title {
-    font-weight: 200;
-    letter-spacing: 17px;
-    opacity: .7;
-    text-transform: uppercase;
-}
-
 .text-boxer {
     padding: 15px;
     border: none;
@@ -187,7 +168,7 @@ html {
     max-width: 1255px;
     padding: 0 25px;
     margin: 0 auto;
-    font-size: 62.5%;
+    // font-size: 62.5%;
     line-height: 1.15;
     border-bottom: solid 2px;
 }
@@ -383,6 +364,45 @@ a:focus {
     text-align: center; 
 }
 
+.payam-title {
+    font-size: 22px;
+    opacity: .7;
+    letter-spacing: 17px;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.payam-title a:hover {
+    text-decoration: none;
+}
+
+.payam-form-heading {
+   font-weight: 200;
+    opacity: .8;
+    text-transform: uppercase;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.non-payam-title {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    font-weight: 100;
+    letter-spacing: 17px;
+    opacity: .7;
+    text-transform: uppercase;
+}
+
+#incomplete-payam-text {
+    font-weight: 200;
+    letter-spacing: 8px;
+    font-size: 18px;
+    opacity: .7;
+    text-transform: uppercase;
+    line-height: 1.6em;
+}
+
 
 //*STRUCTURE FOR BACKGROUND BARELY SEEN TEXT*//
 
@@ -426,11 +446,12 @@ a:focus {
 
 /*Container for the content on top; add this style to flex-container-column*/
 .overlay {
+    font-weight: 200;
+    opacity: .8;
+    text-transform: uppercase;
+    justify-content: center; 
+    align-items: center; 
     z-index: 10;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 0;
 };
 
 /*Add content to a div container*/
@@ -524,7 +545,7 @@ a:focus {
     // margin: 15px;
 }
 
-.style-picker {
+.payam-margins-10 {
     margin: 10px;
 }
 

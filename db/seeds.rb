@@ -38,7 +38,7 @@ Line.create([
   {:text => "this is the text of the test that is tested while texting", :payam_id => 1, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 1, :title => "test", :counter => 8, :style_id => 1, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 1, :title => "test", :counter => 8, :style_id => 1, :current_scribe => 4)
 
 
 Line.create([
@@ -51,7 +51,7 @@ Line.create([
   {:text => "now we big time, big time big time hands up don't you see this big nine?", :payam_id => 2, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 2, :title => "jack", :counter => 8, :style_id => 2, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 2, :title => "jack", :counter => 8, :style_id => 2, :current_scribe => 4)
 
 Line.create([
   {:text => "where did she go? when did she find out? are you going to tell her when you see her?", :payam_id => 3, :count => 1, :auth_id => 1},
@@ -63,7 +63,7 @@ Line.create([
   {:text => "where did she go? when did she find out? are you going to tell her when you see her?", :payam_id => 3, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 3, :title => "she", :counter => 8, :style_id => 1, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 3, :title => "she", :counter => 8, :style_id => 1, :current_scribe => 4)
 
 Line.create([
   {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 1, :auth_id => 1},
@@ -75,7 +75,7 @@ Line.create([
   {:text => "this is the text 4 of the test that is tested while texting", :payam_id => 4, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 4, :title => "fear", :counter => 8, :style_id => 1, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 4, :title => "fear", :counter => 8, :style_id => 1, :current_scribe => 4)
 
 Line.create([
   {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 1, :auth_id => 1},
@@ -87,7 +87,7 @@ Line.create([
   {:text => "this is the text 5 of the test that is tested while texting", :payam_id => 5, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 5, :title => "strive", :counter => 8, :style_id => 3, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 5, :title => "strive", :counter => 8, :style_id => 3, :current_scribe => 4)
 
 Line.create([
   {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 1, :auth_id => 1},
@@ -99,7 +99,7 @@ Line.create([
   {:text => "this is the text 6 of the test that is tested while texting", :payam_id => 6, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 6, :title => "hicks", :counter => 8, :style_id => 3, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 6, :title => "hicks", :counter => 8, :style_id => 3, :current_scribe => 4)
 
 Line.create([
   {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 1, :auth_id => 1},
@@ -111,7 +111,7 @@ Line.create([
   {:text => "this is the text 7 of the test that is tested while texting", :payam_id => 7, :count => 7, :auth_id => 8},
   ])
 
-Payam.create(:id => 7, :title => "brainy", :counter => 8, :style_id => 3, :current_scribe => 4, :orig => 1)
+Payam.create(:id => 7, :title => "brainy", :counter => 8, :style_id => 3, :current_scribe => 4)
 
 
 Line.create([
@@ -125,7 +125,7 @@ Line.create([
   {:text => "this is the text 8 of the test that is tested while texting", :payam_id => 8, :count => 8, :auth_id => 4},
   ])
 
-Payam.create(:id => 8, :title => "eighty", :counter => 8, :style_id => 3, :current_scribe => nil, :orig => 1)
+Payam.create(:id => 8, :title => "eighty", :counter => 8, :style_id => 3, :current_scribe => nil)
 
 
 Line.create([
@@ -139,7 +139,7 @@ Line.create([
   {:text => "this is the text 9 of the test that is tested while texting", :payam_id => 9, :count => 8, :auth_id => 4},
   ])
 
-Payam.create(:id => 9, :title => "ninety", :counter => 8, :style_id => 3, :current_scribe => nil, :orig => 1)
+Payam.create(:id => 9, :title => "ninety", :counter => 8, :style_id => 3, :current_scribe => nil)
 
 
 Line.create([
@@ -153,5 +153,5 @@ Line.create([
   {:text => "this is the text 10 of the test that is tested while texting", :payam_id => 10, :count => 8, :auth_id => 4},
   ])
 
-Payam.create(:id => 10, :title => "tenner", :counter => 8, :style_id => 3, :current_scribe => nil, :orig => 1)
+Payam.create(:id => 10, :title => "tenner", :counter => 8, :style_id => 3, :current_scribe => nil)
 
