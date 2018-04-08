@@ -1,6 +1,11 @@
 // PLAYERS
 
 // First time button is pressed and every time "Next" pressed
+let makeNavLinks = function(respoPos, respoTitle, prevPos, nextPos, playerId) {
+    $('#nexties').html("<div class='container payam-title bottom-border-dotted'><a href='/payams/"+respoPos['id']+"'>"+respoTitle+"</a></div><div class='container'><div class='flex-container'><div class='container'><p><a id='scorps' data-id='"+prevPos+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPos+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div></div>");
+    $('#background-title').html(respoTitle);
+
+}
 let firstPayam = function(playerId) {
     //get position in array of finished payams, value stored in button
     let position = parseInt($('#iron_maiden').data('id'));
@@ -21,8 +26,7 @@ let firstPayam = function(playerId) {
             prevPosition = respo_length - 1;
         };
         //replace html with new links with new values
-        $('#nexties').html("<p class='capitalizer markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a><p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>");
-        $('#background-title').html(respo_title_attr);
+        makeNavLinks(respo[position], respo_title_attr, prevPosition, nextPosition, playerId);
     });
 };
 
@@ -47,8 +51,7 @@ let prevPayam = function(playerId) {
         };
 
         //replace html with new buttons with new values
-        $('#nexties').html("<p class='capitalizer markee payam-title bottom-border-dotted'><a href='/payams/"+respo[position]['id']+"'>"+respo_title_attr+"</a></p><div class='flex-container' style='justify-content: space-around'><div class='container'><p><a id='scorps' data-id='"+prevPosition+"' onclick='prevPayam("+playerId+")'>Previous</a></p></div><div class='container'><p><a id='iron_maiden' data-id='"+nextPosition+"' onclick='firstPayam("+playerId+")'>Next</a></p></div></div>");
-        $('#background-title').html(respo_title_attr);
+        makeNavLinks(respo[position], respo_title_attr, prevPosition, nextPosition, playerId);
     });
 };
 
@@ -59,8 +62,8 @@ let whereAreMyPayams = function(playerId) {
             let respo_title_attr = ind['attributes']['title'];
             let respo_currentUser = ind['attributes']['current-scribe-username'];
             let round = ind['attributes']['counter'];
-    // console.log(respo);
-           $('#outstanding-originals').prepend("<div class='bottom-border-dotted'><p>"+respo_currentUser+" is working on round "+round+" of "+respo_title_attr+"</p></div><br>");
+            // console.log(respo);
+            $('#outstanding-originals').prepend("<div class='bottom-border-dotted'><p>"+respo_currentUser+" is working on round "+round+" of "+respo_title_attr+"</p></div><br>");
         });
     });
 };
