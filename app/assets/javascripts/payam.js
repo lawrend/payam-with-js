@@ -197,7 +197,6 @@ let clearDecomp = function() {
 
 let existingDecomp = function(title, orig, style, id, firstUser) {
     let oldOne = new Decomp(title, orig, style, id, null, firstUser);
-
     addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id);
 };
 

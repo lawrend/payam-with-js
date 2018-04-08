@@ -18,6 +18,10 @@ $brown-comp: #efc59d;
 $brown-comp-2: #c69261;
 $border-color: #dab4e4;
 $last-lines: #b29bc1;
+// $super-light-purp: #fff1e5; too peachy
+// $super-light-purp: #edeff4; cannot notice it
+// $super-light-purp: #cfd6e6; too dark
+$super-light-purp: #dbe0ee;
 
 #blue-comp {
     color: $blue-comp;
@@ -361,6 +365,11 @@ a:focus {
     background: radial-gradient(closest-side, #fffef8, $default-background);
 }
 
+.base-plaque-new-payam {
+    // background: radial-gradient(closest-side, #ffe4CA, $default-background); 
+    background-color: $super-light-purp;
+}
+
 .side-plaque {
 }
 
@@ -511,8 +520,12 @@ a:focus {
 
 /*random formatting*/
 .container-child {
-    padding: 10px;
-    margin: 15px;
+    // padding: 10px;
+    // margin: 15px;
+}
+
+.style-picker {
+    margin: 10px;
 }
 
 //*COLOR EXPERIMENTS*//
