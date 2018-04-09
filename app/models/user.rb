@@ -33,7 +33,9 @@ class User < ApplicationRecord
   end
 
   def unfinished_originals
-      Payam.not_completed.where(orig: self.id)
+      Payam.not_completed.select do |p| 
+          p.users.first.id == self.id
+      end
   end
 
   def finished_payams

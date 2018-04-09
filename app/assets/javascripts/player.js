@@ -68,7 +68,7 @@ let whereAreMyPayams = function(playerId) {
     });
 };
 
-// hide/show //
+// hide/show payams to work on/others working //
 document.addEventListener("turbolinks:load", function() {
     $("#hide-helpers").click(function() {
         $(".initially-hidden").slideToggle(300);

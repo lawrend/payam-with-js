@@ -60,7 +60,8 @@ let previewIt = function(preview_button) { let id = $(preview_button).data("id")
 
         let new_lines = ""
         stuf_resp.forEach(function(el) {
-            new_lines += "<p>Line " + el['attributes']['count'] + ": " + el['attributes']['text'] + "</p>";
+            let DecompLineColor = getColor(el['attributes']['count']);
+            new_lines += "<p style='color: "+ DecompLineColor + "'>" + el['attributes']['text'] + "</p>";
         });
         prev_box.append("<br>"+new_lines).hide().slideDown(400);
     });
