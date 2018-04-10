@@ -13,8 +13,8 @@ class PayamsController < ApplicationController
             @styles = Style.select {|st| st.protected == true }
             @payams.each do |pay|
                 @styles << Style.find(pay.style_id) 
-            end
             @styles.uniq!
+            end
         end
         respond_to do |format|
             format.html {render :index}

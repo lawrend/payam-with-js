@@ -1,10 +1,18 @@
-<div style="border-bottom: 1px dotted; border-color: $border-color; padding-bottom: 20px"><p id="base-purp"><%= link_to "#{payam.title}", payam_path(payam) %></p>
+<div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
+    <div class="flex-container payam-form-heading">
+        <div class="container payam-title">
 
-    <div class="btn-holder" data-id="<%= payam.id %>">
-        <button class="js-preview btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">SHOW</button>
-    </div>
+            <p id="base-purp"><%= link_to "#{payam.title}", payam_path(payam) %></p>
 
-    <div id="preview-payam-<%=payam.id%>"></div>
-</div>
+            <div class="btn-holder" data-id="<%= payam.id %>">
+                <button class="js-preview btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">SHOW</button>
+            </div>
+
+            <div id="preview-payam-<%=payam.id%>"></div>
+
+
+
+        </div><!--payam-title-->
+    </div><!--flex-container-->
+</div><!--flex-container-column-->
 <hr>
- <%# in the <%= link_to "#{payam.style.name}", style_payams_path(payam.style) %1> style. %>
