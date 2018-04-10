@@ -6,9 +6,15 @@ class PayamsController < ApplicationController
         #only display completed payams of one style
         if params[:style_id]
             @payams = Payam.completed.where("style_id = ? AND decomp = ?", params[:style_id], false)
+            @style = Style.find(params[:style_id])
         else
         #or all completed payams
             @payams = Payam.completed.where(decomp: false)
+            @styles = Style.select {|st| st.protected == true }
+            @payams.each do |pay|
+                @styles << Style.find(pay.style_id) 
+            end
+            @styles.uniq!
         end
         respond_to do |format|
             format.html {render :index}

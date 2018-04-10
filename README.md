@@ -22,11 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * TO DO:
-*  -Payam Title Display
 *  -GitHub sign in? 
-*  -see who has current payams 
-*  -what to do about viewing decomps, seeing decomps on player show page, etc.
-*  -create 30 min coding video
 *  -blog post
 *  -video walkthrough
-
+*  -payam index = automatically group by style and display with one style heading/style
+*  -add home button to payam show page
