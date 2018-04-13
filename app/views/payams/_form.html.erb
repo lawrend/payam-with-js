@@ -1,7 +1,7 @@
 <%# NEW PAYAM FORM %>
 
 <section class="PageContent">
-    <div class="flex-container-column text-boxer">
+    <div class="flex-container-column">
         <%= form_for(@payam, :html => {:class => "form-horizontal"}) do |f| %>
 
             <%# PAYAM ERROR MESSAGES %>
@@ -16,33 +16,34 @@
                 </div><!--error explanation-->
             <% end %>
 
-            <!--TITLE TITLE TITLE-->
-            <div class="flex-container-column inlay-holder">
-                <div class="flex-container plaque">
-                    <div class="container plaque-letters">
-                        ONE WORD TO RULE THEM ALL
-                    </div><!--plaque-letters-->
-                </div><!--plaque-->
-                <div class="flex-container overlay">
-                    <div class="container payam-title">
-                        TITLE
-                    </div><!--container-->
-                </div><!--overlay-->
-            </div><!--inlay-holder-->
+            <div class="flex-container-column base-plaque-new-payam">
+                <!--TITLE TITLE TITLE-->
+                <div class="flex-container-column inlay-holder">
+                    <div class="flex-container plaque">
+                        <div class="container plaque-letters">
+                            ONE WORD TO RULE THEM ALL
+                        </div><!--plaque-letters-->
+                    </div><!--plaque-->
+                    <div class="flex-container overlay">
+                        <div class="container payam-title">
+                            TITLE
+                        </div><!--container-->
+                    </div><!--overlay-->
+                </div><!--inlay-holder-->
 
-            <div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
                 <% if @payam.counter != 1 %>
                     <div class="flex-container payam-form-heading">
                         <div class="container payam-title">
-                            ~ <%= @payam.title %> ~
-                        </div><!--payam-margins-10-->
+                            ~ <%=@payam.title%> ~
+                        </div><!--payam-title-->
                     <% else %>
-                        <div class="container payam-margins-10">
-                            <div class="em payam-form-text">Provide a one-word title to guide the later authors</p>
-                            </div><!--payam-margins-10-->
-                            <div class="container payam-margins-10">
-                                <div class="form-group col-sm-push-3 col-sm-6 ">
-                                    <%= f.text_field :title, :placeholder => "one-word title", class: "form-control input-box" %><br>
+                        <div class="container">
+                            <div class="payam-form-text">~ Provide a one-word title to guide the later authors ~
+                            </div><!--payam-form-text-->
+                            <div class="container" style="width: 40%">
+                                <div class="form-group">
+<%# in form group above col-sm-push-3 col-sm-6 %> 
+                                    <%= f.text_field :title, :placeholder => "One-word Title", class: "form-control input-box", style: "text-align: center" %><br>
                                 </div><!--form-group-->
                             </div><!--payam-margins-10-->
                         <% end %>
@@ -63,26 +64,29 @@
                         </div><!--inlay-holder-->
 
                         <% if @payam.counter != 1 %>
-                            <div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
+                            <div class="flex-container-column base-plaque-new-payam">
                                 <div class="flex-container payam-form-heading">
                                     <div class="container payam-title">
-                                       ~ <%= @payam.style.name %> ~
+                                        ~ <%= @payam.style.name %> ~
                                     </div><!--payam-title-->
                                 </div><!--flex-container-->
                             </div><!--flex-container-column-->
                         <% else %>
-                            <div class="flex-container base-plaque-new-payam bottom-border-dotted" style="justify-content: center">
-                                <div class="container payam-margins-10">
-                                    <div class="em payam-form-text">Pick a style from a list</div>
-                                    <div class="form-group col-sm-12">
+                            <div class="flex-container base-plaque-new-payam" style="justify-content: center">
+                                <div class="container" style="width: 40%">
+                                    <div class="payam-form-text">~ Pick a style from a list ~</div>
+                                    <div class="form-group ">
+                                        <%# col-sm-12 in form group above %>
                                         <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
                                     </div><!--form-group-->
                                 </div><!--payam-margins-10-->
-                                <div class="container payam-margins-10">
-                                    <div class="em">Or make up a new style</div>
-                                    <div class="form-group col-sm-12">
+                                <div class="container" style="width: 40%">
+                                    <div class="payam-form-text">~ Or make up a new style ~</div>
+                                    <div class="form-group ">
+
+                                        <%# col-sm-12 in form group above %>
                                         <%= f.fields_for :style, @style do |style_name| %>
-                                            <%= style_name.text_field :name, :placeholder => "Create a new one", :class => "form-control input-box"%>
+                                            <%= style_name.text_field :name, :placeholder => "New Style", :class => "form-control input-box", style: "text-align: center" %>
                                         <% end %>
                                     </div><!--form-group-->
                                 </div><!--payam-margins-10-->
@@ -103,22 +107,22 @@
                             </div><!--overlay-->
                         </div><!--inlay-holder-->
 
-                        <div class="flex-container-column base-plaque-new-payam" style="padding: 10px">
-                            <div class="container payam-margins-10"> 
+                        <div class="flex-container-column base-plaque-new-payam">
+                            <div class="container"> 
                                 <% if @payam.counter == 1 %>
-                                    <div class="em">Write the first line</div>
+                                    <div class="payam-form-text">~ Write the first line ~</div>
                                 <% else %>
                                     <div id="incomplete-payam-text">
                                         You are author No.<%= @payam.counter %><br>
-                                        Last five words of previous line:<br>
+                                        The last five words of previous line:<br>
                                         <div class="container" style="width: auto; align-items: center">
                                             <div class="em base-purp" id="last-lines">...<%= @payam.previous_five%></div>
                                         </div><!--container-->
                                     </div><!--incomplete-payam-text-->
                                 <% end %>
-                            </div><!--payam-margins-10-->
-                            <div class="container ">
-                                <div class="form-group ">
+                            </div><!--container-->
+                            <div class="container" style="width: 90%">
+                                <div class="form-group">
                                     <%= f.fields_for :lines, @line do |line| %>
 
                                         <% if @payam.counter < 8 %>
@@ -129,20 +133,23 @@
                                         <!-- where the hidden fields were -->
                                     <% end %>
                                 </div><!--form-group-->
-                            </div><!--payam-margins-10-->
+                            </div><!--container-->
                         </div><!--flex-container base-plaque-new-payam-->
-
                         <%= f.hidden_field :current_scribe, :value => current_user.id %>
-                        <div class="container payam-margins-10">
+                        <div class="container">
                             <div class="form-group">
-                                <div class="col-sm-push-5 col-sm-1">
-                                    <%= f.submit "Submit", class: "btn btn-default" %>
-                                </div><!--col-sm-push-5-->
+                                <p><%= f.submit "Submit", class: "btn btn-default" %></p>
                             </div> <!-- form-group-->
-                        </div><!--payam-margins-10-->
+                        </div><!--container-->
                     <% end %><!--end of form_for-->
                     </div><!--flex-container-column-->
+
 </section>
+<div style="padding-top: 25px">
+    <%# <p><%= button_to "Home", root_path, {method: :get, class: "btn btn-default"} %1></p> %>
+    <p class="payam-title"><a href="/">HOME</a><p>
+</div>
+
 
 <%# NEW FORM TESTING AREA %>
 

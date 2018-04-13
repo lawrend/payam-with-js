@@ -5,14 +5,14 @@
     <%# USERNAME HEADING %>
 
     <div class="flex-container headsup" id="greeter" data-id=<%= @player.id %>>
-        <div class="container plaque-letters" style="color: #E1B1E1"><%= @player.username %>
+        <div class="container" id="main-name" ><%= @player.username %>
     </div><!--plaque-letters-->
     <hr>
     </div><br><!--headsup-->
 
     <%# INTRO PARAGRAPHS %>
 
-    <div class="flex-container-column base-plaque" style="flex-basis: 100%; padding-top: 10px; justify-content: space-between">
+    <div class="flex-container-column base-plaque intro-paragraphs" style="flex-basis: 100%; padding-top: 10px; justify-content: space-between">
         <p>Your skills as a poet and a writer have never been more in need. "Payams" are floating about, needing words to give them life!</p>
         <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself. Your Payam will be passed along to 7 other poets before being revealed to all.</p>
         <p>And once a fully <em>composed</em> Payam is public, it can be <em>de</em>-composed, one word at a time, with the push of a button.</p> 

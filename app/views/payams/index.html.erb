@@ -1,32 +1,31 @@
 <section class="PageContent">
-    <div class="container text-boxer">
-        <% if @style %>
-            <div class="container bottom-border-dotted">
-                <%= render partial: "style_heading", locals: {style: @style} %>
-                <% if @payams.empty? %>
-                    <div class="container" style="border-bottom: 2px dotted; border-color: $base-purp">
-                        <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
-                    </div>
-                <% else %>
-                    <% @payams.each do |payam| %>
-                        <%= render partial: "preview", locals: {payam: payam} %>
-                    <% end %>
+    <% if @style %>
+        <div class="container bottom-border-dotted">
+            <%= render partial: "style_heading", locals: {style: @style} %>
+            <% if @payams.empty? %>
+                <div class="container" style="border-bottom: 2px dotted; border-color: $base-purp">
+                    <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
+                </div>
+            <% else %>
+                <% @payams.each do |payam| %>
+                    <%= render partial: "preview", locals: {payam: payam} %>
                 <% end %>
-            </div>
-        <% else %>
-            <% @styles.each do |style| %>
-                <%= render partial: "style_heading", locals: {style: style} %>
-                <% if style.payams.completed.empty? %>
+            <% end %>
+        </div>
+    <% else %>
+        <% @styles.each do |style| %>
+            <%= render partial: "style_heading", locals: {style: style} %>
+            <% if style.payams.completed.empty? %>
 
-                    <div class="container" style="border-bottom: 2px dotted; border-color: $base-purp">
-                        <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
-                    </div>
-                <% else %>
-                    <% style.payams.completed.where("decomp = ?", false).each do |payam| %>
-                        <%= render partial: "preview", locals: {payam: payam} %>
-                    <% end %>
+                <div class="container" style="border-bottom: 2px dotted; border-color: $base-purp">
+                    <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
+                </div>
+            <% else %>
+                <% style.payams.completed.where("decomp = ?", false).each do |payam| %>
+                    <%= render partial: "preview", locals: {payam: payam} %>
                 <% end %>
             <% end %>
         <% end %>
+    <% end %>
     </div>
 </section>

@@ -78,5 +78,9 @@ document.addEventListener("turbolinks:load", function() {
         $(".hidden-workers").slideToggle(300);
     });
 
+    $("#greeter").click(function() {
+        $(".intro-paragraphs").slideToggle(300);
+    });
+
 });
 

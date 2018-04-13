@@ -154,7 +154,7 @@ html {
 
 /*used on payam show page and player page*/
 .text-boxer {
-    padding: 15px;
+    // padding: 15px;
     border: none;
 }
 
@@ -347,7 +347,6 @@ a:focus {
 }
 
 .base-plaque-new-payam {
-    // background: radial-gradient(closest-side, #ffe4CA, $default-background); 
     background-color: $super-light-purp;
 }
 
@@ -363,6 +362,10 @@ a:focus {
 .col-sm-6 .form-control {
     text-align: center; 
 }
+
+// .form-control {
+//     font-style: italic;
+// }
 
 .payam-title {
     font-size: 22px;
@@ -385,6 +388,13 @@ a:focus {
     align-items: center; 
 }
 
+.payam-form-text {
+    text-transform: uppercase;
+    opacity: .7;
+    padding: 5px;
+    margin: 5px;
+}
+
 .non-payam-title {
     margin-bottom: 15px;
     padding-bottom: 10px;
@@ -401,6 +411,8 @@ a:focus {
     opacity: .7;
     text-transform: uppercase;
     line-height: 1.6em;
+    padding: 4px;
+    margin: 5px;
 }
 
 
@@ -465,8 +477,23 @@ a:focus {
 
 /*dropdown of payams to work on*/
 
-.initially-hidden, .hidden-workers {
+.initially-hidden, .hidden-workers, .intro-paragraphs {
     display: none;
+}
+
+#greeter {
+    cursor: pointer;
+}
+
+#main-name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    opacity: .3;
+    color: #E1B1E1;
+}
+
+#main-name:hover {
+    color: $brown-comp-2;
 }
 
 .hidden-workers {
@@ -508,6 +535,7 @@ a:focus {
 .input-box::placeholder {
     color: $light-purp;
     font-size: 0.875em;
+    font-style: italic;
 }
 
 .input-box:focus::placeholder {
@@ -529,6 +557,10 @@ a:focus {
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
 };
+
+.input-box-dropdown > option:nth-child(0) {
+    font-style: italic;
+}
 
 .input-box-dropdown:hover {
     background: $brown-comp;
