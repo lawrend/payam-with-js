@@ -136,7 +136,7 @@
                             </div><!--container-->
                         </div><!--flex-container base-plaque-new-payam-->
                         <%= f.hidden_field :current_scribe, :value => current_user.id %>
-                        <div class="container">
+                        <div class="flex-container-column">
                             <div class="form-group">
                                 <p><%= f.submit "Submit", class: "btn btn-default" %></p>
                             </div> <!-- form-group-->
@@ -145,11 +145,10 @@
                     </div><!--flex-container-column-->
 
 </section>
-<div style="padding-top: 25px">
-    <%# <p><%= button_to "Home", root_path, {method: :get, class: "btn btn-default"} %1></p> %>
-    <p class="payam-title"><a href="/">HOME</a><p>
-</div>
+<%# <div class="flex-container-column" style="padding-top: 25px"> %>
+<%#     <div class="container payam-title"><a href="/">HOME</a></div> %>
+<%# </div> %>
 
+<%= render partial: "/layouts/home_link"%>
 
-<%# NEW FORM TESTING AREA %>
 

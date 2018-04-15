@@ -25,9 +25,12 @@
             <div class="container" style="border-bottom: solid 1px; padding-bottom: 15px">
                 <p>It was late. I was out of ideas. It is what it is. Payam.</p>
             </div>
-            <div style="padding-top: 25px">
-                <p><%= button_to "Home", root_path, {method: :get, class: "btn btn-default"} %></p>
-            </div>
+            <%# <div style="padding-top: 25px"> %>
+            <%#     <p><%= button_to "Home", root_path, {method: :get, class: "btn btn-default"} %1></p> %>
+            <%# </div> %>
         </div>
     </div>
 </section>
+
+
+<%= render partial: "/layouts/home_link"%>

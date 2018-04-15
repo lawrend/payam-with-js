@@ -269,13 +269,14 @@ a:focus {
 .btn-default {
     min-height:35px;
     width:auto;
-    display:inline-block;
-    padding:.1rem 1.5rem;
+    // display:inline-block;
+    // padding:.1rem 1.5rem;
     cursor:pointer;
     outline:none;
     text-decoration:none;
     color:#fff;
-    font-family:Open Sans,sans-serif;
+    // font-family:Open Sans,sans-serif;
+    font-family: "Asap",  Helvetica Neue, sans-serif;
     font-size:11px;
     line-height:13px;
     font-weight:300;
@@ -306,7 +307,8 @@ a:focus {
     outline:none;
     text-decoration:none;
     color:#fff;
-    font-family:Open Sans,sans-serif;
+    // font-family:Open Sans,sans-serif;
+    font-family: "Asap",  Helvetica Neue, sans-serif;
     font-size:11px;
     line-height:13px;
     font-weight:300;
@@ -358,14 +360,6 @@ a:focus {
     border: none;
     padding-top: 10px;
 }
-
-.col-sm-6 .form-control {
-    text-align: center; 
-}
-
-// .form-control {
-//     font-style: italic;
-// }
 
 .payam-title {
     font-size: 22px;
