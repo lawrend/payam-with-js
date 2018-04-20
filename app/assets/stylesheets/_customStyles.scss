@@ -57,8 +57,7 @@ $super-light-purp: #dbe0ee;
 /*capitalize all*/
 .capitalizer {
     text-transform: uppercase;
-};
-
+}
 //*BODY*//
 
 /* Move down content because we have a fixed navbar that is 50px tall */
@@ -109,8 +108,7 @@ html {
     min-height: 100%;
     position: relative;
     background-color: $default-background;
-};
-
+}
 #banner {
     background: url('vache-text.jpg') no-repeat 50% 25%;
     width: 100%;
@@ -150,8 +148,7 @@ html {
 
 .markee a {
     cursor: pointer;
-};
-
+}
 /*used on payam show page and player page*/
 .text-boxer {
     // padding: 15px;
@@ -179,8 +176,7 @@ html {
     position: relative;
     justify-content: center; 
     align-items: center; 
-};
-
+}
 .dubs {
     font-size: 24px;
     padding: 10px;
@@ -188,8 +184,7 @@ html {
 
 
 .box-label {
-}; 
-
+}
 
 //*ANIMATIONS*//
 
@@ -197,25 +192,21 @@ html {
 @keyframes outFader {
     from {color: red; opacity: 1.3}
     to {color: red; opacity: 0.0};
-};
-
+}
 @keyframes inFader {
     from {color: red; opacity: 0.0}
     to {color: black; opacity: 1.0};
-};
-
+}
 .fadeOut {
     color: red;
     animation: outFader 3s;
     animation-fill-mode: forwards;
-};
-
+}
 .fadeIn {
     animation: inFader 2s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-};
-
+}
 
 //*ERRORS AND ALERTS*//
 
@@ -374,14 +365,6 @@ a:focus {
     text-decoration: none;
 }
 
-.payam-form-heading {
-   font-weight: 200;
-    opacity: .8;
-    text-transform: uppercase;
-    justify-content: center; 
-    align-items: center; 
-}
-
 .payam-form-text {
     text-transform: uppercase;
     opacity: .7;
@@ -419,7 +402,7 @@ a:focus {
     position: relative;
     justify-content: center; 
     align-items: center; 
-};
+}
 
 /*set position for overlapping divs*/
 .plaque,
@@ -427,8 +410,7 @@ a:focus {
     width: 100%;
     height: 100%;
     position: absolute;
-};
-
+}
 /*Container for background text and color; add this style to flex-container*/
 .plaque {
     font-weight: 200;
@@ -437,16 +419,14 @@ a:focus {
     justify-content: center; 
     background-color: #FFF;
     align-items: center; 
-};
-
+}
 /*Container for background text; add this style to container*/
 .plaque-letters {
     font-family: 'Roboto', sans-serif;
     font-size: 44px;
     opacity: .3;
     color: #F1F1FF;
-};
-
+}
 /*Close plaque-letters container*/
 /*Close plaque flex-container*/
 
@@ -458,14 +438,12 @@ a:focus {
     justify-content: center; 
     align-items: center; 
     z-index: 10;
-};
-
+}
 /*Add content to a div container*/
 
 .overlay a {
     cursor: pointer;
-};
-
+}
 /*Close container div*/
 /*Close inlay-holder container*/
 
@@ -514,18 +492,15 @@ a:focus {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
-};
-
+}
 .input-box:hover {
     background: $brown-comp;
     color: $blue-comp;
-};
-
+}
 .input-box:focus {
     color: $blue-comp;
     background: $brown-comp;
-};
-
+}
 .input-box::placeholder {
     color: $light-purp;
     font-size: 0.875em;
@@ -550,8 +525,7 @@ a:focus {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
-};
-
+}
 .input-box-dropdown > option:nth-child(0) {
     font-style: italic;
 }
@@ -559,12 +533,10 @@ a:focus {
 .input-box-dropdown:hover {
     background: $brown-comp;
     color: $blue-comp;
-};
-
+}
 .input-box-dropdown:focus {
     color: $blue-comp;
-};
-
+}
 /*random formatting*/
 .container-child {
     // padding: 10px;
