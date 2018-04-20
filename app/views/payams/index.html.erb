@@ -1,34 +1,33 @@
 <section class="PageContent">
     <%# DISPLAY WHEN ONLY PAYAMS OF ONE STYLE %>
     <% if @style %>
-        <div class="container bottom-border-dotted">
-            <%= render partial: "style_heading", locals: {style: @style} %>
-            <% if @payams.empty? %>
-                <div class="container" style="padding: 5px;">
-                    <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
-                </div>
-            <% else %>
-                <% @payams.each do |payam| %>
+        <%= render partial: "style_heading", locals: {style: @style} %>
+        <% if @payams.empty? %>
+            <div class="container base-plaque-new-payam" style="padding: 5px;">
+                <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
+            </div>
+        <% else %>
+            <% @payams.each do |payam| %>
 
-<div class="flex-container-column base-plaque-new-payam">
+                <div class="flex-container-column base-plaque-new-payam">
                     <%= render partial: "preview", locals: {payam: payam} %>
-</div><!--flex-container-column base-plaque-new-payam-->
-                <% end %>
+                </div><!--flex-container-column base-plaque-new-payam-->
             <% end %>
+        <% end %>
         </div>
         <%# DISPLAY WHEN ALL STYLES DISPLAYED %>
     <% else %>
         <% @styles.each do |style| %>
             <%= render partial: "style_heading", locals: {style: style} %>
             <% if style.payams.completed.empty? %>
-                <div class="container" style="padding: 5px;">
+                <div class="container base-plaque-new-payam" style="padding: 5px; margin-top: 10px;">
                     <p><em>None to show yet. Maybe <%= link_to "Start one of your own", new_payam_path %>?</em></p>
                 </div>
             <% else %>
                 <% style.payams.completed.where("decomp = ?", false).each do |payam| %>
-<div class="flex-container-column base-plaque-new-payam bottom-border-dotted">
-                    <%= render partial: "preview", locals: {payam: payam} %>
-</div>
+                    <div class="flex-container-column base-plaque-new-payam">
+                        <%= render partial: "preview", locals: {payam: payam} %>
+                    </div>
                 <% end %>
             <% end %>
         <% end %>
