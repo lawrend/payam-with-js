@@ -25,5 +25,4 @@ Things you may want to cover:
 *  -GitHub sign in? 
 *  -blog post
 *  -video walkthrough
-*  -payam index = automatically group by style and display with one style heading/style
-*  -add home button to payam show page
+*  -errors submitted/received w ajax
