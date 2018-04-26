@@ -1,16 +1,22 @@
 <%# PLAYERS SHOW VIEW %>
 
+<%# USERNAME HEADING %>
+
 <section class="PageContent">
+<div class="flex-container-column inlay-holder" id="greeter" data-id=<%= @player.id %>>
+            <div class="flex-container plaque">
+                <div class="container plaque-letters">
+                    <span id="main-name"><%= @player.username %></span>
+                </div><!--plaque-letters-->
+            </div><!--plaque-->
+            <div class="flex-container-column overlay">
+                <div class="container payam-title">
+                    <a><%= @player.username %></a>
+                </div><!--container-->
+            </div><!--overlay-->
+        </div><!--inlay-holder-->
 
-    <%# USERNAME HEADING %>
-
-    <div class="flex-container headsup" id="greeter" data-id=<%= @player.id %>>
-        <div class="container" id="main-name" ><%= @player.username %>
-    </div><!--plaque-letters-->
-    <hr>
-    </div><br><!--headsup-->
-
-    <%# INTRO PARAGRAPHS %>
+        <%# INTRO PARAGRAPHS %>
 
     <div class="flex-container-column base-plaque intro-paragraphs" style="flex-basis: 100%; padding-top: 10px; justify-content: space-between">
         <p>Your skills as a poet and a writer have never been more in need. "Payams" are floating about, needing words to give them life!</p>
