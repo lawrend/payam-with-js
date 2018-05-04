@@ -26,3 +26,5 @@ Things you may want to cover:
 *  -blog post
 *  -video walkthrough
 *  -errors submitted/received w ajax
+*  -naming conventions
+*  ----CSS, JS, Ruby
