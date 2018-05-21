@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     # send decompose data to controller
     post 'payams/decompose' => 'payams#decompose'
 
+    get 'payam/random' => 'payams#random'
+
     get 'players/:id/outstanding_originals' => 'players#outstanding_originals'
 
 end 

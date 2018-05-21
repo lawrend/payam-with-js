@@ -1,5 +1,5 @@
 class PayamsController < ApplicationController
-	before_action :authenticate_user!
+    before_action :authenticate_user!
     before_action :set_payam, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -9,12 +9,12 @@ class PayamsController < ApplicationController
                                             params[:style_id], false)
             @style = Style.find(params[:style_id])
         else
-        #or all display completed original payams
+            #or all display completed original payams
             @payams = Payam.completed.where(decomp: false)
             @styles = Style.select {|st| st.protected == true }
             @payams.each do |pay|
                 @styles << Style.find(pay.style_id) 
-            @styles.uniq!
+                @styles.uniq!
             end
         end
         respond_to do |format|
@@ -113,6 +113,35 @@ class PayamsController < ApplicationController
         flash[:notice] = "Payam Deleted!!"
         redirect_to root_path
     end
+
+    def random_word
+        line_number = ""
+        5.times do 
+            line_number << Random.new.rand(1..6).to_s
+        end
+        File.open("/Users/douglaslawrence/Development/code/rails-and-js/project-mode/payam-with-js/app/assets/other/eff_large_wordlist.txt") do |file|
+            the_word = file.find {|line| line =~ /#{line_number}/ }
+            return the_word[6..-1]
+        end
+    end
+
+    def random
+        @payam = Payam.new
+        @payam.title = "Random!!"
+        @payam.current_scribe = nil
+        @payam.counter = 8
+        @payam.style_id = 1
+        @payam.save
+        for i in 0..7
+            line_text = ""
+            15.times do
+                line_text << random_word
+            end
+            Line.create(:text => line_text, :auth_id => current_user.id, :count => i+1, :payam_id => @payam.id)
+        end
+        redirect_to root_path
+    end
+
 
     private
 
