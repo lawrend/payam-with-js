@@ -78,7 +78,7 @@ let hideIt = function(id) {
 };
 
 // DECOMP JS PROTOTYPE
-function Decomp(title, origId, styleId, id, lines, firstUser) {
+function Decomp(title, origId, styleId, id, lines, firstUser, createdAt) {
     this.title = title;
     this.origId = origId;
     this.styleId = styleId;
@@ -86,10 +86,12 @@ function Decomp(title, origId, styleId, id, lines, firstUser) {
     this.lines = lines;
     this.id = id;
     this.firstUser = firstUser;
+    this.createdAt = new Date(createdAt).toUTCString();
 
     this.prettyTitle = function() {
         return title.split("-").join(" ");
     };
+
 };
 
 // PACKAGING LINES FOR DECOMP PAYAM
@@ -102,7 +104,7 @@ let payamPackage = function() {
     for(i=0; i<8; i++) {
         linesToSend.push(decompLines[i].innerText);
     };
-    let sendOff = new Decomp (newTitle, origId, styleId, null, linesToSend);
+    let sendOff = new Decomp (newTitle, origId, styleId, null, linesToSend, null, null);
     return sendOff;
 };
 
@@ -148,8 +150,8 @@ let nextDecomposeIt = function() {
 };
 
 // Use this to format decomps added to the page bc it is used for both display of existing and saving of new decomps created while on page //
-let addDecompToPage = function(prettyTitle, firstUser, id) {
-    $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+prettyTitle+"<br><span class='em'>by</span><br>"+firstUser+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div><hr>");
+let addDecompToPage = function(prettyTitle, firstUser, id, createdAt) {
+    $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+prettyTitle+"<br><span class='em'>by</span><br>"+firstUser+"<br><span class='em'>on</span><br>"+createdAt+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div><hr>");
 };
 
 let saveIt = function() {
@@ -171,12 +173,13 @@ let saveIt = function() {
         let id = resp['data']['id'];
         let styleId = respAttributes['stylee'];
         let firstUser = respAttributes['first-user'];
-        let prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser);
+        let createdAt = respAttributes['created-at'];
+        let prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser, createdAt);
         let banner = $('#decomps-banner');
 
             decompBanner();
 
-        addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, id);
+        addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, id, prodigalPayam.createdAt);
 
     });
 };
@@ -192,9 +195,9 @@ let clearDecomp = function() {
     $('#decomps').html("");
 };
 
-let existingDecomp = function(title, orig, style, id, firstUser) {
-    let oldOne = new Decomp(title, orig, style, id, null, firstUser);
-    addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id);
+let existingDecomp = function(title, orig, style, id, firstUser, createdAt) {
+    let oldOne = new Decomp(title, orig, style, id, null, firstUser, createdAt);
+    addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id, oldOne.createdAt);
 };
 
 

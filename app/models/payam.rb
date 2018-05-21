@@ -37,6 +37,10 @@ class Payam < ApplicationRecord
         end
     end
 
+    def when_created
+        DateTime.parse((self.created_at).to_s)
+    end
+
     def current_scribe_username
         if self.current_scribe
             User.find(current_scribe).username

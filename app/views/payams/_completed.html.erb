@@ -56,7 +56,7 @@ decompBanner();
       <% end %>
       <% @payam.decomps.each do |decomp| %>
         <script>
-existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>');
+existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>', '<%= decomp.when_created %>');
         </script>
       <% end %>
       <br>

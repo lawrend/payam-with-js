@@ -3,13 +3,13 @@ class PayamsController < ApplicationController
     before_action :set_payam, only: [:show, :edit, :update, :destroy]
 
     def index
-        #only display completed payams of one style
+        #only display completed, original payams of one style
         if params[:style_id]
             @payams = Payam.completed.where("style_id = ? AND decomp = ?", 
                                             params[:style_id], false)
             @style = Style.find(params[:style_id])
         else
-        #or all completed payams
+        #or all display completed original payams
             @payams = Payam.completed.where(decomp: false)
             @styles = Style.select {|st| st.protected == true }
             @payams.each do |pay|
@@ -24,8 +24,7 @@ class PayamsController < ApplicationController
     end
 
     def new
-        #remove orphaned custom styles
-        clean_styles
+        clean_styles  #remove orphaned custom styles
         @payam = Payam.new
         @line = @payam.lines.build
         @style = Style.new
