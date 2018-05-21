@@ -15,18 +15,18 @@ let firstPayam = function(playerId) {
     //GET all completed payams for this player
     $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
         let respo = resp['data'];
-        let respo_title_attr = respo[position]['attributes']['title']
-        let respo_length = respo.length
+        let respoTitleAttr = respo[position]['attributes']['title']
+        let respoLength = respo.length
         //allow for looping through array
-        if(nextPosition >= respo_length) {
+        if(nextPosition >= respoLength) {
             nextPosition = 0;
         };
 
         if(prevPosition < 0) {
-            prevPosition = respo_length - 1;
+            prevPosition = respoLength - 1;
         };
         //replace html with new links with new values
-        makeNavLinks(respo[position], respo_title_attr, prevPosition, nextPosition, playerId);
+        makeNavLinks(respo[position], respoTitleAttr, prevPosition, nextPosition, playerId);
     });
 };
 
@@ -40,18 +40,18 @@ let prevPayam = function(playerId) {
     let prevPosition = parseInt($('#scorps').data('id')) - 1;
     $.get("/players/"+ playerId +"/payams.json").done(function(resp) {
         let respo = resp['data'];
-        let respo_title_attr = respo[position]['attributes']['title'];
-        let respo_length = respo.length;
-        if(nextPosition >= respo_length) {
+        let respoTitleAttr = respo[position]['attributes']['title'];
+        let respoLength = respo.length;
+        if(nextPosition >= respoLength) {
             nextPosition = 0;
         };
 
         if(prevPosition < 0) {
-            prevPosition = respo_length - 1;
+            prevPosition = respoLength - 1;
         };
 
         //replace html with new buttons with new values
-        makeNavLinks(respo[position], respo_title_attr, prevPosition, nextPosition, playerId);
+        makeNavLinks(respo[position], respoTitleAttr, prevPosition, nextPosition, playerId);
     });
 };
 
@@ -59,11 +59,11 @@ let whereAreMyPayams = function(playerId) {
     $.get("/players/"+ playerId +"/outstanding_originals").done(function(resp) {
         let respo = resp['data'];
         respo.forEach(function(ind) {
-            let respo_title_attr = ind['attributes']['title'];
+            let respoTitleAttr = ind['attributes']['title'];
             let respo_currentUser = ind['attributes']['current-scribe-username'];
             let round = ind['attributes']['counter'];
             // console.log(respo);
-            $('#outstanding-originals').prepend("<div class='bottom-border-dotted'><p>"+respo_currentUser+" is working on round "+round+" of "+respo_title_attr+"</p></div><br>");
+            $('#outstanding-originals').prepend("<div class='bottom-border-dotted'><p>"+respo_currentUser+" is working on round "+round+" of "+respoTitleAttr+"</p></div><br>");
         });
     });
 };

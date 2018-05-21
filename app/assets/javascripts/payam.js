@@ -42,8 +42,8 @@ let changeButtonText = function(button) {
     else button.innerText = "SHOW";
 };
 
-let previewIt = function(preview_button) { let id = $(preview_button).data("id");
-    let prev_box = $('#preview-payam-' + id);
+let previewIt = function(previewButton) { let id = $(previewButton).data("id");
+    let prevBox = $('#preview-payam-' + id);
 
     let stuf = $.ajax({
         url: "/payams/" + id + "/lines/",
@@ -56,18 +56,18 @@ let previewIt = function(preview_button) { let id = $(preview_button).data("id")
         },
     });
     stuf.done(function(resp) {
-        let stuf_resp = resp['data'];
+        let stufResp = resp['data'];
 
-        let new_lines = ""
-        stuf_resp.forEach(function(el) {
+        let newLines = ""
+        stufResp.forEach(function(el) {
             let DecompLineColor = getColor(el['attributes']['count'] - 1);
-            new_lines += "<p style='color: "+ DecompLineColor + "'>" + el['attributes']['text'] + "</p>";
+            newLines += "<p style='color: "+ DecompLineColor + "'>" + el['attributes']['text'] + "</p>";
         });
-        prev_box.append("<br>"+new_lines).hide().slideDown(400);
+        prevBox.append("<br>"+newLines).hide().slideDown(400);
     });
 
-    let button_holder = $('.btn-holder[data-id='+id+']');
-    button_holder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE</button>");
+    let buttonHolder = $('.btn-holder[data-id='+id+']');
+    buttonHolder.html("<button class='decomp-button btn btn-default' data-id='" + id + "' onClick='hideIt(" + id + ")' >HIDE</button>");
 };
 
 let hideIt = function(id) {
@@ -128,14 +128,14 @@ function removeWord(i) {
 }
 
 let firstDecomposeIt = function() {
-    let line_graveyard = $("#decomp-holder");
-    line_graveyard.empty();
-    let rotting_lines = $(".liner");
-    for(i=0; i < rotting_lines.length; i++) {
-        let oldTxt = rotting_lines[i].innerText;
+    let lineGraveyard = $("#decomp-holder");
+    lineGraveyard.empty();
+    let linesToDecomp = $(".liner");
+    for(i=0; i < linesToDecomp.length; i++) {
+        let oldTxt = linesToDecomp[i].innerText;
         let lineColor = getColor(i);
-        let oldHtml = "<div style='color:"+lineColor+"'><p data-decompId='"+i+"' data-auth='"+rotting_lines[i]['attributes']['data-auth'].value+"'>"+oldTxt+"</p></div>"
-        line_graveyard.append(oldHtml);
+        let oldHtml = "<div style='color:"+lineColor+"'><p data-decompId='"+i+"' data-auth='"+linesToDecomp[i]['attributes']['data-auth'].value+"'>"+oldTxt+"</p></div>"
+        lineGraveyard.append(oldHtml);
         removeWord(i);
     };
     $('#buttonHolder').html("<div class='flex-container' style='height: 130px'><div class='container'><button class='btn btn-default' onclick='saveIt()'>Save It</button></div><div class='container'><button class='btn btn-decomp' onclick='nextDecomposeIt()'>Decomp it more</button></div><div class='container'><button class='btn btn-default' onclick='firstDecomposeIt()'>Start Over</button></div></div>");
@@ -165,20 +165,16 @@ let saveIt = function() {
     });
 
     decompPay.done(function(resp) {
-        let bounce_back = resp['data']['attributes'];
-        let title = bounce_back['title'];
-        let orig = bounce_back['orig'];
+        let respAttributes = resp['data']['attributes'];
+        let title = respAttributes['title'];
+        let orig = respAttributes['orig'];
         let id = resp['data']['id'];
-        let styleId = bounce_back['stylee'];
-        let firstUser = bounce_back['first-user'];
+        let styleId = respAttributes['stylee'];
+        let firstUser = respAttributes['first-user'];
         let prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser);
         let banner = $('#decomps-banner');
 
             decompBanner();
-
-        // if($('#decomps-banner')[0].textContent == "") {
-        //     decompBanner();
-        // };
 
         addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, id);
 
@@ -188,8 +184,8 @@ let saveIt = function() {
 // FORMAT DECOMPS UPON PAGE LOAD
 
 let decompBanner = function() {
-    let decomp_banner = $('#decomps-banner');
-    decomp_banner.html("<div class='bottom-border-dotted' style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
+    let decompBanner = $('#decomps-banner');
+    decompBanner.html("<div class='bottom-border-dotted' style='padding-top: 30px'><div class='em base-purp payam-title' style='border-top: 1px solid; padding-top: 30px'>De-Compositions</div></div><hr>");
 };
 
 let clearDecomp = function() {
@@ -201,6 +197,4 @@ let existingDecomp = function(title, orig, style, id, firstUser) {
     addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id);
 };
 
-
-// // NEW FORM TESTING AREA
 

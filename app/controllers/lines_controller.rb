@@ -27,20 +27,8 @@ class LinesController < ApplicationController
     end
 
     def line_params
-        params.require(:line).permit(:text, :count, :auth_id, :payam_id, :auth_public)
+        params.require(:line).permit(:text, :count, :auth_id, :payam_id, 
+                                     :auth_public)
     end
-
-    #check if a line has between 10-20 words#
-    # def check_word_count
-    #   if @line.text.scan(/[[:alpha:]]+/).count < 10
-    #     flash[:alert] = "That's too few words"
-    #     redirect_to payam_path(Payam.find(:id))
-    #   elsif @line.text.scan(/[[:alpha:]]+/).count > 20
-    #     flash[:alert] = "That's too many words"
-    #     redirect_to payam_path(Payam.find(:id))
-    #   end
-    # end
-
-
 
 end

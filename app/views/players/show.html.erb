@@ -3,118 +3,118 @@
 <%# USERNAME HEADING %>
 
 <section class="PageContent">
-<div class="flex-container-column inlay-holder" id="greeter" data-id=<%= @player.id %>>
-            <div class="flex-container plaque">
-                <div class="container plaque-letters">
-                    <span id="main-name"><%= @player.username %></span>
-                </div><!--plaque-letters-->
-            </div><!--plaque-->
-            <div class="flex-container-column overlay">
-                <div class="container payam-title">
-                    <a><%= @player.username %></a>
-                </div><!--container-->
-            </div><!--overlay-->
-        </div><!--inlay-holder-->
+  <div class="flex-container-column inlay-holder" id="greeter" data-id=<%= @player.id %>>
+    <div class="flex-container plaque">
+      <div class="container plaque-letters">
+        <span id="main-name"><%= @player.username %></span>
+      </div><!--plaque-letters-->
+    </div><!--plaque-->
+    <div class="flex-container-column overlay">
+      <div class="container payam-title">
+        <a><%= @player.username %></a>
+      </div><!--container-->
+    </div><!--overlay-->
+  </div><!--inlay-holder-->
 
-        <%# INTRO PARAGRAPHS %>
+  <%# INTRO PARAGRAPHS %>
 
-    <div class="flex-container-column base-plaque intro-paragraphs" style="flex-basis: 100%; padding-top: 10px; justify-content: space-between">
-        <p>Your skills as a poet and a writer have never been more in need. "Payams" are floating about, needing words to give them life!</p>
-        <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself. Your Payam will be passed along to 7 other poets before being revealed to all.</p>
-        <p>And once a fully <em>composed</em> Payam is public, it can be <em>de</em>-composed, one word at a time, with the push of a button.</p> 
-        <p>If you like any "decomp" you make, save it! It will be displayed along with the original Payam!<p>
-    </div><!--flex-container-column base-plaque-->
-    <br><hr>
+  <div class="flex-container-column base-plaque intro-paragraphs" style="flex-basis: 100%; padding-top: 10px; justify-content: space-between">
+    <p>Your skills as a poet and a writer have never been more in need. "Payams" are floating about, needing words to give them life!</p>
+    <p>Start a <%= link_to "new Payam", new_payam_path %> and see for yourself. Your Payam will be passed along to 7 other poets before being revealed to all.</p>
+    <p>And once a fully <em>composed</em> Payam is public, it can be <em>de</em>-composed, one word at a time, with the push of a button.</p> 
+    <p>If you like any "decomp" you make, save it! It will be displayed along with the original Payam!<p>
+  </div><!--flex-container-column base-plaque-->
+  <br><hr>
 
-    <%# PAYAMS %>
+  <%# PAYAMS %>
 
-    <div class="flex-container-column base-plaque" id="payam-holder" data-playerId=<%=@player.id%>>
+  <div class="flex-container-column base-plaque" id="payam-holder" data-playerId=<%=@player.id%>>
 
-        <%# IF NO COMPLETED PAYAMS %>
+    <%# IF NO COMPLETED PAYAMS %>
 
-        <% if @player.payams.completed.empty? %>
-            <div class="container" style="border-top: solid 2px; border-bottom: solid 2px">
-                <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
-                <h3><%= link_to "START A NEW ONE NOW", new_payam_path %></h3>
-            </div><!--container-->
+    <% if @player.payams.completed.empty? %>
+      <div class="container" style="border-top: solid 2px; border-bottom: solid 2px">
+        <p>Keep your eyes open here for any Payams you need to work on and any of yours that have made their journey through seven more authors.</p>
+        <h3><%= link_to "START A NEW ONE NOW", new_payam_path %></h3>
+      </div><!--container-->
 
-            <%# IF COMPLETED PAYAMS %>
+      <%# IF COMPLETED PAYAMS %>
 
-        <% else %>
-            <div class="flex-container-column inlay-holder">
-                <div class="flex-container plaque">
-                    <div id="background-title" class="container plaque-letters">YOU GOTTA SEE THESE THINGS
-                    </div><!--plaque-letters-->
-                </div><!--plaque-->
-                <div class="flex-container-column overlay" id="nexties">
-                    <div class="container payam-title">
-                        <a id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Completed Payams</a>
-                    </div><!--container-->
-                </div><!--flex-container-column overlay-->
-            </div><!--flex-container-column inlay-holder-->
-        <% end %>
-    </div><!--base-plaque payam-holder-->
-    <br><hr>
-
-    <%# IF PAYAMS ARE WAITING TO BE WORKED ON %>
-
-    <% if !@player.waiting.empty? %>
-        <div class="flex-container-column inlay-holder">
-            <div class="flex-container plaque">
-                <div class="container plaque-letters">
-                    HEY THERE <%= @player.username %>! HEY YOU!!
-                </div><!--plaque-letters-->
-            </div><!--plaque-->
-            <div class="flex-container-column overlay">
-                <div class="container payam-title">
-                    <div id="hide-helpers"><a>GET ON THESE</a></div>
-                </div><!--container-->
-            </div><!--overlay-->
-        </div><!--inlay-holder-->
-        <br>
-        <div class="flex-container-column base-plaque" style="width: 100%; text-align: center">
-            <div class="container">
-                <div id="needHelp" class="initially-hidden">
-                    <% @player.waiting.each do |c| %>
-                        <div id="bottom-border-dotted" class="flex-container top-plaque">
-                            <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
-                        </div><!--top-plaque-->
-                    <% end %>
-                </div><!--initially-hidden-->
-            </div><!--container-->
-        </div><!--base-plaque-->
+    <% else %>
+      <div class="flex-container-column inlay-holder">
+        <div class="flex-container plaque">
+          <div id="background-title" class="container plaque-letters">YOU GOTTA SEE THESE THINGS
+          </div><!--plaque-letters-->
+        </div><!--plaque-->
+        <div class="flex-container-column overlay" id="nexties">
+          <div class="container payam-title">
+            <a id="iron_maiden" data-id="0" onclick="firstPayam(<%= @player.id %>)">Completed Payams</a>
+          </div><!--container-->
+        </div><!--flex-container-column overlay-->
+      </div><!--flex-container-column inlay-holder-->
     <% end %>
-    <hr>
+  </div><!--base-plaque payam-holder-->
+  <br><hr>
 
-    <%# WHERE ARE MY PAYAMS SECTION %>
+  <%# IF PAYAMS ARE WAITING TO BE WORKED ON %>
 
-    <% if !@player.unfinished_originals.empty? %>
-        <div class="flex-container-column inlay-holder">
-            <div class="flex-container plaque">
-                <div class="container plaque-letters">
-                    WHERE IS <%= @player.username %>'S STUFF???
-                </div><!--plaque-letters-->
-            </div><!--plaque-->
-            <div class="flex-container-column overlay">
-                <div class="container">
-                    <p id="hide-workers" class="payam-title capitalizer"><a>PEOPLE WORKING ON YOUR PAYAMS</a></p>
-                </div><!--container-->
-            </div><!--overlay-->
-        </div><!--inlay-holder-->
-        <br>
-        <div class="flex-container-column base-plaque" style="width: 100%; text-align: center">
-            <div class="container">
-                <div class="hidden-workers">
-                    <div id="bottom-border-dotted" class="flex-container top-plaque">
-                        <div id="outstanding-originals"></div>
-                        <script>
+  <% if !@player.waiting.empty? %>
+    <div class="flex-container-column inlay-holder">
+      <div class="flex-container plaque">
+        <div class="container plaque-letters">
+          HEY THERE <%= @player.username %>! HEY YOU!!
+        </div><!--plaque-letters-->
+      </div><!--plaque-->
+      <div class="flex-container-column overlay">
+        <div class="container payam-title">
+          <div id="hide-helpers"><a>GET ON THESE</a></div>
+        </div><!--container-->
+      </div><!--overlay-->
+    </div><!--inlay-holder-->
+    <br>
+    <div class="flex-container-column base-plaque" style="width: 100%; text-align: center">
+      <div class="container">
+        <div id="needHelp" class="initially-hidden">
+          <% @player.waiting.each do |c| %>
+            <div id="bottom-border-dotted" class="flex-container top-plaque">
+              <p class="dubs"><%= link_to "#{c.title}", edit_payam_path(c) %></p><p class="dubs"><em><%= link_to "ready for line #{c.counter}", edit_payam_path(c) %></em></p>
+            </div><!--top-plaque-->
+          <% end %>
+        </div><!--initially-hidden-->
+      </div><!--container-->
+    </div><!--base-plaque-->
+  <% end %>
+  <hr>
+
+  <%# WHERE ARE MY PAYAMS SECTION %>
+
+  <% if !@player.unfinished_originals.empty? %>
+    <div class="flex-container-column inlay-holder">
+      <div class="flex-container plaque">
+        <div class="container plaque-letters">
+          WHERE IS <%= @player.username %>'S STUFF???
+        </div><!--plaque-letters-->
+      </div><!--plaque-->
+      <div class="flex-container-column overlay">
+        <div class="container">
+          <p id="hide-workers" class="payam-title capitalizer"><a>PEOPLE WORKING ON YOUR PAYAMS</a></p>
+        </div><!--container-->
+      </div><!--overlay-->
+    </div><!--inlay-holder-->
+    <br>
+    <div class="flex-container-column base-plaque" style="width: 100%; text-align: center">
+      <div class="container">
+        <div class="hidden-workers">
+          <div id="bottom-border-dotted" class="flex-container top-plaque">
+            <div id="outstanding-originals"></div>
+            <script>
 whereAreMyPayams(<%= @player.id %>);
-                        </script>
-                    </div><!--top-plaque-->
-                </div><!--initially-hidden-->
-            </div><!--container-->
-        </div><!--base-plaque-->
-    <% end %>
+            </script>
+          </div><!--top-plaque-->
+        </div><!--initially-hidden-->
+      </div><!--container-->
+    </div><!--base-plaque-->
+  <% end %>
 
 
 </section>

@@ -1,11 +1,11 @@
 <%# <div class="flex-container-column base-plaque-new-payam bottom-border-dotted"> %>
-    <div class="container payam-title">
-        <%= link_to "#{payam.title}", payam_path(payam) %>
-    </div><!--payam-title-->
-    <div class="btn-holder" data-id="<%= payam.id %>">
-        <button class="btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">SHOW</button>
-    </div><!--btn-holder-->
-    <div id="preview-payam-<%=payam.id%>">
-    </div><!--preview-payam-->
-    <%# </div><!--flex-container-column base-plaque-new-payam--> %>
+  <div class="container payam-title">
+    <%= link_to "#{payam.title}", payam_path(payam) %>
+  </div><!--payam-title-->
+  <div class="btn-holder" data-id="<%= payam.id %>">
+    <button class="btn btn-default" data-id="<%= payam.id %>" onclick="previewIt(this)">SHOW</button>
+  </div><!--btn-holder-->
+  <div id="preview-payam-<%=payam.id%>">
+  </div><!--preview-payam-->
+  <%# </div><!--flex-container-column base-plaque-new-payam--> %>
 <hr>

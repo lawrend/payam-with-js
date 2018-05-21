@@ -1,44 +1,44 @@
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation" id="navbar">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/welcome/about">About Payam</a>
-        </div>
-        <div id="navbarCollapse" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <% if user_signed_in? %>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Read Up<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/payams">Public Payams</a></li>
-                            <li><a href="/payams/new">Make one of your own</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Styles</li>
-                            <li><%= link_to "Funny", style_payams_path(Style.find_by(:name => "Funny")) %></li>
-                            <li><%= link_to "Serious", style_payams_path(Style.find_by(:name => "Serious")) %></li>
-                            <li><%= link_to "Sad", style_payams_path(Style.find_by(:name => "Sad")) %></li>
-                        </ul>
-                    </li>
-                <% else %>
-                    <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                    <li><%= link_to "Sign In", new_user_session_path%></li>
-                <% end %>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <% if user_signed_in? %>
-                    <li id="dead-link"><a >Hello, <%=current_user.username %>!</a></li>
-                    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-                    <li><%= link_to "Edit Info", edit_user_registration_path %></li>
-                <% end %>
-            </ul>
-        </div><!--/.nav-collapse -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/welcome/about">About Payam</a>
     </div>
+    <div id="navbarCollapse" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Read Up<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/payams">Public Payams</a></li>
+              <li><a href="/payams/new">Make one of your own</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Styles</li>
+              <li><%= link_to "Funny", style_payams_path(Style.find_by(:name => "Funny")) %></li>
+              <li><%= link_to "Serious", style_payams_path(Style.find_by(:name => "Serious")) %></li>
+              <li><%= link_to "Sad", style_payams_path(Style.find_by(:name => "Sad")) %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path%></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li id="dead-link"><a >Hello, <%=current_user.username %>!</a></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to "Edit Info", edit_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
 </nav>

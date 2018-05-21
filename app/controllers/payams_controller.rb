@@ -5,7 +5,8 @@ class PayamsController < ApplicationController
     def index
         #only display completed payams of one style
         if params[:style_id]
-            @payams = Payam.completed.where("style_id = ? AND decomp = ?", params[:style_id], false)
+            @payams = Payam.completed.where("style_id = ? AND decomp = ?", 
+                                            params[:style_id], false)
             @style = Style.find(params[:style_id])
         else
         #or all completed payams
@@ -77,7 +78,8 @@ class PayamsController < ApplicationController
         @payam.style_id = (params[:style_id])
         @payam.save
         params[:lines].each_with_index do |line, index|
-            Line.create(:text => line, :auth_id => current_user.id, :count => index + 1, :payam_id => @payam.id);
+            Line.create(:text => line, :auth_id => current_user.id, 
+                        :count => index + 1, :payam_id => @payam.id);
         end
         render json: @payam
     end

@@ -1,67 +1,67 @@
 <%# COMPLETED PAYAM VIEW USED AS SHOW %>
 
 <section class="PageContent">
-    <div class="flex-container-column">
-        <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
-            <div id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-style-id="<%= @payam.style_id %>" data-current-user-name="<%= current_user.username %>"data-current-user-id="<%= current_user.id %>">
-                <div class="payam-title" style="font-size: 38px">
-                    <%= @payam.title %>
-                </div><!--payam-title-->
-            </div><!--payamInfo-->
-        </div><!--container base-purp with bottom border-->
+  <div class="flex-container-column">
+    <div class="container base-purp" style="border-bottom: 1px solid; text-align: center">
+      <div id="payamInfo" data-title="<%= @payam.title %>" data-id="<%= @payam.id %>" data-style-id="<%= @payam.style_id %>" data-current-user-name="<%= current_user.username %>"data-current-user-id="<%= current_user.id %>">
+        <div class="payam-title" style="font-size: 38px">
+          <%= @payam.title %>
+        </div><!--payam-title-->
+      </div><!--payamInfo-->
+    </div><!--container base-purp with bottom border-->
 
-        <div class="container">
-            <p style="font-size: 30px; line-height: 1.8em">
-            <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
-                <% case li.count %>
-                <% when 1 %>
-                    <span class="liner" style="color: #11aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 2 %>
-                    <span class="liner" style="color: #ff22aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 3 %>
-                    <span class="liner" style="color: #aa1133" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 4 %>
-                    <span class="liner" style="color: #44aa11" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 5 %>
-                    <span class="liner" style="color: #ff55aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 6 %>
-                    <span class="liner" style="color: #aa1166" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 7 %>
-                    <span class="liner" style="color: #77aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% when 8 %>
-                    <span class="liner" style="color: #1188aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% else %>
-                    <span class="liner" style="color: #111" data-auth="<%= li.auth_id %>"><%= li.text %></span>
-                <% end %>
-            <% end %>
-            </p>
-            <hr>
-        </div><!--container holding payam lines-->
-        <div class="container">
-            <div class="flex-container-column" style="justify-content: center, align-content: center">
-                <div class="container" id="decomp-holder">
-                </div><!--container holding decomp lines-->
-                <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
-                </div><!--container holding decomp, save, start over buttons-->
-            </div><!--flex container holding working decomp and its buttons-->
-            <div id="decomps-banner">
-            </div>
-            <div id="decomps">
-            </div>
-            <% if @payam.decomps.length != 0 %>
-                <script>
+    <div class="container">
+      <p style="font-size: 30px; line-height: 1.8em">
+        <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
+          <% case li.count %>
+          <% when 1 %>
+            <span class="liner" style="color: #11aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 2 %>
+            <span class="liner" style="color: #ff22aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 3 %>
+            <span class="liner" style="color: #aa1133" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 4 %>
+            <span class="liner" style="color: #44aa11" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 5 %>
+            <span class="liner" style="color: #ff55aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 6 %>
+            <span class="liner" style="color: #aa1166" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 7 %>
+            <span class="liner" style="color: #77aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% when 8 %>
+            <span class="liner" style="color: #1188aa" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% else %>
+            <span class="liner" style="color: #111" data-auth="<%= li.auth_id %>"><%= li.text %></span>
+          <% end %>
+        <% end %>
+      </p>
+      <hr>
+    </div><!--container holding payam lines-->
+    <div class="container">
+      <div class="flex-container-column" style="justify-content: center, align-content: center">
+        <div class="container" id="decomp-holder">
+        </div><!--container holding decomp lines-->
+        <div class="container" id="buttonHolder" data-decomp="<%= @decomp %>"><button class="btn btn-decomp"  onClick="firstDecomposeIt()">Decomp It</button>
+        </div><!--container holding decomp, save, start over buttons-->
+      </div><!--flex container holding working decomp and its buttons-->
+      <div id="decomps-banner">
+      </div>
+      <div id="decomps">
+      </div>
+      <% if @payam.decomps.length != 0 %>
+        <script>
 decompBanner();
-                    clearDecomp();
-                </script>
-            <% end %>
-            <% @payam.decomps.each do |decomp| %>
-                <script>
+          clearDecomp();
+        </script>
+      <% end %>
+      <% @payam.decomps.each do |decomp| %>
+        <script>
 existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>');
-                </script>
-            <% end %>
-            <br>
-        </div><!--container holding flex-container why?-->
-    </div><!--flex container holding it all-->
+        </script>
+      <% end %>
+      <br>
+    </div><!--container holding flex-container why?-->
+  </div><!--flex container holding it all-->
 </section><!--PageContent section-->
 <%= render partial: "/layouts/home_link"%>
 
