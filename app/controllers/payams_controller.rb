@@ -127,7 +127,7 @@ class PayamsController < ApplicationController
 
     def random
         @payam = Payam.new
-        @payam.title = "Random!!"
+        @payam.title = "Random--" + random_word 
         @payam.current_scribe = nil
         @payam.counter = 8
         @payam.style_id = 1
@@ -139,6 +139,7 @@ class PayamsController < ApplicationController
             end
             Line.create(:text => line_text, :auth_id => current_user.id, :count => i+1, :payam_id => @payam.id)
         end
+        flash[:notice] = "Random Payam Made!"
         redirect_to root_path
     end
 
