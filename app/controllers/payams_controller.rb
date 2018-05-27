@@ -135,7 +135,7 @@ class PayamsController < ApplicationController
         @payam.decomp = false
         @payam.current_scribe = nil
         @payam.counter = 8
-        @payam.style_id = 1
+        @payam.style_id = 4
         @payam.save
         for i in 0..7
             line_text = [] 
