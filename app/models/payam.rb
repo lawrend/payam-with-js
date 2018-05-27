@@ -13,9 +13,9 @@ class Payam < ApplicationRecord
     # For displaying the last 5 words of the last line added to a payam(payam)
     def previous_five
         newln = Line.where(:payam_id => self.id, :count => self.counter-1).first
-        lstln = newln.text
-        llstln = lstln.split
-        llstln[-5..-1].join(" ")
+        lastlinetext = newln.text
+        lastline = lastlinetext.split
+        lastline[-5..-1].join(" ")
     end
 
     def send_to_next
