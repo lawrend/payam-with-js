@@ -50,11 +50,12 @@
       </div>
       <% if @payam.decomps.length != 0 %>
         <script>
-decompBanner();
+          decompBanner();
           clearDecomp();
         </script>
       <% end %>
       <% @payam.decomps.each do |decomp| %>
+          <%= puts decomp, decomp.title, decomp.orig, decomp.style_id, decomp.id, decomp.first_user, decomp.when_created %>
         <script>
 existingDecomp('<%= decomp.title %>', <%= decomp.orig %>, <%= decomp.style_id %>, <%= decomp.id %>, '<%= decomp.first_user %>', '<%= decomp.when_created %>');
         </script>

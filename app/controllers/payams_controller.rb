@@ -9,7 +9,7 @@ class PayamsController < ApplicationController
                                             params[:style_id], false)
             @style = Style.find(params[:style_id])
         else
-            #or all display completed original payams
+            #or display all completed original payams
             @payams = Payam.completed.where(decomp: false)
             @styles = Style.select {|st| st.protected == true }
             @payams.each do |pay|
@@ -24,7 +24,8 @@ class PayamsController < ApplicationController
     end
 
     def new
-        clean_styles  #remove orphaned custom styles
+        #remove orphaned custom styles
+        clean_styles  
         @payam = Payam.new
         @line = @payam.lines.build
         @style = Style.new
@@ -34,12 +35,13 @@ class PayamsController < ApplicationController
         @payam_params = payam_params
         @payam_params[:lines_attributes][:"0"][:auth_id] = current_user.id
         @payam = Payam.new(@payam_params)
-        #check for both selection from dropdown and new entry in text field
+        #check for both style selection from dropdown AND new entry in text field
+        #style_check sends err msg and re-renders form with data
         if style_check
             render :new
         elsif @payam.valid?
             @payam.save
-            #randomly select the next scribe
+            #randomly select the next scribe, omitting current user
             @payam.current_scribe = User.where.not(id: current_user.id).sample.id
             #send_to_next increases counter by 1 and saves
             @payam.send_to_next
@@ -60,27 +62,6 @@ class PayamsController < ApplicationController
                 format.json {render json: @payam}
             end
         end
-    end
-
-    def showdecomp
-        @orig = Payam.find(@payam.orig)
-        redirect_to "/payams"
-    end
-
-    def decompose
-        @payam = Payam.new
-        @payam.title = (params[:title])
-        @payam.decomp = (params[:decomp])
-        @payam.current_scribe = nil 
-        @payam.counter = 8
-        @payam.orig = (params[:orig])
-        @payam.style_id = (params[:style_id])
-        @payam.save
-        params[:lines].each_with_index do |line, index|
-            Line.create(:text => line, :auth_id => current_user.id, 
-                        :count => index + 1, :payam_id => @payam.id);
-        end
-        render json: @payam
     end
 
     def edit
@@ -113,6 +94,29 @@ class PayamsController < ApplicationController
         flash[:notice] = "Payam Deleted!!"
         redirect_to root_path
     end
+    
+    def showdecomp
+        @orig = Payam.find(@payam.orig)
+        redirect_to "/payams"
+    end
+
+    def decompose
+        @payam = Payam.new
+        @payam.title = (params[:title])
+        @payam.decomp = (params[:decomp])
+        @payam.current_scribe = nil 
+        @payam.counter = 8
+        @payam.orig = (params[:orig])
+        @payam.style_id = (params[:style_id])
+        @payam.save
+        params[:lines].each_with_index do |line, index|
+            Line.create(:text => line, :auth_id => current_user.id, 
+                        :count => index + 1, :payam_id => @payam.id);
+        end
+        render json: @payam
+    end
+
+
 
     def random_word
         line_number = ""
@@ -127,17 +131,18 @@ class PayamsController < ApplicationController
 
     def random
         @payam = Payam.new
-        @payam.title = "Random--" + random_word 
+        @payam.title = "Random-" + random_word 
+        @payam.decomp = false
         @payam.current_scribe = nil
         @payam.counter = 8
         @payam.style_id = 1
         @payam.save
         for i in 0..7
-            line_text = ""
-            15.times do
+            line_text = [] 
+            10.times do
                 line_text << random_word
             end
-            Line.create(:text => line_text, :auth_id => current_user.id, :count => i+1, :payam_id => @payam.id)
+            Line.create(:text => line_text.join(" "), :auth_id => current_user.id, :count => i+1, :payam_id => @payam.id)
         end
         flash[:notice] = "Random Payam Made!"
         redirect_to root_path

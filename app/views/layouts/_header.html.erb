@@ -24,7 +24,8 @@
               <li class="dropdown-header">Styles</li>
               <li><%= link_to "Funny", style_payams_path(Style.find_by(:name => "Funny")) %></li>
               <li><%= link_to "Serious", style_payams_path(Style.find_by(:name => "Serious")) %></li>
-              <li><%= link_to "Sad", style_payams_path(Style.find_by(:name => "Sad")) %></li>
+              <li><%= link_to "Sad", style_payams_path(Style.find_by(:name => "Sad")) %></li> 
+              <li><%= link_to "Random", style_payams_path(Style.find_by(:name => "Random")) %></li>
             </ul>
           </li>
         <% else %>

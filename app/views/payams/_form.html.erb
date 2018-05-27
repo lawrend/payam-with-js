@@ -76,8 +76,7 @@
                 <div class="container" style="width: 40%">
                   <div class="payam-form-text">~ Pick a style from a list ~</div>
                   <div class="form-group ">
-                    <%# col-sm-12 in form group above %>
-                    <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
+                <%= f.collection_select(:style_id, Style.all, :id, :name, {:include_blank => "Select a Style"}, :class => "form-control input-box-dropdown") %>
                   </div><!--form-group-->
                 </div><!--payam-margins-10-->
                 <div class="container" style="width: 40%">
