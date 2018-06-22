@@ -168,21 +168,14 @@ const saveIt = function() {
             lines: sendOff.lines},
     });
 
-    //make this a class object like Decomp above
     decompPay.done(function(resp) {
         const respAttributes = resp['data']['attributes'];
-        const title = respAttributes['title'];
-        const orig = respAttributes['orig'];
-        const id = resp['data']['id'];
-        const styleId = respAttributes['stylee'];
-        const firstUser = respAttributes['first-user'];
-        const createdAt = respAttributes['created-at'];
-        const prodigalPayam = new Decomp(title, orig, styleId, id, null, firstUser, createdAt);
+        const prodigalPayam = new Decomp(respAttributes['title'], respAttributes['orig'], respAttributes['stylee'], resp['data']['id'], null, respAttributes['first-user'], respAttributes['created-at']);
         const banner = $('#decomps-banner');
 
-            decompBanner();
+         decompBanner();
 
-        addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, id, prodigalPayam.createdAt);
+        addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, resp['data']['id'], prodigalPayam.createdAt);
 
     });
 };
@@ -204,4 +197,6 @@ const existingDecomp = function(title, orig, style, id, firstUser, createdAt) {
     addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id, oldOne.createdAt);
 };
 
-
+const showMeLines = function(lines) {
+    console.log(lines);
+};
