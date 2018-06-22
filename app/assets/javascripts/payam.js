@@ -31,7 +31,7 @@ const getColor = function(num) {
         case 7:
             return color8;
         default:
-            return "FFF";
+            return "#FFF";
     };
 };
 
@@ -198,5 +198,8 @@ const existingDecomp = function(title, orig, style, id, firstUser, createdAt) {
 };
 
 const showMeLines = function(lines) {
-    console.log(lines);
+    lines.forEach(function(e) {
+        console.log(e.count);
+        $("#line-holder").append("<span class='liner' style='color: "+getColor(e.count-1)+"' data-auth='"+e.auth_id+"' > "+e.text+" </span>");
+    });
 };
