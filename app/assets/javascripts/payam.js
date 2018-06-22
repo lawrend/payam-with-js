@@ -197,9 +197,8 @@ const existingDecomp = function(title, orig, style, id, firstUser, createdAt) {
     addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id, oldOne.createdAt);
 };
 
-const showMeLines = function(lines) {
+const displayPayamLines = function(lines) {
     lines.forEach(function(e) {
-        console.log(e.count);
         $("#line-holder").append("<span class='liner' style='color: "+getColor(e.count-1)+"' data-auth='"+e.auth_id+"' > "+e.text+" </span>");
     });
 };
