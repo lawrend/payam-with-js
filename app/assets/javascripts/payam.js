@@ -87,15 +87,12 @@ function Decomp(title, origId, styleId, id, lines, firstUser, createdAt) {
     this.id = id;
     this.firstUser = firstUser;
     this.createdAt = new Date(createdAt).toUTCString();
-
-    this.prettyTitle = function() {
-        return title.split("-").join(" ");
-    };
-
 };
 
-// ADD prototype
-//
+Decomp.prototype.prettyTitle = function() {
+        return this.title.split("-").join(" ");
+    };
+
 // PACKAGING LINES FOR DECOMP PAYAM
 const payamPackage = function() {
     const newTitle = "Decomp-of-"+$("#payamInfo").data("title");

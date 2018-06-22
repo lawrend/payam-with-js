@@ -14,7 +14,7 @@
         <div class="container">
             <p style="font-size: 30px; line-height: 1.8em" id="line-holder">
                 <script>
-displayPayamLines(<%= @payam.sorted_lines.to_json.html_safe %>); 
+                    displayPayamLines(<%= @payam.sorted_lines.to_json.html_safe %>); 
                 </script>
             </p>
             <hr>
@@ -33,7 +33,7 @@ displayPayamLines(<%= @payam.sorted_lines.to_json.html_safe %>);
             <%# ***Should the function below the each function after closure?*** %>
             <% if @payam.decomps.length != 0 %>
                 <script>
-decompBanner();
+                    decompBanner();
                     clearDecomp();
                 </script>
             <% end %>
