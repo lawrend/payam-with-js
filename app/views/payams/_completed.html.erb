@@ -15,13 +15,14 @@
       <p style="font-size: 30px; line-height: 1.8em">
         <%# ATTEMPT AT REFACTOR %>
 
-        <%# <% payam_lines = Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count} %1> %>
-        <%#         <script> %>
-        <%# showMeLines(payam_lines); %>
-        <%#         </script> %>
+        <%# <% payamLines = Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count} %1> %>
+                <%# <script> %>
+<%# showMeLines(<%= @payam.sorted_lines %1>); %>
+                <%# </script> %>
 
         <%# END OF ATTEMPT %>
-        <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %>
+        <%# <% Line.select {|line| line.payam_id == @payam.id}.sort_by {|lin| lin.count}.each do |li| %1> %>
+        <% @payam.sorted_lines.each do |li| %>
           <% case li.count %>
           <% when 1 %>
             <span class="liner" style="color: #11aaff" data-auth="<%= li.auth_id %>"><%= li.text %></span>

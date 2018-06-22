@@ -31,6 +31,11 @@ class Payam < ApplicationRecord
         self.lines.build(:text => line_attributes["0"][:text], :count => self.counter, :auth_id => line_attributes["0"][:auth_id] ||= [])
     end
 
+    def sorted_lines
+        sorted_lines = Line.select {|line| line.payam_id == self.id}.sort_by {|lin| lin.count} 
+        end
+
+
     def first_user
         if self.users
             User.find(self.users.first.id).username
