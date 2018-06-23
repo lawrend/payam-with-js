@@ -148,7 +148,7 @@ const nextDecomposeIt = function() {
     };
 };
 
-// Use this to format decomps added to the page bc it is used for both display of existing and saving of new decomps created while on page //
+/* Use this to format decomps added to the page bc it is used for both display of existing and saving of new decomps created while on page */
 const addDecompToPage = function(prettyTitle, firstUser, id, createdAt) {
     $('#decomps').prepend("<div class='bottom-border-dotted'><p>"+prettyTitle+"<br><span class='em'>by</span><br>"+firstUser+"<br><span class='em'>on</span><br>"+createdAt+"<br><div class='btn-holder' data-id="+id+"><button class='decomp-button btn btn-default' data-id="+id+" onclick='previewIt(this)'>SHOW</button></div><div id='preview-payam-"+id+"'></div><hr></p></div><hr>");
 };
@@ -193,6 +193,8 @@ const existingDecomp = function(title, orig, style, id, firstUser, createdAt) {
 
     addDecompToPage(oldOne.prettyTitle(), oldOne.firstUser, id, oldOne.createdAt);
 };
+
+// DISPLAY PAYAM LINES IN SHOW
 
 const displayPayamLines = function(lines) {
     lines.forEach(function(e) {

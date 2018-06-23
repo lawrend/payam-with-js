@@ -9,7 +9,7 @@
 //*COLORS*//
 
 $default-background: #eeeff4;
-$default-text: #111;
+$default-text: #112;
 $light-purp: #9da5c0;
 $base-purp: #495786;
 $blue-comp: #717ca2;
@@ -161,7 +161,7 @@ html {
 }
 
 .PageContent {
-    color: #111;
+    color: $default-text;
     max-width: 1255px;
     padding: 0 25px;
     margin: 0 auto;
