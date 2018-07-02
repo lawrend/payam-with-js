@@ -78,20 +78,34 @@ const hideIt = function(id) {
 };
 
 // DECOMP JS OBJECT
-function Decomp(title, origId, styleId, id, lines, firstUser, createdAt) {
-    this.title = title;
-    this.origId = origId;
-    this.styleId = styleId;
-    this.decomp = true;
-    this.lines = lines;
-    this.id = id;
-    this.firstUser = firstUser;
-    this.createdAt = new Date(createdAt).toUTCString();
+class Decomp {
+    constructor(title, origId, styleId, id, lines, firstUser, createdAt) {
+        this.title = title;
+        this.origId = origId;
+        this.styleId = styleId;
+        this.decomp = true;
+        this.lines = lines;
+        this.id = id;
+        this.firstUser = firstUser;
+        this.createdAt = new Date(createdAt).toUTCString();
+    };
 };
 
+
+// function Decomp(title, origId, styleId, id, lines, firstUser, createdAt) {
+//     this.title = title;
+//     this.origId = origId;
+//     this.styleId = styleId;
+//     this.decomp = true;
+//     this.lines = lines;
+//     this.id = id;
+//     this.firstUser = firstUser;
+//     this.createdAt = new Date(createdAt).toUTCString();
+// };
+
 Decomp.prototype.prettyTitle = function() {
-        return this.title.split("-").join(" ");
-    };
+    return this.title.split("-").join(" ");
+};
 
 // PACKAGING LINES FOR DECOMP PAYAM
 const payamPackage = function() {
@@ -170,7 +184,7 @@ const saveIt = function() {
         const prodigalPayam = new Decomp(respAttributes['title'], respAttributes['orig'], respAttributes['stylee'], resp['data']['id'], null, respAttributes['first-user'], respAttributes['created-at']);
         const banner = $('#decomps-banner');
 
-         decompBanner();
+        decompBanner();
 
         addDecompToPage(prodigalPayam.prettyTitle(), prodigalPayam.firstUser, resp['data']['id'], prodigalPayam.createdAt);
 
