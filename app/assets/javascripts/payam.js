@@ -89,6 +89,7 @@ class Decomp {
         this.firstUser = firstUser;
         this.createdAt = new Date(createdAt).toUTCString();
     };
+
 };
 
 
@@ -102,6 +103,17 @@ class Decomp {
 //     this.firstUser = firstUser;
 //     this.createdAt = new Date(createdAt).toUTCString();
 // };
+//
+// const Decomp = {
+//   title: 'Need Title',
+//   origId: 'Need Id of original',
+//   styleId: 'Need Id of style',
+//   decomp: true,
+//   lines: 'need lines',
+//   id: 'need id',
+//   firstUser: 'need payam creator',
+//   createdAt: new Date(createdAt).toUTCString(),
+//   }
 
 Decomp.prototype.prettyTitle = function() {
     return this.title.split("-").join(" ");
