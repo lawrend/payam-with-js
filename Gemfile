@@ -51,6 +51,8 @@ gem 'flexbox-rails'
 # use nokogiri
 gem 'nokogiri'
 
+gem "actionview", ">= 5.1.6.2"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
