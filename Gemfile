@@ -7,9 +7,9 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4' 
+gem 'rails', '~> 5.2.4.2' 
 # Use Puma as the app server
-gem 'puma'
+gem "puma", ">= 4.3.3"
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # use bootstrap
@@ -51,7 +51,7 @@ gem 'flexbox-rails'
 # use nokogiri
 gem 'nokogiri'
 
-gem "actionview", ">= 5.1.6.2"
+gem "actionview", ">= 5.2.4.2"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
