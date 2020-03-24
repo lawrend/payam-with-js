@@ -2,7 +2,7 @@
 
 This app was built as an exercise to strengthen skills in JS, JQuery, Rails, and CSS.
 
-App is using Rails 5.1.4. 
+App is using Rails 5.2.4.2. 
 
 Fork the repo, clone it, cd into the directory. Run `bundle install` to install gems and `rails s` in the terminal to start a rails server.
 
