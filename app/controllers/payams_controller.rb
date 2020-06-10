@@ -123,7 +123,8 @@ class PayamsController < ApplicationController
         5.times do 
             line_number << Random.new.rand(1..6).to_s
         end
-        File.open("/Users/douglaslawrence/Development/code/rails-and-js/project-mode/payam-with-js/app/assets/other/eff_large_wordlist.txt") do |file|
+        # File.open("../../assets/other/eff_large_wordlist.txt") do |file|
+        File.open("/Users/douglaslawrence/Development/code/projects/portfolio_projects/payam-with-js/app/assets/other/eff_large_wordlist.txt") do |file|
             the_word = file.find {|line| line =~ /#{line_number}/ }
             return the_word[6..-2]
         end
