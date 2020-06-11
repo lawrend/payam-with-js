@@ -5,9 +5,14 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+ #  adapter: sqlite3
+ #  pool: 5
+ #  timeout: 5000
 
 development:
   <<: *default
@@ -22,4 +27,4 @@ test:
 
 production:
   <<: *default
-  database: payam-with-js_production 
+  database: payam_with_js_production 
