@@ -7,7 +7,7 @@
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> 
-  timeout: 5000
+ atimeout: 5000
 
 development:
   <<: *default
@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: payam_with_js_production
+  database: payam-with-js_production
