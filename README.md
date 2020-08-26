@@ -27,3 +27,4 @@ There is a 'rando' link on the player home page which, when clicked, generates a
 DECOMPS
 Below each completed payam is a 'decomp' button which, when pressed, randomly removes one word from each line of the payam. Keep pressing and they keep vanishing (down to one word per line). A decomp can be saved in its current state at any time, and will be added to the bottom of the original payam show page. 
 
+it of course may not work anymore. YEAH.
