@@ -11,6 +11,8 @@ Fork the repo, clone it, cd into the directory. Run `bundle install` to install 
 EXAMPLE ACCOUNT - SHOULD ALREADY BE CREATED - USE IT
 user email: 'dave@dave.com'
 password: 'testtest'
+Click on 'Dave' and click on 'Rando' to get a random poem.
+Then make sure you 'Decomp It' and do that a few times and watch the words fall away and a piece of art emerge :) 
 
 Licensed under MIT.
 

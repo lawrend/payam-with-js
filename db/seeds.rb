@@ -14,6 +14,7 @@ Style.create([
 
 User.create([
   {:username => "wanda", :email => "wanda@wanda.com", :password => "testtest", :password_confirmation => "testtest"},
+  {:username => "guest", :email => "guest@guest.com", :password => "password", :password_confirmation => "password"},
   {:username => "saba", :email => "saba@saba.com", :password => "testtest", :password_confirmation => "testtest"},
   {:username => "worm", :email => "worm@worm.com", :password => "testtest", :password_confirmation => "testtest"},
   {:username => "dave", :email => "dave@dave.com", :password => "testtest", :password_confirmation => "testtest"},
@@ -25,7 +26,7 @@ User.create([
   {:username => "grams", :email => "grams@grams.com", :password => "testtest", :password_confirmation => "testtest"},
   {:username => "nazey", :email => "nazey@nazey.com", :password => "testtest", :password_confirmation => "testtest"},
   {:username => "unclesomething", :email => "unclesomething@unclesomething.com", :password => "testtest", :password_confirmation => "testtest"},
-  {:username => "jodes", :email => "jodes@jodes.com", :password => "testtest", :password_confirmation => "testtest"}
+  # {:username => "jodes", :email => "jodes@jodes.com", :password => "testtest", :password_confirmation => "testtest"}
   ])
 
 
