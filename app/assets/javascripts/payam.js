@@ -140,7 +140,9 @@ function removeWord(i) {
     const splitString = str.split(" ");
     const len = splitString.length;
     if(len > 1) {
-        const expiryAddr = Math.floor((Math.random() * (len - 1)));
+        // const expiryAddr = Math.floor((Math.random() * (len - 1)));
+//trying out to see if last word will now be selected
+        const expiryAddr = Math.floor((Math.random() * (len)));
         const firstHalf = splitString.slice(0, expiryAddr).join(" ");
         const secondHalf = splitString.slice(expiryAddr + 1).join(" ");
         const fallen = splitString.splice(expiryAddr, 1);
